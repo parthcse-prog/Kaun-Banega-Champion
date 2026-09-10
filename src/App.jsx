@@ -4,6 +4,7 @@ import Login from './Login';
 import Profile from './Profile';
 import MainLayout from './MainLayout';
 import Dashboard from './Dashboard';
+import LogicBlast from './LogicBlast/LogicBlast';
 import './index.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<MainLayout token={token} onLogout={handleLogout} />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile token={token} onLogout={handleLogout} />} />
+          <Route path="logic-blast" element={<LogicBlast token={token} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

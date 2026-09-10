@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import { Search, User as UserIcon, LogOut } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import pi360Logo from './assets/Logos/pi_360_Logo.png';
+import websiteLogo from './assets/Logos/MIET Games.png';
 import collegeLogo from './assets/Logos/college_logo.png';
 import './MainLayout.css'; // will just be empty/migrated
 
@@ -48,7 +48,7 @@ export default function MainLayout({ token, onLogout }) {
       <header className="sticky top-0 z-50 glass-card border-b border-slate-700/50 flex items-center justify-between px-4 sm:px-6 py-3">
         <div className="flex items-center">
           <Link to="/" className="flex items-center gap-3">
-            <img src={pi360Logo} alt="Logo" className="h-8 object-contain filter brightness-0 invert" />
+            <img src={websiteLogo} alt="Website Logo" className="h-10 object-contain" />
             <div className="hidden sm:flex items-center text-xs tracking-wide">
               <span className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200">MIET</span>
               <span className="mx-1.5 text-slate-500">•</span>
@@ -122,7 +122,7 @@ export default function MainLayout({ token, onLogout }) {
           </div>
 
           <div className="bg-white/90 p-1.5 rounded-xl shadow-lg border border-white/20">
-            <img src={collegeLogo} alt="College Logo" className="h-10 object-contain" />
+            <img src={websiteLogo} alt="Website Logo" className="h-10 object-contain" />
           </div>
         </div>
       </footer>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import websiteLogo from './assets/Logos/MIET Games.png';
 import './Login.css';
 
 export default function Login({ onLoginSuccess }) {
@@ -52,9 +53,10 @@ export default function Login({ onLoginSuccess }) {
       </div>
       
       {/* MainMobileContainer */}
-      <main className="w-full max-w-[400px] relative z-10 flex flex-col justify-between my-auto py-2">
+      <main className="w-full max-w-[400px] relative z-10 flex flex-col justify-between my-auto py-2 mt-12 sm:mt-auto">
         {/* HeaderAndInstitution */}
         <header className="text-center pt-2 pb-5 px-3">
+          <img src={websiteLogo} alt="Website Logo" className="mx-auto h-24 mb-6 object-contain" />
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/70 shadow-inner backdrop-blur-md mb-6">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
             <div className="flex items-center text-xs tracking-wide">
