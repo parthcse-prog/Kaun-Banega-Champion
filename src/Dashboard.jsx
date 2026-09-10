@@ -116,23 +116,32 @@ export default function Dashboard() {
           <p className="text-slate-400 mt-2 font-medium">Choose a challenge to begin</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
           {/* KBC Card */}
-          <div className="glass-card rounded-3xl p-8 text-center border-purple-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
+          <div className="glass-card rounded-3xl p-6 text-center border-purple-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
             <div>
-              <img src={gameLogo} alt="Kaun Banega Champion" className="h-28 object-contain mb-6 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-8 text-sm sm:text-base font-medium leading-relaxed">Test your knowledge with 20 levels of pure  trivia. Can you beat the timer and reach the expert tier?</p>
+              <img src={gameLogo} alt="Kaun Banega Champion" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Test your CS knowledge with 20 levels of pure programming trivia. Can you beat the timer and reach the expert tier?</p>
             </div>
-            <button onClick={startGame} className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyber-cyan to-blue-500 font-bold text-slate-900 text-lg hover:brightness-110 transition-all shadow-neonCyan">Play KBC</button>
+            <button onClick={startGame} className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyber-cyan to-blue-500 font-bold text-slate-900 text-sm hover:brightness-110 transition-all shadow-neonCyan">Play KBC</button>
           </div>
 
           {/* Logic Blast Card */}
-          <div className="glass-card rounded-3xl p-8 text-center border-pink-500/25 shadow-neonPink flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
+          <div className="glass-card rounded-3xl p-6 text-center border-pink-500/25 shadow-neonPink flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
             <div>
-              <img src="/src/assets/Logos/Logic_Blast.png" alt="Logic Blast" className="h-28 object-contain mb-6 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-8 text-sm sm:text-base font-medium leading-relaxed">Master programming concepts by building visual logic blocks. Solve puzzles and watch your code come to life!</p>
+              <img src="/src/assets/Logos/Logic_Blast.png" alt="Logic Blast" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Master programming concepts by building visual logic blocks. Solve puzzles and watch your code come to life!</p>
             </div>
-            <button onClick={() => window.location.href = '/logic-blast'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white text-lg hover:brightness-110 transition-all shadow-neonPink">Play Logic Blast</button>
+            <button onClick={() => window.location.href = '/logic-blast'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white text-sm hover:brightness-110 transition-all shadow-neonPink">Play Logic Blast</button>
+          </div>
+
+          {/* Word Connect Card */}
+          <div className="glass-card rounded-3xl p-6 text-center border-emerald-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
+            <div>
+              <img src="/src/assets/Logos/concept_connect.png" alt="Concept Connect" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Solve generic educational crosswords. Discover terms across CSE, Law, Commerce, and Engineering streams.</p>
+            </div>
+            <button onClick={() => window.location.href = '/word-connect'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(16,185,129,0.4)]">Play Word Connect</button>
           </div>
         </div>
       </div>

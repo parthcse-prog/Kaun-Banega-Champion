@@ -5,6 +5,7 @@ import Profile from './Profile';
 import MainLayout from './MainLayout';
 import Dashboard from './Dashboard';
 import LogicBlast from './LogicBlast/LogicBlast';
+import WordConnect from './WordConnect/WordConnect';
 import './index.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile token={token} onLogout={handleLogout} />} />
           <Route path="logic-blast" element={<LogicBlast token={token} />} />
+          <Route path="word-connect" element={<WordConnect />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
