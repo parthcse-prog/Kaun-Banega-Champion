@@ -101,10 +101,12 @@ export default function Profile({ token }) {
               </div>
             )}
             
-            {studentData.Branch && (
+            {(studentData.Branch || studentData.Course) && (
               <div className="input-glass rounded-2xl p-4 flex justify-between items-center transition-all hover:border-amber-500/30">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Branch</span>
-                <span className="text-amber-400 font-bold tracking-wide">{studentData.Branch}</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Stream</span>
+                <span className="text-amber-400 font-bold tracking-wide">
+                  {studentData.Branch} {studentData.Course && `(${studentData.Course})`}
+                </span>
               </div>
             )}
           </div>
