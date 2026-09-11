@@ -1,0 +1,36 @@
+export const ALGO_BINGO_DATA = {
+  _id: "cs-algo-bingo",
+  branch: "cs",
+  title: "Algo Bingo",
+  categories: [
+    { id: 0, label: "O(n²) worst case" },
+    { id: 1, label: "O(n log n) average" },
+    { id: 2, label: "O(n) linear time" },
+    { id: 3, label: "In-place (O(1) extra space)" },
+    { id: 4, label: "Needs O(n) extra space" },
+    { id: 5, label: "Stable" },
+    { id: 6, label: "Not stable" },
+    { id: 7, label: "Divide & conquer" },
+    { id: 8, label: "Comparison-based" },
+    { id: 9, label: "Non-comparison based" },
+    { id: 10, label: "Adaptive (fast on nearly-sorted)" },
+    { id: 11, label: "Uses recursion" },
+    { id: 12, label: "Good for small arrays" },
+    { id: 13, label: "Used in real-world standard libraries" },
+    { id: 14, label: "Naturally parallelizable" },
+    { id: 15, label: "Online (processes input as it arrives)" }
+  ],
+  items: [
+    { name: "Bubble Sort",    validCategoryIds: [0,3,5,8,10,12] },
+    { name: "Insertion Sort", validCategoryIds: [0,3,5,8,10,12,15] },
+    { name: "Selection Sort", validCategoryIds: [0,3,6,8,12] },
+    { name: "Merge Sort",     validCategoryIds: [1,4,5,7,8,11,13,14] },
+    { name: "Quick Sort",     validCategoryIds: [0,1,3,6,7,8,11,13,14] },
+    { name: "Heap Sort",      validCategoryIds: [1,3,6,8] },
+    { name: "Counting Sort",  validCategoryIds: [2,4,5,9] },
+    { name: "Radix Sort",     validCategoryIds: [2,4,5,9] },
+    { name: "Bucket Sort",    validCategoryIds: [2,4,9] },
+    { name: "Shell Sort",     validCategoryIds: [3,6,8] },
+    { name: "Timsort",        validCategoryIds: [1,5,10,13] }
+  ]
+};

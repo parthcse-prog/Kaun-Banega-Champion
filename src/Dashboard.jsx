@@ -116,7 +116,7 @@ export default function Dashboard() {
           <p className="text-slate-400 mt-2 font-medium">Choose a challenge to begin</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
           {/* KBC Card */}
           <div className="glass-card rounded-3xl p-6 text-center border-purple-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
             <div>
@@ -151,6 +151,15 @@ export default function Dashboard() {
               <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Slice. Think. Master. Read the question and rapidly slice the correct flying concepts.</p>
             </div>
             <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(59,130,246,0.4)]">Play Concept Ninja</button>
+          </div>
+
+          {/* Algo Bingo Card */}
+          <div className="glass-card rounded-3xl p-6 text-center border-indigo-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
+            <div>
+              <img src="/src/assets/Logos/algo_bingo.png" alt="Algo Bingo" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Match drawn algorithms to their properties. Fill your 4x4 Bingo card to win!</p>
+            </div>
+            <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)]">Play Algo Bingo</button>
           </div>
         </div>
       </div>
