@@ -81,7 +81,8 @@ export default function MathNinja() {
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
     const H = canvas.height;
-    const GRAVITY = 620;
+    // Lower gravity makes objects float slower in the air
+    const GRAVITY = 380;
 
     const burst = (x, y, color) => {
       for(let i=0; i<14; i++){
@@ -105,8 +106,8 @@ export default function MathNinja() {
       const text = pool[Math.floor(Math.random() * pool.length)];
       
       const x = rand(100, W - 100);
-      // Give objects a stronger initial upward velocity so they reach the top half of the screen
-      const vy = -rand(750, 950) - Math.min(engine.current.combo * 12, 200);
+      // Adjusted velocity to match the new lower gravity so it still reaches the top half but moves slower overall
+      const vy = -rand(580, 720) - Math.min(engine.current.combo * 10, 150);
       const vx = rand(-100, 100);
       
       ctx.font = '700 16px sans-serif';

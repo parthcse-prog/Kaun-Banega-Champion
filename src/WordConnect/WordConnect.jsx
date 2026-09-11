@@ -20,9 +20,8 @@ export default function WordConnect() {
 
   const svgRef = useRef(null);
 
-  // Layout Constants
-  const CIRCLE_RADIUS = 100;
-  const CENTER = { x: 150, y: 150 };
+  // Dynamic Layout State for the circle tray
+  const [circleConfig, setCircleConfig] = useState({ radius: 100, center: { x: 150, y: 150 } });
 
   // --- CONTENT ENGINE ---
   const loadProfile = (selectedProfile) => {
@@ -56,16 +55,21 @@ export default function WordConnect() {
     const numLetters = rawChars.length;
     const angleStep = (Math.PI * 2) / numLetters;
     
+    // Dynamic radius to prevent overlap on long words like POLYMORPHISM
+    const dynamicRadius = Math.max(100, numLetters * 15);
+    const dynamicCenter = { x: dynamicRadius + 50, y: dynamicRadius + 50 };
+    
     const positioned = rawChars.map((char, i) => {
       const angle = i * angleStep - (Math.PI / 2); // Start at top
       return {
         id: `L_${i}`,
         char,
-        x: CENTER.x + CIRCLE_RADIUS * Math.cos(angle),
-        y: CENTER.y + CIRCLE_RADIUS * Math.sin(angle)
+        x: dynamicCenter.x + dynamicRadius * Math.cos(angle),
+        y: dynamicCenter.y + dynamicRadius * Math.sin(angle)
       };
     });
     
+    setCircleConfig({ radius: dynamicRadius, center: dynamicCenter });
     setCircleLetters(positioned);
     setSelectedIds([]);
   };
@@ -272,7 +276,7 @@ export default function WordConnect() {
         {/* Circular Letter Tray */}
         <div 
           className="relative mt-auto mb-12 touch-none"
-          style={{ width: CIRCLE_RADIUS * 2 + 100, height: CIRCLE_RADIUS * 2 + 100 }}
+          style={{ width: circleConfig.radius * 2 + 100, height: circleConfig.radius * 2 + 100 }}
         >
           {/* Connecting Lines SVG */}
           <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-0">
