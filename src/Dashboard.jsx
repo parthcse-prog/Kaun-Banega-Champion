@@ -144,13 +144,13 @@ export default function Dashboard() {
             <button onClick={() => window.location.href = '/word-connect'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(16,185,129,0.4)]">Play Word Connect</button>
           </div>
 
-          {/* Math Ninja Card */}
+          {/* Concept Ninja Card */}
           <div className="glass-card rounded-3xl p-6 text-center border-blue-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
             <div>
-              <img src="/src/assets/Logos/Math_ninja.png" alt="Math Ninja" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
               <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Slice. Think. Master. Read the question and rapidly slice the correct flying concepts.</p>
             </div>
-            <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(59,130,246,0.4)]">Play Math Ninja</button>
+            <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(59,130,246,0.4)]">Play Concept Ninja</button>
           </div>
         </div>
       </div>

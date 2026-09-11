@@ -347,7 +347,7 @@ export default function MathNinja() {
           </button>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="font-black text-xl text-white tracking-tight">MATH NINJA</h1>
+              <h1 className="font-black text-xl text-white tracking-tight">CONCEPT NINJA</h1>
             </div>
             <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Slice. Think. Master.</div>
           </div>
@@ -360,7 +360,7 @@ export default function MathNinja() {
         {/* MENU STATE */}
         {gameState === 'MENU' && (
           <div className="w-full max-w-2xl bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col items-center mt-12 animate-in slide-in-from-bottom-8">
-             <img src="/src/assets/Logos/Math_ninja.png" alt="Math Ninja" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]" />
+             <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]" />
              <h2 className="text-3xl font-black text-white mb-2 text-center">SELECT CHALLENGE</h2>
              <p className="text-slate-400 text-center mb-8 max-w-md">Read the question. Slice the correct concepts. Avoid the wrong ones. Build your combo.</p>
              
