@@ -4,7 +4,6 @@ import Login from './Login';
 import Profile from './Profile';
 import MainLayout from './MainLayout';
 import Dashboard from './Dashboard';
-import LogicBlast from './LogicBlast/LogicBlast';
 import WordConnect from './WordConnect/WordConnect';
 import MathNinja from './MathNinja/MathNinja';
 import AlgoBingo from './AlgoBingo/AlgoBingo';
@@ -35,7 +34,6 @@ function App() {
         <Route path="/" element={<MainLayout token={token} onLogout={handleLogout} />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile token={token} onLogout={handleLogout} />} />
-          <Route path="logic-blast" element={<LogicBlast token={token} />} />
           <Route path="word-connect" element={<WordConnect />} />
           <Route path="math-ninja" element={<MathNinja />} />
           <Route path="algo-bingo" element={<AlgoBingo token={token} />} />

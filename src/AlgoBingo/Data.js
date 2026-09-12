@@ -1,7 +1,7 @@
 export const ALGO_BINGO_DATA = {
   _id: "cs-algo-bingo",
   branch: "cs",
-  title: "Algo Bingo",
+  title: "Bingo Bonanza",
   categories: [
     { id: 0, label: "O(n²) worst case" },
     { id: 1, label: "O(n log n) average" },

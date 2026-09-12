@@ -126,14 +126,6 @@ export default function Dashboard() {
             <button onClick={startGame} className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyber-cyan to-blue-500 font-bold text-slate-900 text-sm hover:brightness-110 transition-all shadow-neonCyan">Play KBC</button>
           </div>
 
-          {/* Logic Blast Card */}
-          <div className="glass-card rounded-3xl p-6 text-center border-pink-500/25 shadow-neonPink flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
-            <div>
-              <img src="/src/assets/Logos/Logic_Blast.png" alt="Logic Blast" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Master programming concepts by building visual logic blocks. Solve puzzles and watch your code come to life!</p>
-            </div>
-            <button onClick={() => window.location.href = '/logic-blast'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white text-sm hover:brightness-110 transition-all shadow-neonPink">Play Logic Blast</button>
-          </div>
 
           {/* Word Connect Card */}
           <div className="glass-card rounded-3xl p-6 text-center border-emerald-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
@@ -153,13 +145,13 @@ export default function Dashboard() {
             <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(59,130,246,0.4)]">Play Concept Ninja</button>
           </div>
 
-          {/* Algo Bingo Card */}
+          {/* Bingo Bonanza Card */}
           <div className="glass-card rounded-3xl p-6 text-center border-indigo-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
             <div>
-              <img src="/src/assets/Logos/algo_bingo.png" alt="Algo Bingo" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Match drawn algorithms to their properties. Fill your 4x4 Bingo card to win!</p>
+              <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!</p>
             </div>
-            <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)]">Play Algo Bingo</button>
+            <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)]">Play Bingo Bonanza</button>
           </div>
         </div>
       </div>
@@ -191,213 +183,293 @@ export default function Dashboard() {
   // PLAYING STATE
   const optionLetters = ['A', 'B', 'C', 'D'];
   const progressPercent = ((currentQuestionIndex) / 20) * 100;
+  
+  const currentLevelLabel = currentQuestionIndex < 5 ? 'EASY LEVEL' : currentQuestionIndex < 10 ? 'MEDIUM LEVEL' : currentQuestionIndex < 15 ? 'HARD LEVEL' : 'EXPERT LEVEL';
+  const currentPrize = pointsLadder[currentQuestionIndex];
+  const safePrize = currentQuestionIndex > 0 ? pointsLadder[currentQuestionIndex - 1] : '0';
 
   return (
-    <div className="flex-1 flex items-start justify-center p-2 sm:p-6 w-full max-w-6xl mx-auto my-4 text-slate-100 font-sans gap-6 flex-col lg:flex-row">
+    <div className="flex-1 w-full flex flex-col justify-between overflow-x-hidden relative selection:bg-cyan-500 selection:text-black min-h-screen text-slate-100 font-sans" style={{ backgroundColor: '#030612', backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(26, 42, 108, 0.45) 0%, transparent 60%), radial-gradient(circle at 10% 85%, rgba(255, 0, 122, 0.12) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.12) 0%, transparent 40%), radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0)', backgroundSize: '100% 100%, 100% 100%, 100% 100%, 36px 36px' }}>
       
-      {/* Main Game Area */}
-      <div className="w-full lg:flex-1 bg-cyber-bg relative flex flex-col justify-between overflow-hidden shadow-2xl rounded-3xl sm:rounded-[44px] border border-purple-900/40 pb-6 p-4">
-        {/* Ambient Blobs inside container for neat effect */}
-        <div className="pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
-        <div className="pointer-events-none absolute top-1/3 -right-24 w-80 h-80 bg-cyber-pink/15 rounded-full blur-[90px]"></div>
-        
-        <div className="relative z-10 flex flex-col gap-4 pt-2">
-          {/* TopBar */}
-          <header className="flex items-center justify-between pb-1">
-            <button onClick={() => setGameState('intro')} className="w-10 h-10 rounded-2xl glass-pill border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:border-red-400/40 hover:bg-red-500/10 transition active:scale-95" title="Quit Game">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-              </svg>
+      {/* Subtle Stage Spotlight Beams */}
+      <div className="absolute -top-[120px] left-[15%] w-[250px] h-[700px] pointer-events-none blur-[40px] opacity-70" style={{ background: 'linear-gradient(180deg, rgba(0, 240, 255, 0.12) 0%, transparent 80%)', transform: 'rotate(-25deg)' }}></div>
+      <div className="absolute -top-[120px] right-[15%] w-[250px] h-[700px] pointer-events-none blur-[40px] opacity-70" style={{ background: 'linear-gradient(180deg, rgba(255, 184, 0, 0.1) 0%, transparent 80%)', transform: 'rotate(25deg)' }}></div>
+      
+      {/* BEGIN: TopHeader */}
+      <header className="relative z-30 w-full px-4 md:px-6 py-4 border-b border-cyan-500/20 bg-slate-950/80 backdrop-blur-md shrink-0">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+          
+          <div className="flex items-center gap-4">
+            <button onClick={() => setGameState('intro')} aria-label="Go Back" className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-b from-slate-700 to-slate-900 border border-slate-600/60 shadow-[0_6px_0_#0f172a,0_12px_25px_rgba(0,0,0,0.6)] flex items-center justify-center hover:border-cyan-400 active:translate-y-0.5 transition-all text-cyan-300">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
             </button>
-            <div className="flex items-center gap-2">
-              <img src={gameLogo} alt="Game Logo" className="h-8 object-contain" />
-              <span className="font-display font-bold text-lg tracking-wider uppercase bg-gradient-to-r from-white via-slate-100 to-purple-200 bg-clip-text text-transparent drop-shadow-sm">
-                Kaun Banega Champion
-              </span>
+            
+            <div className="hidden sm:flex items-center bg-slate-900/90 border border-slate-700/80 rounded-xl p-1 gap-1">
+              <button className="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>SFX ON
+              </button>
+              <button className="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white">ARENA 4K</button>
             </div>
-            <div className="w-10 h-10"></div> {/* Spacer for centering */}
-          </header>
-
-          {/* ProgressAndTimerSection */}
-          <section className="flex flex-col gap-2 pt-1">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-cyber-pink">Question {currentQuestionIndex + 1}</span>
-                <span className="text-xs text-slate-400 font-medium">/ 20</span>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-amber-300 via-amber-500 to-yellow-700 p-0.5 shadow-[0_0_25px_rgba(255,184,0,0.5),inset_0_0_12px_rgba(255,232,117,0.25)] flex items-center justify-center hidden sm:flex">
+              <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-amber-400 drop-shadow-[0_0_8px_rgba(255,184,0,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-3V2H8v2H5a2 2 0 0 0-2 2v2a7 7 0 0 0 6.13 6.92A6 6 0 0 0 11 17.91V20H7v2h10v-2h-4v-2.09a6 6 0 0 0 1.87-2.99A7 7 0 0 0 21 8V6a2 2 0 0 0-2-2m-14 4V6h3v4.67A5 5 0 0 1 5 8m14 0a5 5 0 0 1-3 2.67V6h3z"></path></svg>
               </div>
-              
-              {timeLeft !== null && (
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1b0b2e] border border-cyber-pink/60 shadow-neonPink animate-timer-glow">
-                  <svg className="w-3.5 h-3.5 text-cyber-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
-                  </svg>
-                  <span className={`font-display font-bold text-sm tracking-wider ${timeLeft <= 5 ? 'text-red-400' : 'text-white'}`}>{timeLeft}s</span>
+            </div>
+            <div className="text-left text-center sm:text-left">
+              <h1 className="font-black text-lg md:text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] uppercase">KAUN BANEGA CHAMPION</h1>
+              <p className="text-[9px] md:text-[10px] tracking-[0.25em] text-cyan-400 font-semibold uppercase -mt-0.5">PRO SHOWDOWN ARENA</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4 hidden sm:flex">
+            <div className="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-700/80 rounded-2xl px-4 py-2 flex items-center gap-3 shadow-inner">
+              <div className="text-right">
+                <span className="block text-[10px] text-slate-400 uppercase tracking-widest leading-none">BANKED REWARD</span>
+                <span className="font-black text-lg text-emerald-400 drop-shadow-[0_0_8px_rgba(0,255,163,0.5)]">₹ {safePrize}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="relative z-20 flex-1 max-w-[1440px] w-full mx-auto px-4 md:px-8 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        {/* LeftGameArenaStage (Cols 1-8) */}
+        <section className="lg:col-span-8 flex flex-col gap-5 w-full">
+          
+          {/* Top Stage HUD */}
+          <div className="rounded-2xl p-4 md:p-5 flex items-center justify-between relative overflow-hidden" style={{ background: 'linear-gradient(145deg, rgba(14, 21, 52, 0.85) 0%, rgba(6, 10, 28, 0.95) 100%)', border: '1px solid rgba(0, 240, 255, 0.22)', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(16px)' }}>
+            
+            <div className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
+            <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
+            <div className="absolute bottom-2.5 left-2.5 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
+            <div className="absolute bottom-2.5 right-2.5 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
+            
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-pink-500/20 text-pink-400 border border-pink-500/40 tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse"></span>LIVE ROUND
+                </span>
+                <span className="text-xs text-slate-400 font-medium tracking-wide">LEVEL {currentQuestionIndex + 1} OF 20</span>
+              </div>
+              <h2 className="font-black text-xl md:text-2xl tracking-wide text-white flex items-baseline gap-2">
+                <span className="text-pink-500 drop-shadow-[0_0_8px_rgba(255,0,122,0.6)] uppercase">QUESTION {(currentQuestionIndex + 1).toString().padStart(2, '0')}</span>
+              </h2>
+            </div>
+            
+            <div className="hidden md:flex flex-col items-center w-1/3">
+              <div className="flex justify-between w-full text-[11px] text-slate-400 uppercase font-semibold mb-1">
+                <span>START</span>
+                <span className="text-amber-400 font-bold">SAFE (Q5)</span>
+                <span>JACKPOT</span>
+              </div>
+              <div className="w-full h-3 bg-slate-900 border border-slate-700/80 rounded-full p-0.5 overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-pink-500 via-cyan-400 to-emerald-400 rounded-full shadow-[0_0_10px_rgba(0,240,255,0.8)] relative" style={{ width: `${Math.max(5, progressPercent)}%` }}>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-sm"></span>
                 </div>
-              )}
+              </div>
             </div>
-            {/* Step Progress Bar */}
-            <div className="w-full h-2 bg-slate-900/80 rounded-full overflow-hidden p-0.5 border border-purple-800/30">
-              <div className="h-full bg-gradient-to-r from-cyber-purple via-cyber-pink to-cyber-cyan rounded-full transition-all duration-500" style={{ width: `${progressPercent}%` }}></div>
+            
+            <div className="flex items-center gap-3">
+              <div className="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 60 60">
+                  <circle cx="30" cy="30" fill="transparent" r="25" stroke="rgba(255,255,255,0.08)" strokeWidth="4"></circle>
+                  <circle className="drop-shadow-[0_0_8px_rgba(255,0,122,0.9)]" cx="30" cy="30" fill="transparent" r="25" stroke="#FF007A" strokeDasharray="157" strokeDashoffset={timeLeft !== null ? 157 - (157 * (timeLeft / (currentQuestionIndex < 5 ? 30 : currentQuestionIndex < 10 ? 45 : 60))) : 0} strokeLinecap="round" strokeWidth="4.5" style={{ transition: 'stroke-dashoffset 1s linear' }}></circle>
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="font-black text-lg md:text-xl text-pink-400 leading-none drop-shadow-[0_0_6px_rgba(255,0,122,0.8)]">{timeLeft !== null ? timeLeft : '∞'}</span>
+                  <span className="text-[9px] font-bold text-slate-400 tracking-tighter uppercase">SEC</span>
+                </div>
+              </div>
             </div>
-          </section>
-
-          {/* QuestionCard */}
-          <article className="glass-card mt-2 rounded-3xl p-6 border border-purple-500/25 shadow-neonPurple relative overflow-hidden min-h-[140px] flex flex-col justify-center">
-            <div className="absolute -top-10 -right-10 w-24 h-24 bg-cyber-cyan/15 rounded-full blur-xl pointer-events-none"></div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 mb-4 self-start">
-              <span className={`w-2 h-2 rounded-full ${currentQuestionIndex < 5 ? 'bg-emerald-400' : currentQuestionIndex < 10 ? 'bg-amber-400' : currentQuestionIndex < 15 ? 'bg-red-400' : 'bg-purple-500'} animate-ping`}></span>
-              <span className="text-[11px] font-semibold text-slate-300 tracking-wide uppercase">
-                {currentQuestionIndex < 5 ? 'Easy' : currentQuestionIndex < 10 ? 'Medium' : currentQuestionIndex < 15 ? 'Hard' : 'Expert'} Level
+          </div>
+          
+          {/* ActiveQuestionMarqueeBox */}
+          <div className="rounded-3xl p-6 md:p-8 relative overflow-hidden border border-cyan-500/30 shadow-[0_0_35px_rgba(0,0,0,0.85)]" style={{ background: 'linear-gradient(145deg, rgba(14, 21, 52, 0.85) 0%, rgba(6, 10, 28, 0.95) 100%)' }}>
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-32 bg-cyan-500/15 blur-3xl pointer-events-none"></div>
+            <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
+            
+            <div className="flex items-center justify-between mb-5 relative z-10">
+              <span className="px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-2 shadow-inner">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F0FF]"></span>{currentLevelLabel}
               </span>
+              <div className="flex items-center gap-2 text-amber-300 font-bold text-sm bg-amber-500/10 px-3 py-1 rounded-lg border border-amber-500/30">
+                <span>WORTH:</span><span className="text-amber-400">₹ {currentPrize}</span>
+              </div>
             </div>
-            <h1 className="font-display text-xl sm:text-2xl leading-snug font-bold text-white tracking-tight">
-              {activeQuestion.question}
-            </h1>
-          </article>
-
-          {/* LifelinesRow */}
-          <div className="flex items-center justify-center gap-4 pt-2 my-2">
+            
+            <div className="relative z-10 py-2 md:py-4 text-center">
+              <h3 className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-white tracking-normal leading-snug drop-shadow-md">
+                {activeQuestion.question}
+              </h3>
+            </div>
+            
+            <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-cyan-400/60"></div>
+            <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-cyan-400/60"></div>
+            <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-cyan-400/60"></div>
+            <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-cyan-400/60"></div>
+          </div>
+          
+          {/* LifelinePowerUpDock */}
+          <div className="grid grid-cols-2 gap-3">
             <button 
               onClick={useFiftyFifty}
               disabled={lifelines.fiftyFifty.used || currentQuestionIndex < 7}
-              className={`flex-1 py-2 px-3 rounded-2xl glass-pill border transition flex items-center justify-center gap-1.5 group ${lifelines.fiftyFifty.used || currentQuestionIndex < 7 ? 'opacity-40 cursor-not-allowed border-slate-700' : 'border-purple-400/25 hover:border-cyber-pink/50 hover:bg-cyber-pink/10 active:scale-95'}`} 
-              type="button"
+              className={`group relative p-3 rounded-2xl bg-gradient-to-b from-slate-800 to-slate-900 border shadow-[0_6px_0_#0f172a,0_12px_25px_rgba(0,0,0,0.6)] text-left overflow-hidden transition-all ${lifelines.fiftyFifty.used || currentQuestionIndex < 7 ? 'opacity-50 cursor-not-allowed border-slate-700/50' : 'border-cyan-500/50 hover:border-cyan-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.45)] active:translate-y-1'}`}
             >
-              <span className={`font-display text-xs font-bold ${currentQuestionIndex < 7 ? 'text-slate-500' : 'text-cyber-pink'}`}>50:50</span>
-              <span className="text-[11px] font-medium text-slate-300">{currentQuestionIndex < 7 ? 'Unlocks Q8' : 'Split'}</span>
+              <div className="absolute -right-2 -bottom-2 w-12 h-12 bg-cyan-500/10 rounded-full blur-lg"></div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">{currentQuestionIndex < 7 ? 'LOCKED' : 'LIFELINE'}</span>
+                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_6px_#00F0FF] animate-pulse"></span>
+              </div>
+              <div className="font-black text-base md:text-lg text-white group-hover:text-cyan-200 tracking-wide">50:50</div>
+              <div className="text-[10px] text-cyan-400/70 font-semibold tracking-wider uppercase mt-0.5">{currentQuestionIndex < 7 ? 'UNLOCKS AT Q8' : '2 WRONG CLEARED'}</div>
             </button>
             
             <button 
               onClick={useSwap}
               disabled={lifelines.swap.used || currentQuestionIndex < 10}
-              className={`flex-1 py-2 px-3 rounded-2xl glass-pill border transition flex items-center justify-center gap-1.5 group ${lifelines.swap.used || currentQuestionIndex < 10 ? 'opacity-40 cursor-not-allowed border-slate-700' : 'border-purple-400/25 hover:border-cyber-cyan/50 hover:bg-cyber-cyan/10 active:scale-95'}`} 
-              type="button"
+              className={`group relative p-3 rounded-2xl bg-gradient-to-b from-slate-800 to-slate-900 border shadow-[0_6px_0_#0f172a,0_12px_25px_rgba(0,0,0,0.6)] text-left overflow-hidden transition-all ${lifelines.swap.used || currentQuestionIndex < 10 ? 'opacity-50 cursor-not-allowed border-slate-700/50' : 'border-purple-500/50 hover:border-purple-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:translate-y-1'}`}
             >
-              <svg className={`w-3.5 h-3.5 ${currentQuestionIndex < 10 ? 'text-slate-500' : 'text-cyber-cyan'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-              </svg>
-              <span className="text-[11px] font-medium text-slate-300">{currentQuestionIndex < 10 ? 'Unlocks Q11' : 'Swap'}</span>
+              <div className="absolute -right-2 -bottom-2 w-12 h-12 bg-purple-500/10 rounded-full blur-lg"></div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">{currentQuestionIndex < 10 ? 'LOCKED' : 'POWER UP'}</span>
+                <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_6px_#C084FC]"></span>
+              </div>
+              <div className="font-black text-base md:text-lg text-white group-hover:text-purple-200 tracking-wide">SWAP QUESTION</div>
+              <div className="text-[10px] text-purple-400/70 font-semibold tracking-wider uppercase mt-0.5">{currentQuestionIndex < 10 ? 'UNLOCKS AT Q11' : 'NEW QUESTION'}</div>
             </button>
           </div>
-
-          {/* AnswerOptions */}
-          <section className="flex flex-col gap-3 pt-1">
+          
+          {/* InteractiveAnswerGrid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
             {activeQuestion.options.map((option, idx) => {
               const isEliminated = eliminatedOptions.includes(idx);
               const isSelected = selectedOption === idx;
               
-              let buttonStyle = "glass-pill border-white/10 hover:border-purple-400/50 hover:bg-purple-900/30";
-              let letterStyle = "bg-slate-800/80 border-white/10 text-slate-300";
-              let textStyle = "text-slate-200";
-
+              let wrapStyle = "bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-slate-900/90 border-slate-700/80 shadow-[0_6px_0_#0f172a,0_12px_25px_rgba(0,0,0,0.6)] cursor-pointer hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(0,240,255,0.35),inset_0_0_15px_rgba(0,240,255,0.15)] hover:border-[#00F0FF] active:translate-y-px";
+              let letterPod = "bg-gradient-to-b from-slate-700 to-slate-800 border-slate-600 text-cyan-400 group-hover:border-cyan-400 group-hover:text-cyan-300";
+              let dotStyle = "border-slate-600 group-hover:border-cyan-400";
+              
               if (isSelected) {
                 if (isCorrect === null) {
-                  // Selected but waiting for result
-                  buttonStyle = "bg-gradient-to-r from-amber-500/20 via-purple-900/40 to-slate-900 border-amber-500 shadow-glow-amber";
-                  letterStyle = "bg-amber-500 text-slate-900";
-                  textStyle = "text-white font-bold";
+                  wrapStyle = "bg-gradient-to-r from-amber-500/20 to-amber-600/10 border-amber-400 shadow-[0_0_30px_rgba(255,184,0,0.45),inset_0_0_15px_rgba(255,232,117,0.3)] border-2 scale-[1.01]";
+                  letterPod = "bg-gradient-to-b from-amber-400 to-yellow-600 border-amber-200 text-slate-950";
+                  dotStyle = "border-amber-400 bg-amber-400";
                 } else if (isCorrect) {
-                  buttonStyle = "bg-gradient-to-r from-emerald-500/20 via-purple-900/40 to-slate-900 border-emerald-500 shadow-md";
-                  letterStyle = "bg-emerald-500 text-slate-900";
-                  textStyle = "text-white font-bold";
+                  wrapStyle = "bg-gradient-to-r from-emerald-500/20 to-emerald-600/10 border-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.45),inset_0_0_15px_rgba(16,185,129,0.3)] border-2 scale-[1.01]";
+                  letterPod = "bg-gradient-to-b from-emerald-400 to-emerald-600 border-emerald-200 text-slate-950";
+                  dotStyle = "border-emerald-400 bg-emerald-400";
                 } else {
-                  buttonStyle = "bg-gradient-to-r from-red-500/20 via-purple-900/40 to-slate-900 border-red-500 shadow-md";
-                  letterStyle = "bg-red-500 text-slate-900";
-                  textStyle = "text-white font-bold";
+                  wrapStyle = "bg-gradient-to-r from-red-500/20 to-red-600/10 border-red-500 shadow-[0_0_30px_rgba(239,68,68,0.45)] border-2";
+                  letterPod = "bg-gradient-to-b from-red-500 to-red-600 border-red-300 text-slate-950";
+                  dotStyle = "border-red-500 bg-red-500";
                 }
               } else if (selectedOption !== null && idx === activeQuestion.answer && isCorrect === false) {
-                // Show correct answer if wrong was selected
-                buttonStyle = "border-emerald-500/50 bg-emerald-500/10";
-                letterStyle = "bg-emerald-500/20 text-emerald-400";
-                textStyle = "text-emerald-400";
+                wrapStyle = "bg-emerald-500/10 border-emerald-500/50 border-2";
+                letterPod = "bg-emerald-500/20 text-emerald-400";
+                dotStyle = "border-emerald-500";
               }
-
+              
               if (isEliminated) {
                 return (
-                  <button key={idx} disabled className="w-full rounded-2xl p-4 border border-transparent flex items-center gap-4 text-left opacity-20" type="button">
-                    <div className="w-10 h-10 rounded-xl bg-slate-800/50 border border-white/5 flex items-center justify-center font-display font-bold text-sm text-slate-500">
-                      {optionLetters[idx]}
-                    </div>
-                  </button>
+                  <div key={idx} className="rounded-2xl p-4 border border-transparent flex items-center gap-4 text-left opacity-20 pointer-events-none">
+                    <div className="w-10 h-10 rounded-xl bg-slate-800/50 border border-white/5 flex items-center justify-center font-black text-base text-slate-500">{optionLetters[idx]}</div>
+                  </div>
                 );
               }
 
               return (
-                <button 
-                  key={idx}
-                  onClick={() => handleOptionClick(idx)}
-                  disabled={selectedOption !== null}
-                  className={`w-full rounded-2xl p-4 border-2 flex items-center gap-4 text-left transition duration-200 ${selectedOption === null ? 'active:scale-[0.98]' : ''} ${buttonStyle}`} 
-                  type="button"
-                >
-                  <div className={`w-10 h-10 rounded-xl border flex items-center justify-center font-display font-bold text-sm transition ${letterStyle}`}>
-                    {optionLetters[idx]}
+                <div key={idx} onClick={() => handleOptionClick(idx)} className={`group rounded-2xl p-4 flex items-center justify-between transition-all border ${wrapStyle}`} style={selectedOption === null ? { transition: 'all 0.15s cubic-bezier(0.4, 0, 0.2, 1)' } : {}}>
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center font-black text-base shadow-inner transition-colors ${letterPod}`}>
+                      {optionLetters[idx]}
+                    </div>
+                    <div>
+                      <span className={`font-bold text-lg ${isSelected ? (isCorrect === null ? 'text-amber-300 drop-shadow-[0_0_8px_rgba(255,184,0,0.6)]' : isCorrect ? 'text-emerald-300' : 'text-red-300') : 'text-slate-200 group-hover:text-white'}`}>{option}</span>
+                    </div>
                   </div>
-                  <span className={`text-base flex-1 ${textStyle}`}>{option}</span>
-                  
-                  {isSelected && isCorrect !== null && (
-                    <span className={`w-6 h-6 rounded-full border flex items-center justify-center ${isCorrect ? 'bg-emerald-500/20 border-emerald-500 text-emerald-500' : 'bg-red-500/20 border-red-500 text-red-500'}`}>
-                      {isCorrect ? (
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-                      ) : (
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path></svg>
-                      )}
-                    </span>
+                  {isSelected && isCorrect === null && (
+                    <div className="flex items-center gap-1.5 bg-amber-400/20 px-2.5 py-1 rounded-full border border-amber-400/40">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                      <span className="text-[10px] font-extrabold text-amber-300 uppercase tracking-wider">SELECTED</span>
+                    </div>
                   )}
-                </button>
+                  {isSelected && isCorrect !== null && (
+                    <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${isCorrect ? 'bg-emerald-400/20 border-emerald-400/40 text-emerald-300' : 'bg-red-500/20 border-red-500/40 text-red-300'}`}>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider">{isCorrect ? 'CORRECT' : 'INCORRECT'}</span>
+                    </div>
+                  )}
+                  {!isSelected && (
+                    <div className={`w-3 h-3 rounded-full border ${dotStyle}`}></div>
+                  )}
+                </div>
               );
             })}
-          </section>
-        </div>
-      </div>
-      
-      {/* Points Ladder Right Panel */}
-      <div className="w-full lg:w-80 glass-card rounded-3xl p-4 border border-purple-500/25 flex flex-col h-[700px]">
-        <h2 className="text-xl font-display font-black text-center text-purple-200 uppercase tracking-widest mb-4 border-b border-white/10 pb-4">Points</h2>
+          </div>
+          
+        </section>
         
-        <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col-reverse gap-1 pr-1">
-          {pointsLadder.map((points, idx) => {
-            const isCurrent = idx === currentQuestionIndex;
-            const isPassed = idx < currentQuestionIndex;
-            const isMilestone = (idx + 1) % 5 === 0;
+        {/* Right Sidebar: Points Tower (Cols 9-12) */}
+        <aside className="lg:col-span-4 flex flex-col h-full w-full max-w-sm mx-auto lg:max-w-none">
+          <div className="rounded-3xl p-5 border border-cyan-500/25 relative shadow-2xl flex flex-col h-full flex-1" style={{ background: 'linear-gradient(145deg, rgba(14, 21, 52, 0.85) 0%, rgba(6, 10, 28, 0.95) 100%)', backdropFilter: 'blur(16px)' }}>
+            <div className="absolute top-3 left-3 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
+            <div className="absolute top-3 right-3 w-2 h-2 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.8),0_0_4px_rgba(255,184,0,0.6)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FFE875, #B45309)' }}></div>
             
-            let itemStyle = "text-slate-400";
-            let iconStyle = "text-slate-600";
-            let bgStyle = "hover:bg-white/5";
-            
-            if (isCurrent) {
-              itemStyle = "text-slate-900 font-bold";
-              bgStyle = "bg-gradient-to-r from-amber-500 to-amber-400 shadow-glow-amber scale-[1.02] ml-2 rounded-xl z-10";
-              iconStyle = "text-slate-900";
-            } else if (isPassed) {
-              itemStyle = "text-emerald-400/70";
-              iconStyle = "text-emerald-500/50";
-            } else if (isMilestone) {
-              itemStyle = "text-white font-bold";
-              iconStyle = "text-amber-400";
-            }
-
-            return (
-              <div key={idx} className={`flex items-center justify-between p-2 rounded-lg transition-all ${bgStyle}`}>
-                <div className="flex items-center gap-3">
-                  {isMilestone && !isCurrent ? (
-                    <svg className={`w-4 h-4 ${iconStyle}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                    </svg>
-                  ) : (
-                    <span className={`font-display text-sm font-bold w-4 text-center ${iconStyle}`}>{isCurrent ? '▶' : (idx + 1)}</span>
-                  )}
-                  <span className={`text-sm ${itemStyle}`}>{idx + 1}</span>
-                </div>
-                <span className={`font-display text-sm ${itemStyle} ${isMilestone && !isCurrent ? 'text-amber-400 drop-shadow-sm' : ''}`}>
-                  {points}
-                </span>
+            <div className="border-b border-slate-700/80 pb-4 mb-3 text-center">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <span className="text-amber-400 text-sm">✦</span>
+                <h3 className="font-black text-base uppercase tracking-[0.2em] text-white">POINTS LADDER</h3>
+                <span className="text-amber-400 text-sm">✦</span>
               </div>
-            );
-          })}
-        </div>
-      </div>
-
+            </div>
+            
+            <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col-reverse gap-1 pr-1">
+              {pointsLadder.map((points, idx) => {
+                const isCurrent = idx === currentQuestionIndex;
+                const isPassed = idx < currentQuestionIndex;
+                const isSafeHaven = (idx + 1) === 5 || (idx + 1) === 10 || (idx + 1) === 15;
+                const isFinal = idx === 19;
+                
+                if (isCurrent) {
+                  return (
+                    <div key={idx} className="relative rounded-xl px-3.5 py-2 flex items-center justify-between bg-gradient-to-r from-cyan-500/30 via-cyan-500/10 to-transparent border-2 border-cyan-400 shadow-[0_0_20px_rgba(0,240,255,0.45),inset_0_0_10px_rgba(0,240,255,0.2)]" style={{ animation: 'pulseRing 2.4s infinite ease-in-out' }}>
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F0FF] animate-ping"></span>
+                        <span className="font-black text-cyan-300 text-sm">Q{idx + 1}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-black text-cyan-300 text-base">₹ {points}</span>
+                        <span className="text-cyan-400 font-bold text-xs">◀</span>
+                      </div>
+                    </div>
+                  );
+                } else if (isSafeHaven || isFinal) {
+                  return (
+                    <div key={idx} className={`rounded-xl px-3 py-1.5 flex items-center justify-between font-bold border ${isPassed ? 'border-amber-600/40 opacity-70' : 'border-amber-400/40 shadow-[0_0_15px_rgba(255,184,0,0.15)]'}`} style={{ background: 'linear-gradient(90deg, rgba(255, 184, 0, 0.18) 0%, rgba(255, 184, 0, 0.04) 100%)', borderLeft: '3px solid #FFB800' }}>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs ${isPassed ? 'text-amber-600' : 'text-amber-400'}`}>★</span>
+                        <span className={`font-extrabold ${isPassed ? 'text-amber-600' : 'text-amber-200'}`}>{idx + 1}</span>
+                      </div>
+                      <span className={`font-black text-base ${isPassed ? 'text-amber-600' : 'text-amber-300 drop-shadow-[0_0_8px_rgba(255,184,0,0.6)]'}`}>₹ {points}</span>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div key={idx} className="px-3 py-1 rounded-lg flex items-center justify-between hover:bg-slate-800/40">
+                      <span className={`font-semibold ${isPassed ? 'text-emerald-700' : 'text-slate-500'}`}>{idx + 1}</span>
+                      <span className={`font-medium ${isPassed ? 'text-emerald-700' : 'text-slate-300'}`}>₹ {points}</span>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        </aside>
+      </main>
     </div>
   );
 }
