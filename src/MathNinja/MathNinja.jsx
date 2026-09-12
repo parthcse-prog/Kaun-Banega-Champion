@@ -355,17 +355,20 @@ export default function MathNinja() {
       {/* Header */}
       <header className="relative z-20 border-b border-cyan-900/40 bg-[#050813]/90 backdrop-blur-md px-4 py-2.5">
         <div className="max-w-[1680px] mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             <button onClick={() => window.location.href = '/'} className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0d152a] border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-            <div className="w-2.5 h-2.5 rounded-full bg-[#00f2fe] animate-ping"></div>
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-400/40 shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)] overflow-hidden">
+              <img src="/src/assets/Logos/MIET Games.png" alt="MIET" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#00f59b] rounded-full ring-2 ring-[#060913] animate-pulse z-10"></span>
+            </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-display font-extrabold text-sm tracking-widest text-white">MIET</span>
-                <span className="px-1.5 py-0.5 text-[10px] font-mono tracking-wider font-semibold rounded bg-cyan-950/80 text-cyan-300 border border-cyan-700/60">GAMES ARENA</span>
+                <span className="font-display font-black text-xl tracking-wider text-white">MIET</span>
+                <span className="px-2 py-0.5 text-sm font-mono tracking-wider font-semibold rounded bg-cyan-950/80 text-cyan-300 border border-cyan-700/60">GAMES ARENA</span>
               </div>
-              <p className="text-[10px] font-mono text-cyan-400 tracking-wider">CONCEPT NINJA: SYNTAX SLASH EDITION <span className="text-rose-400">[SEASON 07 PRO]</span></p>
+              <p className="text-[10px] font-mono text-cyan-400 tracking-wider">CONCEPT NINJA <span className="text-rose-400"></span></p>
             </div>
           </div>
         </div>

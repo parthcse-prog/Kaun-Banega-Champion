@@ -30,7 +30,7 @@ export default function AlgoBingo({ token }) {
   }, [gameState, timeLeft]);
 
   const generateValidGrid = (categories, items) => {
-    for (let attempt = 0; attempt < 5000; attempt++) {
+    for (let attempt = 0; attempt < 50000; attempt++) {
       const shuffledCats = [...categories].sort(() => 0.5 - Math.random());
       const rowCats = shuffledCats.slice(0, 3);
       const colCats = shuffledCats.slice(3, 6);
@@ -62,11 +62,27 @@ export default function AlgoBingo({ token }) {
       };
       
       if (solve(0)) {
-        const bankItems = [...assignment].sort(() => 0.5 - Math.random());
+        const unusedItems = items.filter(i => !assignment.some(a => a.name === i.name));
+        const distractors = unusedItems.sort(() => 0.5 - Math.random()).slice(0, 2);
+        const bankItems = [...assignment, ...distractors].sort(() => 0.5 - Math.random());
         return { rows: rowCats, cols: colCats, bankItems };
       }
     }
-    return { rows: categories.slice(0,3), cols: categories.slice(3,6), bankItems: items.slice(0, 9) };
+    
+    // Mathematically guaranteed fallback if no solution found after 50000 attempts
+    const fallbackRows = categories.filter(c => [0, 1, 2].includes(c.id));
+    const fallbackCols = categories.filter(c => [3, 4, 5].includes(c.id));
+    const fallbackNames = [
+      "Selection Sort", "Strand Sort", "Bubble Sort",
+      "Heap Sort", "Tree Sort", "Timsort",
+      "American Flag Sort", "Pigeonhole Sort", "Counting Sort"
+    ];
+    const fallbackAssignment = fallbackNames.map(name => items.find(i => i.name === name));
+    const unusedItems = items.filter(i => !fallbackNames.includes(i.name));
+    const distractors = unusedItems.slice(0, 2);
+    const fallbackBankItems = [...fallbackAssignment, ...distractors].sort(() => 0.5 - Math.random());
+    
+    return { rows: fallbackRows, cols: fallbackCols, bankItems: fallbackBankItems };
   };
 
   const startGame = () => {
@@ -120,14 +136,27 @@ export default function AlgoBingo({ token }) {
     setHoveredCell(null);
   };
 
+  const handleRemoveBlock = (r, c) => {
+    if (gameState !== 'PLAYING') return;
+    const cellKey = `${r}-${c}`;
+    if (!session.filledBoxes[cellKey]) return;
+    
+    const newFilled = { ...session.filledBoxes };
+    delete newFilled[cellKey];
+    
+    const newScore = Math.max(0, session.score - 100);
+    const updated = Storage.updateSession(session._id, { filledBoxes: newFilled, score: newScore });
+    setSession(updated);
+  };
+
   const processMove = (item, r, c) => {
     const cellKey = `${r}-${c}`;
     const rowCatId = gridConfig.rows[r].id;
     const colCatId = gridConfig.cols[c].id;
 
-    const isValid = item.validCategoryIds.includes(rowCatId) && item.validCategoryIds.includes(colCatId);
+    const isValidLocally = item.validCategoryIds.includes(rowCatId) && item.validCategoryIds.includes(colCatId);
 
-    if (isValid) {
+    if (isValidLocally) {
       const newFilled = { ...session.filledBoxes, [cellKey]: item.name };
       const newScore = session.score + 100;
       
@@ -208,7 +237,7 @@ export default function AlgoBingo({ token }) {
              <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(245,158,11,0.4)]" />
              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 text-center tracking-wider drop-shadow-md">BINGO BONANZA</h2>
              <p className="text-indigo-200 text-center mb-8 max-w-md text-lg font-medium leading-relaxed">
-               Match drawn algorithms to their properties. Drag and drop the exact 9 algorithms to their perfect match in this 3x3 immaculate grid!
+               Match drawn algorithms to their properties. Drag and drop 9 of the 11 algorithms to their perfect match in this 3x3 immaculate grid! Watch out for the 2 distractors!
              </p>
              <button 
                onClick={startGame}
@@ -325,7 +354,13 @@ export default function AlgoBingo({ token }) {
                               <>
                                 <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(16,185,129,0.38)_0%,rgba(5,150,105,0.2)_70%,transparent_100%)] transform -rotate-[4deg] pointer-events-none"></div>
                                 <div className="absolute -top-1 -right-1 md:-top-1.5 md:-right-1 w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-tr from-yellow-400 to-amber-500 border border-yellow-100 flex items-center justify-center text-[8px] md:text-[10px] font-black text-slate-950 shadow-md">✓</div>
-                                <div className="relative z-10 w-full flex flex-col justify-center items-center">
+                                <button 
+                                  onClick={(e) => { e.stopPropagation(); handleRemoveBlock(rIdx, cIdx); }}
+                                  className="absolute top-1 left-1 w-5 h-5 rounded-full bg-red-500/80 hover:bg-red-500 text-white flex items-center justify-center text-xs font-bold border border-red-300 shadow-[0_0_10px_rgba(239,68,68,0.5)] z-20 transition-all hover:scale-110"
+                                >
+                                  ×
+                                </button>
+                                <div className="relative z-10 w-full flex flex-col justify-center items-center pointer-events-none">
                                   <span className="text-[10px] md:text-sm font-black text-white tracking-tight leading-tight">{itemName}</span>
                                   <span className="text-[7px] md:text-[9px] font-black text-emerald-300 font-mono tracking-wider uppercase bg-emerald-950/80 px-1 rounded mt-1 border border-emerald-600/40">DAUBED!</span>
                                 </div>

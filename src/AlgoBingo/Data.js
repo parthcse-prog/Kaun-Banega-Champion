@@ -30,7 +30,11 @@ export const ALGO_BINGO_DATA = {
     { name: "Counting Sort",  validCategoryIds: [2,4,5,9] },
     { name: "Radix Sort",     validCategoryIds: [2,4,5,9] },
     { name: "Bucket Sort",    validCategoryIds: [2,4,9] },
-    { name: "Shell Sort",     validCategoryIds: [3,6,8] },
-    { name: "Timsort",        validCategoryIds: [1,5,10,13] }
+    { name: "Shell Sort",         validCategoryIds: [3,6,8] },
+    { name: "Timsort",            validCategoryIds: [1,5,10,13] },
+    { name: "Strand Sort",        validCategoryIds: [0,4,5,8,12] },
+    { name: "American Flag Sort", validCategoryIds: [2,3,6,9,15] },
+    { name: "Pigeonhole Sort",    validCategoryIds: [2,4,5,9,12] },
+    { name: "Tree Sort",          validCategoryIds: [1,4,5,8] }
   ]
 };

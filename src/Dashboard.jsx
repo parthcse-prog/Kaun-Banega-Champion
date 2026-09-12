@@ -126,14 +126,14 @@ export default function Dashboard() {
           <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-400/40 shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)]">
-                  <svg className="w-6 h-6 text-[#00f2fe] transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#00f59b] rounded-full ring-2 ring-[#060913] animate-pulse"></span>
+                <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-400/40 shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)] overflow-hidden">
+                  <img src="/src/assets/Logos/MIET Games.png" alt="MIET" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform" />
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#00f59b] rounded-full ring-2 ring-[#060913] animate-pulse z-10"></span>
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-black tracking-wider text-white uppercase group-hover:text-[#00f2fe] transition-colors">MIET</span>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-cyan-500/10 text-[#00f2fe] font-mono font-semibold border border-cyan-500/30">GAMES ARENA</span>
+                    <span className="text-xl font-black tracking-wider text-white uppercase group-hover:text-[#00f2fe] transition-colors">MIET</span>
+                    <span className="text-sm px-2 py-0.5 rounded bg-cyan-500/10 text-[#00f2fe] font-mono font-semibold border border-cyan-500/30">GAMES ARENA</span>
                   </div>
                   <div className="text-[10px] tracking-widest text-slate-400 font-mono flex items-center gap-1.5">
                     <span>ARENA 4K</span>
