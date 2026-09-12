@@ -259,11 +259,11 @@ export default function MathNinja() {
       }
 
       // --- RENDERING ---
-      ctx.fillStyle = '#0f172a'; // slate-900
+      ctx.fillStyle = '#050917'; 
       ctx.fillRect(0, 0, W, H);
 
       // Grid
-      ctx.strokeStyle = '#1e293b'; // slate-800
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.08)';
       ctx.lineWidth = 1;
       for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
       for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
@@ -274,22 +274,21 @@ export default function MathNinja() {
         ctx.translate(o.x, o.y);
         ctx.rotate(o.rot);
         
-        ctx.shadowColor = '#3b82f6';
-        ctx.shadowBlur = 10;
-        ctx.fillStyle = '#1e293b';
-        ctx.strokeStyle = '#3b82f6';
+        ctx.shadowColor = '#00f2fe';
+        ctx.shadowBlur = 15;
+        ctx.fillStyle = 'rgba(7, 44, 73, 0.9)';
+        ctx.strokeStyle = '#00f2fe';
         ctx.lineWidth = 2;
         
         ctx.beginPath();
-        // Draw pill
         const w = o.r * 2;
         const h = 40;
         ctx.roundRect(-w/2, -h/2, w, h, 20);
         ctx.fill(); ctx.stroke();
         
         ctx.shadowBlur = 0;
-        ctx.fillStyle = '#e2e8f0';
-        ctx.font = '700 14px sans-serif';
+        ctx.fillStyle = '#a5f3fc';
+        ctx.font = '700 13px "JetBrains Mono", sans-serif';
         ctx.textAlign = 'center'; 
         ctx.textBaseline = 'middle';
         ctx.fillText(o.text, 0, 1);
@@ -299,9 +298,12 @@ export default function MathNinja() {
       // Draw Particles
       for (const p of engine.current.particles) {
         ctx.fillStyle = `rgba(${p.color},${Math.max(0, p.life)})`;
+        ctx.shadowColor = `rgb(${p.color})`;
+        ctx.shadowBlur = 8;
         ctx.beginPath();
         ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
 
       // Draw Trail
@@ -312,8 +314,18 @@ export default function MathNinja() {
         for (let i = 1; i < engine.current.trail.length; i++) {
           const a = engine.current.trail[i - 1], b = engine.current.trail[i];
           const age = (now - b.t) / 220;
-          ctx.strokeStyle = `rgba(94,225,255,${1 - age})`;
+          
+          ctx.strokeStyle = `rgba(244, 63, 94, ${1 - age})`;
+          ctx.shadowColor = '#f43f5e';
+          ctx.shadowBlur = 18;
           ctx.lineWidth = 8 * (1 - age) + 2;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+
+          ctx.strokeStyle = `rgba(255, 255, 255, ${1 - age})`;
+          ctx.lineWidth = Math.max(1, (8 * (1 - age) + 2) * 0.35);
+          ctx.shadowBlur = 0;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
           ctx.stroke();
@@ -338,46 +350,50 @@ export default function MathNinja() {
   }, [gameState]);
 
   return (
-    <div className="min-h-screen bg-[#0a0f1c] text-slate-100 flex flex-col font-sans select-none touch-none">
+    <div className="min-h-screen flex flex-col font-sans selection:bg-neonPink selection:text-white relative" style={{ backgroundColor: '#050813', backgroundImage: 'radial-gradient(circle at 50% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 60%), radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 50%), linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px)', backgroundSize: '100% 100%, 100% 100%, 36px 36px, 36px 36px' }}>
       
       {/* Header */}
-      <header className="p-4 flex items-center justify-between border-b border-slate-800 bg-slate-900 sticky top-0 z-50">
-        <div className="flex items-center gap-4">
-          <button onClick={() => window.location.href = '/'} className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">
-            <svg className="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          </button>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="font-black text-xl text-white tracking-tight">CONCEPT NINJA</h1>
+      <header className="relative z-20 border-b border-cyan-900/40 bg-[#050813]/90 backdrop-blur-md px-4 py-2.5">
+        <div className="max-w-[1680px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center space-x-3">
+            <button onClick={() => window.location.href = '/'} className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0d152a] border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#00f2fe] animate-ping"></div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="font-display font-extrabold text-sm tracking-widest text-white">MIET</span>
+                <span className="px-1.5 py-0.5 text-[10px] font-mono tracking-wider font-semibold rounded bg-cyan-950/80 text-cyan-300 border border-cyan-700/60">GAMES ARENA</span>
+              </div>
+              <p className="text-[10px] font-mono text-cyan-400 tracking-wider">CONCEPT NINJA: SYNTAX SLASH EDITION <span className="text-rose-400">[SEASON 07 PRO]</span></p>
             </div>
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Slice. Think. Master.</div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center p-4 lg:p-8 relative">
+      <main className="flex-1 max-w-[1680px] mx-auto w-full px-4 py-3 flex flex-col gap-3 relative z-10">
         
         {/* MENU STATE */}
         {gameState === 'MENU' && (
-          <div className="w-full max-w-2xl bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col items-center mt-12 animate-in slide-in-from-bottom-8">
-             <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]" />
-             <h2 className="text-3xl font-black text-white mb-2 text-center">SELECT CHALLENGE</h2>
-             <p className="text-slate-400 text-center mb-8 max-w-md">Read the question. Slice the correct concepts. Avoid the wrong ones. Build your combo.</p>
+          <div className="w-full max-w-2xl bg-[#0d152a]/90 border border-cyan-500/30 p-8 rounded-2xl flex flex-col items-center mx-auto mt-12 shadow-[0_0_20px_rgba(0,242,254,0.15)] animate-in slide-in-from-bottom-8">
+             <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(0,242,254,0.4)]" />
+             <h2 className="text-3xl font-display font-black text-white mb-2 text-center tracking-wide">SELECT CHALLENGE</h2>
+             <p className="text-cyan-300 font-mono text-xs text-center mb-8 max-w-md">Read the question. Slice the correct concepts. Avoid the wrong ones. Build your combo.</p>
              
              <div className="w-full space-y-4">
                {QUESTIONS.map(q => (
                  <button 
                    key={q.id}
                    onClick={() => startGame(q)}
-                   className="w-full text-left bg-slate-800 hover:bg-slate-700 border border-slate-700 p-4 rounded-2xl transition group flex items-center justify-between"
+                   className="w-full text-left bg-slate-900/60 hover:bg-cyan-950/40 border border-cyan-900/50 hover:border-cyan-400/60 p-4 rounded-xl transition group flex items-center justify-between"
                  >
                    <div>
-                     <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">{q.branch} • {q.topic}</div>
-                     <div className="text-lg font-bold text-white">{q.questionText}</div>
+                     <div className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-1 font-mono">{q.branch} • {q.topic}</div>
+                     <div className="text-lg font-bold text-white font-tech">{q.questionText}</div>
                    </div>
-                   <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500 transition">
-                     <svg className="w-5 h-5 text-blue-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                   <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 border border-cyan-500/30 transition shadow-[0_0_15px_rgba(0,242,254,0.2)]">
+                     <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                    </div>
                  </button>
                ))}
@@ -387,97 +403,111 @@ export default function MathNinja() {
 
         {/* PLAYING STATE */}
         {gameState === 'PLAYING' && (
-          <div className="w-full max-w-4xl flex flex-col items-center">
-            
-            {/* Top HUD */}
-            <div className="w-full bg-slate-900 border border-slate-800 rounded-3xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between mb-6 shadow-xl gap-4">
-               
-               {/* Question */}
-               <div className="flex-1 text-center md:text-left order-2 md:order-1">
-                 <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">CURRENT OBJECTIVE</div>
-                 <div className="text-xl md:text-2xl font-black text-white">{currentQuestion?.questionText}</div>
-               </div>
-
-               {/* Stats */}
-               <div className="flex items-center gap-6 md:gap-8 order-1 md:order-2 w-full md:w-auto justify-between md:justify-end">
-                  <div className="flex flex-col items-center">
-                    <div className="text-[10px] font-black text-slate-500 uppercase">SCORE</div>
-                    <div className="text-2xl font-black text-blue-400 font-mono">{score}</div>
+          <>
+            <section className="w-full bg-gradient-to-r from-[#070d1e] via-[#0c142b] to-[#070d1e] border border-cyan-500/30 rounded-2xl p-3.5 shadow-[0_0_20px_rgba(0,242,254,0.15)] relative overflow-hidden">
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-96 h-12 bg-cyan-500/20 blur-xl pointer-events-none"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                <div className="lg:col-span-6 flex flex-col space-y-1.5">
+                  <div className="flex items-center space-x-2">
+                    <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-mono font-bold tracking-wider uppercase rounded bg-cyan-950/90 text-cyan-400 border border-cyan-500/50">
+                      CURRENT OBJECTIVE
+                    </span>
+                    <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-mono font-bold uppercase rounded bg-rose-950/90 text-rose-400 border border-rose-500/50 animate-pulse">
+                      ⚡ LIVE ROUND
+                    </span>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <div className="text-[10px] font-black text-slate-500 uppercase">COMBO</div>
-                    <div className={`text-2xl font-black font-mono transition-colors ${combo > 3 ? 'text-amber-400' : 'text-white'}`}>x{combo}</div>
+                  <h1 className="text-xl lg:text-2xl font-display font-extrabold text-white tracking-wide drop-shadow-md">
+                    {currentQuestion?.questionText}
+                  </h1>
+                </div>
+                
+                <div className="lg:col-span-6 flex items-center justify-between lg:justify-end space-x-3 sm:space-x-5">
+                  <div className="text-center px-3 py-1.5 rounded-xl bg-[#0d152a]/90 border border-cyan-800/50 min-w-[90px]">
+                    <span className="text-[10px] font-mono uppercase text-slate-400 block">SCORE</span>
+                    <span className="text-2xl font-display font-black text-[#00f2fe] drop-shadow-[0_0_10px_rgba(0,242,254,0.8)]">{score}</span>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <div className="text-[10px] font-black text-slate-500 uppercase">TIME</div>
-                    <div className={`text-2xl font-black font-mono ${timeLeft < 10 ? 'text-red-400 animate-pulse' : 'text-white'}`}>{Math.ceil(timeLeft)}s</div>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="text-[10px] font-black text-slate-500 uppercase">LIVES</div>
-                    <div className="text-xl tracking-widest text-red-500 font-sans">
-                      {'❤️'.repeat(lives)}
+                  <div className="text-center px-3 py-1.5 rounded-xl bg-[#0d152a]/90 border border-amber-600/50 min-w-[105px] relative">
+                    <span className="text-[10px] font-mono uppercase text-amber-400 block">COMBO</span>
+                    <div className="flex items-center justify-center space-x-1">
+                      <span className="text-2xl font-display font-black text-amber-300">{combo}x</span>
+                      {combo > 3 && <span className="text-xs text-orange-400 animate-bounce">⚡</span>}
                     </div>
                   </div>
-               </div>
-            </div>
-
-            {/* Game Canvas */}
-            <div className="w-full aspect-[16/9] max-h-[500px] relative rounded-3xl overflow-hidden border-2 border-slate-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] cursor-crosshair">
+                  <div className="text-center px-3 py-1.5 rounded-xl bg-[#0d152a]/90 border border-cyan-500/40 min-w-[85px] relative">
+                    <span className="text-[10px] font-mono uppercase text-slate-400 block">TIME</span>
+                    <div className="flex items-center justify-center space-x-1">
+                      <span className={`text-2xl font-display font-black ${timeLeft < 10 ? 'text-rose-400 animate-pulse' : 'text-white'}`}>{Math.ceil(timeLeft)}s</span>
+                    </div>
+                  </div>
+                  <div className="text-center px-3.5 py-1.5 rounded-xl bg-[#0d152a]/90 border border-rose-800/50 min-w-[110px]">
+                    <span className="text-[10px] font-mono uppercase text-rose-400 block">LIVES ({lives}/3)</span>
+                    <div className="flex items-center justify-center space-x-1.5 mt-1 text-lg">
+                      {Array(3).fill(0).map((_, i) => (
+                        <span key={i} className={i < lives ? "text-[#f43f5e] drop-shadow-[0_0_15px_rgba(244,63,94,0.8)]" : "text-slate-600 filter grayscale opacity-60"}>
+                          {i < lives ? '❤️' : '💔'}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <section className="w-full aspect-[21/9] max-h-[450px] mt-4 flex flex-col relative rounded-2xl border-2 border-cyan-500/40 bg-gradient-to-b from-[#070e24] via-[#050917] to-[#040711] shadow-[0_0_40px_rgba(0,242,254,0.15)] overflow-hidden cursor-crosshair">
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400 pointer-events-none z-10"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-400 pointer-events-none z-10"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-cyan-400 pointer-events-none z-10"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan-400 pointer-events-none z-10"></div>
+              
               <canvas 
                 ref={canvasRef} 
                 width={1000} 
                 height={562} 
-                className="w-full h-full block"
+                className="w-full h-full block relative z-0"
+                style={{ cursor: 'crosshair' }}
               />
-            </div>
-            
-            <p className="text-slate-500 font-bold text-sm mt-6">Swipe or drag across the correct concepts. Avoid the distractors.</p>
-          </div>
+            </section>
+          </>
         )}
 
         {/* RESULTS STATE */}
         {gameState === 'RESULTS' && (
-          <div className="w-full max-w-2xl bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col items-center mt-12 animate-in slide-in-from-bottom-8">
-             <h2 className="text-4xl font-black text-white mb-2">ROUND COMPLETE</h2>
-             <div className="text-6xl font-black text-blue-500 font-mono mb-8">{score}</div>
+          <div className="w-full max-w-2xl bg-[#0d152a]/90 border border-cyan-500/30 p-8 rounded-2xl flex flex-col items-center mx-auto mt-12 shadow-[0_0_20px_rgba(0,242,254,0.15)] animate-in slide-in-from-bottom-8">
+             <h2 className="text-3xl font-display font-black text-white mb-2 tracking-widest text-center">ROUND COMPLETE</h2>
+             <div className="text-6xl font-display font-black text-[#00f2fe] drop-shadow-[0_0_15px_rgba(0,242,254,0.8)] mb-8">{score}</div>
              
              {missedConcepts.length > 0 ? (
-               <div className="w-full bg-slate-950 border border-slate-800 rounded-2xl p-6 mb-8">
-                 <h3 className="text-sm font-black text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+               <div className="w-full bg-[#050813] border border-slate-700 rounded-xl p-6 mb-8">
+                 <h3 className="text-sm font-black text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-mono">
                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                   NEEDS PRACTICE
+                   EVENT LOG: MISTAKES
                  </h3>
-                 <div className="space-y-4">
-                   {/* Remove duplicates for clean learning view */}
+                 <div className="space-y-3 font-mono text-xs">
                    {Array.from(new Set(missedConcepts.map(m => m.text))).map(text => {
                      const isWrongSlice = currentQuestion.distractors.includes(text);
-                     const explanation = currentQuestion.explanations[text];
-                     
                      return (
-                       <div key={text} className="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                         <div className="flex items-center gap-2 mb-2">
-                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${isWrongSlice ? 'bg-red-500/20 text-red-400 border-red-500/30' : 'bg-amber-500/20 text-amber-400 border-amber-500/30'} border`}>
-                             {isWrongSlice ? 'SLICED WRONG CONCEPT' : 'MISSED CORRECT CONCEPT'}
-                           </span>
-                           <span className="font-bold text-white">{text}</span>
-                         </div>
-                         {explanation && <div className="text-sm text-slate-400">{explanation}</div>}
+                       <div key={text} className="bg-slate-900/60 p-3 rounded-lg border-l-2 border-rose-500 flex items-center gap-3">
+                         <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${isWrongSlice ? 'bg-rose-950/80 text-rose-400 border border-rose-500/50' : 'bg-amber-950/80 text-amber-400 border border-amber-500/50'}`}>
+                           {isWrongSlice ? 'TRAP TRIGGERED' : 'TARGET MISSED'}
+                         </span>
+                         <span className="font-bold text-slate-200">{text}</span>
                        </div>
                      );
                    })}
                  </div>
                </div>
              ) : (
-               <div className="w-full bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 mb-8 flex flex-col items-center justify-center text-center">
-                 <svg className="w-12 h-12 text-emerald-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                 <div className="text-emerald-400 font-bold text-lg">FLAWLESS ROUND</div>
-                 <div className="text-emerald-500/70 text-sm">You identified all concepts perfectly.</div>
+               <div className="w-full bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-6 mb-8 flex flex-col items-center justify-center text-center shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                 <svg className="w-12 h-12 text-emerald-400 mb-2 drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                 <div className="text-emerald-400 font-bold font-display text-lg tracking-wider">FLAWLESS EXECUTION</div>
+                 <div className="text-emerald-500/70 text-xs font-mono">100% ACCURACY RATING</div>
                </div>
              )}
              
              <button 
                onClick={() => setGameState('MENU')}
-               className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-black text-lg uppercase tracking-widest shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all hover:scale-[1.02]"
+               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-display font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all hover:scale-[1.02]"
              >
                CONTINUE
              </button>

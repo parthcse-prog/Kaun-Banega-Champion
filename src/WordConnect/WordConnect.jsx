@@ -206,72 +206,144 @@ export default function WordConnect() {
 
   return (
     <div 
-      className="min-h-screen bg-[#0a0c10] text-slate-100 flex flex-col font-sans select-none overflow-hidden touch-none"
+      className="min-h-screen flex flex-col font-sans select-none overflow-x-hidden touch-none text-slate-200"
+      style={{
+        backgroundColor: '#050811',
+        backgroundImage: 'radial-gradient(circle at 50% 18%, rgba(0, 150, 255, 0.12) 0%, transparent 60%), radial-gradient(circle at 85% 85%, rgba(255, 0, 122, 0.08) 0%, transparent 45%), radial-gradient(circle at 15% 75%, rgba(0, 240, 255, 0.08) 0%, transparent 50%), linear-gradient(to bottom, #050811 0%, #070d1d 50%, #050812 100%)',
+        backgroundAttachment: 'fixed'
+      }}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
     >
+      <style>{`
+        .cyber-grid { background-size: 32px 32px; background-image: radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px); }
+        .slot-tile { background: linear-gradient(180deg, #131c31 0%, #0a1122 100%); border: 1.5px solid #233559; box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.08), inset 0 -3px 5px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0,0,0,0.5); }
+        .slot-tile.filled { background: linear-gradient(180deg, #103254 0%, #07192f 100%); border-color: #00f0ff; box-shadow: 0 0 15px rgba(0, 240, 255, 0.35), inset 0 2px 3px rgba(255, 255, 255, 0.3), inset 0 -3px 6px rgba(0, 140, 255, 0.5); }
+        .tech-bracket { position: absolute; width: 12px; height: 12px; border-color: #00f0ff; border-style: solid; }
+        .tech-bracket-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+        .tech-bracket-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+        .tech-bracket-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+        .tech-bracket-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+      `}</style>
       
+      <div className="absolute inset-0 pointer-events-none cyber-grid z-0"></div>
+
       {/* Header */}
-      <header className="p-4 flex items-center justify-between border-b border-slate-800/50 bg-slate-900/50 z-10">
-        <div className="flex items-center gap-4">
-          <button onClick={() => setGameState('PROFILE_SELECT')} className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">
-            <RotateCcw className="w-5 h-5 text-slate-300" />
-          </button>
-          <div>
-            <div className="text-xs font-bold text-blue-500 uppercase tracking-widest">{profile.stream} • {currentQ.subject}</div>
-            <div className="text-sm text-slate-300 font-medium">{currentQ.topic}</div>
+      <header className="w-full border-b border-blue-900/60 bg-[#070d1a]/85 backdrop-blur-md px-4 sm:px-8 py-2.5 z-40 sticky top-0 relative">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <button onClick={() => setGameState('PROFILE_SELECT')} className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#1c2842] to-[#0e1628] border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:text-cyan-200 hover:border-cyan-400 shadow-md transition active:scale-95">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+            </button>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span className="font-display font-bold text-[11px] tracking-wider text-cyan-400 uppercase">{profile.stream} • {currentQ.subject}</span>
+              </div>
+              <span className="text-xs font-mono font-semibold tracking-wider text-slate-300">{currentQ.topic}</span>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center gap-6">
-          <div className="text-right">
-            <div className="text-xs font-bold text-slate-500 uppercase">Score</div>
-            <div className="text-xl font-black text-white font-mono">{score}</div>
+          
+          <div className="hidden lg:flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 shadow-[0_0_25px_-4px_rgba(255,183,3,0.5)]">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1c1.98-.44 3.51-2.02 3.61-4.06C19.08 11.63 21 9.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"></path></svg>
+            </div>
+            <div className="text-center">
+              <h1 className="font-display text-lg tracking-wider font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-yellow-400 drop-shadow-[0_2px_10px_rgba(255,183,3,0.4)]">
+                CYBER LEXICON
+              </h1>
+              <p className="text-[9px] font-mono tracking-widest text-slate-400 uppercase">WORD WHEEL ARCADE EDITION</p>
+            </div>
           </div>
-          <button onClick={handleHint} className="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/50 hover:bg-amber-500/30 transition">
-            <Lightbulb className="w-5 h-5" />
-          </button>
+          
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-[#09101f] border border-cyan-500/30 px-3.5 py-1 rounded-xl shadow-inner">
+              <div className="text-right leading-none">
+                <span className="text-[9px] font-mono tracking-wider uppercase text-slate-400 block">BANKED SCORE</span>
+                <span className="font-mono font-extrabold text-cyan-300 text-sm tracking-tight">{score}</span>
+              </div>
+              <div className="w-6 h-6 rounded-full bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 text-xs font-mono font-bold">
+                ⚡
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center p-4 sm:p-8 max-w-3xl mx-auto w-full relative">
+      <main className="max-w-4xl mx-auto w-full px-4 sm:px-6 py-4 flex-1 flex flex-col gap-4 relative z-10 items-center">
         
-        {/* Progress */}
-        <div className="w-full flex justify-center gap-2 mb-6">
-          {questions.map((_, i) => (
-            <div key={i} className={`h-1.5 w-12 rounded-full ${i < currentQIdx ? 'bg-emerald-500' : i === currentQIdx ? 'bg-blue-500' : 'bg-slate-800'}`} />
-          ))}
-        </div>
+        {/* Round Status Bar */}
+        <section className="flex flex-wrap items-center justify-between gap-4 bg-[#080d1a]/70 border border-slate-800 rounded-2xl px-5 py-2.5 backdrop-blur shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] w-full">
+          <div className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 font-bold text-xs tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+              ROUND {(currentQIdx + 1).toString().padStart(2, '0')} / {questions.length.toString().padStart(2, '0')}
+            </span>
+            <div className="flex items-center gap-2">
+              {questions.map((_, i) => (
+                <div key={i} className={`w-6 sm:w-8 h-2 rounded-full ${i < currentQIdx ? 'bg-cyan-400 shadow-[0_0_10px_#00f0ff]' : i === currentQIdx ? 'bg-cyan-400 animate-pulse ring-2 ring-cyan-400/50' : 'bg-slate-700/80'}`} />
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <button onClick={handleHint} className="bg-gradient-to-r from-[#171928] to-[#121424] hover:from-[#20243d] border border-amber-500/40 px-4 py-1.5 rounded-xl flex items-center gap-2 transition active:scale-95 shadow-lg group">
+              <Lightbulb className="w-4 h-4 text-amber-400 group-hover:text-amber-300" />
+              <span className="font-bold text-xs tracking-wider text-white">USE HINT</span>
+            </button>
+          </div>
+        </section>
 
-        {/* Question Panel */}
-        <div className="bg-slate-900 border border-slate-700 w-full p-6 sm:p-8 rounded-3xl shadow-2xl mb-8 flex flex-col items-center text-center">
-          <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-4">Question</div>
-          <h2 className="text-xl sm:text-2xl text-white font-medium leading-relaxed">
+        {/* Question Podium */}
+        <section className="relative bg-gradient-to-b from-[#0e172e]/90 to-[#070d1d]/95 border border-cyan-500/40 rounded-2xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl w-full">
+          <div className="tech-bracket tech-bracket-tl"></div>
+          <div className="tech-bracket tech-bracket-tr"></div>
+          <div className="tech-bracket tech-bracket-bl"></div>
+          <div className="tech-bracket tech-bracket-br"></div>
+          
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-sm bg-cyan-400 shadow-[0_0_8px_#00f0ff]"></span>
+              <span className="text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase">QUERY</span>
+            </div>
+          </div>
+          
+          <h2 className="text-center text-lg sm:text-2xl font-extrabold text-white tracking-wide max-w-3xl mx-auto leading-snug drop-shadow-md py-1">
             "{currentQ.question}"
           </h2>
-        </div>
-
-        {/* Answer Slots Grid */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {targetChars.map((char, i) => {
-            if (char === ' ' || char === '-') {
-              return <div key={i} className="w-8 h-12 flex items-center justify-center text-slate-600">-</div>;
-            }
-            // Logic to reveal letters if correct or if hinting
-            const isRevealed = gameState === 'EXPLANATION' || feedback === 'CORRECT';
-            return (
-              <div key={i} className={`w-10 h-12 sm:w-12 sm:h-14 border-b-4 flex items-center justify-center text-2xl font-black font-mono transition-colors ${isRevealed ? 'border-emerald-500 text-emerald-400' : 'border-slate-700 text-transparent'}`}>
-                {isRevealed ? char : ''}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Formed Word Display (Live Feedback) */}
-        <div className={`h-12 flex items-center justify-center px-6 rounded-full font-black text-xl tracking-widest transition-all mb-4 ${feedback === 'WRONG' ? 'bg-red-500/20 text-red-400 animate-[shake_0.5s_ease-in-out]' : feedback === 'CORRECT' ? 'bg-emerald-500/20 text-emerald-400' : selectedIds.length > 0 ? 'bg-blue-500/20 text-blue-400' : 'opacity-0'}`}>
-          {currentWord || '...'}
-        </div>
+          
+          <div className="mt-6 pt-4 border-t border-slate-800/80">
+            <div className="text-center mb-2">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-cyan-400/80">SPELL ASSEMBLY MATRIX</span>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
+              {targetChars.map((char, i) => {
+                if (char === ' ' || char === '-') {
+                  return <div key={i} className="w-8 h-12 flex items-center justify-center text-slate-600">-</div>;
+                }
+                const isRevealed = gameState === 'EXPLANATION' || feedback === 'CORRECT';
+                return (
+                  <div key={i} className={`slot-tile w-9 h-11 sm:w-12 sm:h-14 rounded-lg flex flex-col items-center justify-center ${isRevealed ? 'filled' : ''}`}>
+                    {isRevealed ? (
+                      <span className="font-display font-black text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_0_8px_#00f0ff]">{char}</span>
+                    ) : (
+                      <span className="font-display font-black text-xl sm:text-2xl text-slate-600">_</span>
+                    )}
+                    <span className="text-[8px] font-mono text-cyan-400/60 leading-none">{(i + 1).toString().padStart(2, '0')}</span>
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Live Feedback Line */}
+            <div className={`mt-4 mx-auto max-w-xs h-8 flex items-center justify-center rounded-lg font-bold text-sm tracking-widest transition-all ${feedback === 'WRONG' ? 'bg-red-500/20 text-red-400 animate-[shake_0.5s_ease-in-out] border border-red-500/50' : feedback === 'CORRECT' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : selectedIds.length > 0 ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 shadow-[0_0_15px_rgba(0,240,255,0.2)]' : 'opacity-0'}`}>
+              {currentWord || '...'}
+            </div>
+          </div>
+        </section>
 
         {/* Circular Letter Tray */}
         <div 
@@ -323,23 +395,32 @@ export default function WordConnect() {
 
         {/* Explanation Overlay */}
         {gameState === 'EXPLANATION' && (
-          <div className="absolute inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 animate-in fade-in">
-            <div className="bg-slate-900 border border-emerald-500/50 p-8 rounded-3xl text-center shadow-[0_0_50px_rgba(16,185,129,0.2)] max-w-lg w-full animate-in zoom-in-95">
-              <CheckCircle className="w-16 h-16 text-emerald-400 mx-auto mb-6" />
-              <div className="text-sm font-bold text-emerald-500 uppercase tracking-widest mb-2">Concept Unlocked</div>
-              <h2 className="text-3xl font-black text-white mb-6 tracking-wide">{currentQ.answer}</h2>
-              <div className="w-12 h-1 bg-slate-800 mx-auto mb-6 rounded-full" />
-              <p className="text-lg text-slate-300 leading-relaxed mb-8">
+          <div className="absolute inset-0 z-50 bg-[#050811]/90 backdrop-blur-md flex flex-col items-center justify-center p-4 sm:p-6 animate-in fade-in">
+            <div className="bg-gradient-to-b from-[#0a1815] to-[#040a08] border border-emerald-500/40 p-6 sm:p-8 rounded-3xl text-center shadow-[0_0_50px_rgba(16,185,129,0.15)] max-w-lg w-full relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500 shadow-[0_0_15px_#10b981]"></div>
+              
+              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-6 shadow-[0_0_20px_-5px_#10b981]">
+                <CheckCircle className="w-8 h-8" />
+              </div>
+              
+              <div className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
+                <span className="w-1 h-1 bg-emerald-400 rounded-full animate-ping"></span>
+                Concept Unlocked
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-display font-black text-white mb-4 tracking-wider drop-shadow-md">{currentQ.answer}</h2>
+              <div className="w-12 h-1 border-b border-emerald-500/30 border-dashed mx-auto mb-6" />
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8">
                 {currentQ.explanation}
               </p>
-              <button onClick={nextQuestion} className="w-full py-4 rounded-xl bg-emerald-500 text-slate-950 font-black text-lg hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
-                NEXT QUESTION <ChevronRight className="w-6 h-6" />
+              
+              <button onClick={nextQuestion} className="w-full py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-tech font-bold text-lg hover:bg-emerald-400 transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 active:scale-95">
+                NEXT QUERY <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
         )}
 
-      </div>
+      </main>
     </div>
   );
 }

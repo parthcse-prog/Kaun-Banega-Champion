@@ -110,50 +110,154 @@ export default function Dashboard() {
 
   if (gameState === 'intro') {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 max-w-6xl mx-auto w-full gap-8">
-        <div className="text-center mb-4">
-          <h1 className="text-4xl font-display font-black text-white tracking-tight drop-shadow-md">Select Game</h1>
-          <p className="text-slate-400 mt-2 font-medium">Choose a challenge to begin</p>
-        </div>
+      <div className="min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden text-slate-200 w-full"
+           style={{
+             backgroundColor: '#060913',
+             backgroundImage: 'radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%), radial-gradient(circle at 85% 20%, rgba(168, 85, 247, 0.09) 0%, transparent 45%), radial-gradient(circle at 50% 85%, rgba(0, 245, 155, 0.06) 0%, transparent 50%), radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px)',
+             backgroundSize: '100% 100%, 100% 100%, 100% 100%, 28px 28px'
+           }}>
+        <style>{`
+          .cyber-panel { background: rgba(11, 19, 38, 0.7); backdrop-filter: blur(14px); border: 1px solid rgba(0, 242, 254, 0.14); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7); position: relative; }
+          .cyber-panel:hover { border-color: rgba(0, 242, 254, 0.4); }
+        `}</style>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
-          {/* KBC Card */}
-          <div className="glass-card rounded-3xl p-6 text-center border-purple-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
-            <div>
-              <img src={gameLogo} alt="Kaun Banega Champion" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Test your CS knowledge with 20 levels of pure programming trivia. Can you beat the timer and reach the expert tier?</p>
+        {/* TopNavigationBar */}
+        <header className="sticky top-0 z-50 bg-[#060913]/90 backdrop-blur-md border-b border-cyan-500/20 px-4 lg:px-8 py-3.5 transition-all">
+          <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-400/40 shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)]">
+                  <svg className="w-6 h-6 text-[#00f2fe] transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#00f59b] rounded-full ring-2 ring-[#060913] animate-pulse"></span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-black tracking-wider text-white uppercase group-hover:text-[#00f2fe] transition-colors">MIET</span>
+                    <span className="text-xs px-1.5 py-0.5 rounded bg-cyan-500/10 text-[#00f2fe] font-mono font-semibold border border-cyan-500/30">GAMES ARENA</span>
+                  </div>
+                  <div className="text-[10px] tracking-widest text-slate-400 font-mono flex items-center gap-1.5">
+                    <span>ARENA 4K</span>
+                    <span className="text-cyan-500">//</span>
+                    <span className="text-[#00f59b]">PRO SHOWDOWN</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button onClick={startGame} className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyber-cyan to-blue-500 font-bold text-slate-900 text-sm hover:brightness-110 transition-all shadow-neonCyan">Play KBC</button>
           </div>
+        </header>
 
-
-          {/* Word Connect Card */}
-          <div className="glass-card rounded-3xl p-6 text-center border-emerald-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
-            <div>
-              <img src="/src/assets/Logos/concept_connect.png" alt="Concept Connect" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Solve generic educational crosswords. Discover terms across CSE, Law, Commerce, and Engineering streams.</p>
+        {/* MainContentArea */}
+        <main className="flex-grow max-w-[1440px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-8">
+          
+          <section className="space-y-4">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+              <div>
+                <div className="flex items-center gap-2 text-[#00f2fe] text-xs font-mono font-semibold tracking-wider uppercase">
+                  <span className="inline-block w-2 h-2 bg-[#00f2fe] rounded-sm"></span>
+                  ARCADE CABINET DIRECTORY
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mt-1">Select Game</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Choose a challenge to begin</p>
+              </div>
             </div>
-            <button onClick={() => window.location.href = '/word-connect'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(16,185,129,0.4)]">Play Word Connect</button>
-          </div>
 
-          {/* Concept Ninja Card */}
-          <div className="glass-card rounded-3xl p-6 text-center border-blue-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
-            <div>
-              <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Slice. Think. Master. Read the question and rapidly slice the correct flying concepts.</p>
-            </div>
-            <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(59,130,246,0.4)]">Play Concept Ninja</button>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+              
+              {/* KBC */}
+              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-cyan-500/20 hover:border-[#00f2fe] hover:shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)]">
+                <div className="space-y-5">
+                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#0c1836] to-[#080d1a] border border-cyan-500/30 flex items-center justify-center overflow-hidden group-hover:border-cyan-400 transition-colors">
+                    <div className="absolute inset-0 bg-[radial-gradient(rgba(0,242,254,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
+                      <img src={gameLogo} alt="Kaun Banega Champion" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(255,183,3,0.8)] transform group-hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f2fe] transition-colors">Kaun Banega Champion</h3>
+                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
+                      Test your CS knowledge with 20 levels of pure programming trivia. Can you beat the timer and reach the expert tier?
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-5 mt-auto">
+                  <button onClick={startGame} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Play KBC
+                  </button>
+                </div>
+              </article>
 
-          {/* Bingo Bonanza Card */}
-          <div className="glass-card rounded-3xl p-6 text-center border-indigo-500/25 shadow-neonPurple flex flex-col items-center justify-between hover:scale-[1.02] transition-transform duration-300">
-            <div>
-              <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-24 object-contain mb-4 drop-shadow-2xl mx-auto" />
-              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!</p>
+              {/* Word Connect */}
+              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-emerald-500/20 hover:border-[#00f59b] hover:shadow-[0_0_25px_-5px_rgba(0,245,155,0.4)]">
+                <div className="space-y-5">
+                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#09221d] to-[#080d1a] border border-emerald-500/30 flex items-center justify-center overflow-hidden group-hover:border-emerald-400 transition-colors">
+                    <div className="absolute inset-0 bg-[radial-gradient(rgba(0,245,155,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
+                      <img src="/src/assets/Logos/concept_connect.png" alt="Concept Connect" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(0,245,155,0.8)] transform group-hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f59b] transition-colors">Word Connect</h3>
+                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
+                      Solve generic educational crosswords. Discover terms across CSE, Law, Commerce, and Engineering streams.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-5 mt-auto">
+                  <button onClick={() => window.location.href = '/word-connect'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#00f59b] to-emerald-600 hover:from-teal-300 hover:to-emerald-500 text-slate-950 font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(0,245,155,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Play Word Connect
+                  </button>
+                </div>
+              </article>
+
+              {/* Concept Ninja */}
+              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-blue-500/20 hover:border-[#3b82f6] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.4)]">
+                <div className="space-y-5">
+                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#0c183b] to-[#080d1a] border border-blue-500/30 flex items-center justify-center overflow-hidden group-hover:border-blue-400 transition-colors">
+                    <div className="absolute inset-0 bg-[radial-gradient(rgba(59,130,246,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
+                      <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] transform group-hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#3b82f6] transition-colors">Concept Ninja</h3>
+                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
+                      Slice. Think. Master. Read the question and rapidly slice the correct flying concepts.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-5 mt-auto">
+                  <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(59,130,246,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Play Concept Ninja
+                  </button>
+                </div>
+              </article>
+
+              {/* Bingo Bonanza */}
+              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-pink-500/20 hover:border-[#ff007f] hover:shadow-[0_0_25px_-5px_rgba(255,0,127,0.4)]">
+                <div className="space-y-5">
+                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#240e21] to-[#080d1a] border border-pink-500/30 flex items-center justify-center overflow-hidden group-hover:border-pink-400 transition-colors">
+                    <div className="absolute inset-0 bg-[radial-gradient(rgba(255,0,127,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
+                      <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(255,0,127,0.8)] transform group-hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#ff007f] transition-colors">Bingo Bonanza</h3>
+                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
+                      Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-5 mt-auto">
+                  <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(255,0,127,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Play Bingo Bonanza
+                  </button>
+                </div>
+              </article>
+
             </div>
-            <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 font-bold text-white text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)]">Play Bingo Bonanza</button>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
     );
   }
