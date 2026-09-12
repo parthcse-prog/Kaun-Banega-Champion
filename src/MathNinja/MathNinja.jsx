@@ -110,7 +110,7 @@ export default function MathNinja() {
       const vy = -rand(580, 720) - Math.min(engine.current.combo * 10, 150);
       const vx = rand(-100, 100);
       
-      ctx.font = '700 16px sans-serif';
+      ctx.font = '800 14px "JetBrains Mono", sans-serif';
       const textWidth = ctx.measureText(text).width;
       
       engine.current.objects.push({
@@ -281,14 +281,12 @@ export default function MathNinja() {
         ctx.lineWidth = 2;
         
         ctx.beginPath();
-        const w = o.r * 2;
-        const h = 40;
-        ctx.roundRect(-w/2, -h/2, w, h, 20);
+        ctx.arc(0, 0, o.r, 0, Math.PI * 2);
         ctx.fill(); ctx.stroke();
         
         ctx.shadowBlur = 0;
         ctx.fillStyle = '#a5f3fc';
-        ctx.font = '700 13px "JetBrains Mono", sans-serif';
+        ctx.font = '800 14px "JetBrains Mono", sans-serif';
         ctx.textAlign = 'center'; 
         ctx.textBaseline = 'middle';
         ctx.fillText(o.text, 0, 1);

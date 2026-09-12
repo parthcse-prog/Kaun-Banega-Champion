@@ -272,74 +272,74 @@ export default function WordConnect() {
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-4xl mx-auto w-full px-4 sm:px-6 py-4 flex-1 flex flex-col gap-4 relative z-10 items-center">
+      <main className="max-w-4xl mx-auto w-full px-2 sm:px-4 py-2 flex-1 flex flex-col gap-2 relative z-10 items-center">
         
         {/* Round Status Bar */}
-        <section className="flex flex-wrap items-center justify-between gap-4 bg-[#080d1a]/70 border border-slate-800 rounded-2xl px-5 py-2.5 backdrop-blur shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] w-full">
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 font-bold text-xs tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+        <section className="flex flex-wrap items-center justify-between gap-2 bg-[#080d1a]/70 border border-slate-800 rounded-xl px-4 py-1.5 backdrop-blur shadow-[0_10px_30px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] w-full">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 font-bold text-[10px] tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
               ROUND {(currentQIdx + 1).toString().padStart(2, '0')} / {questions.length.toString().padStart(2, '0')}
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {questions.map((_, i) => (
-                <div key={i} className={`w-6 sm:w-8 h-2 rounded-full ${i < currentQIdx ? 'bg-cyan-400 shadow-[0_0_10px_#00f0ff]' : i === currentQIdx ? 'bg-cyan-400 animate-pulse ring-2 ring-cyan-400/50' : 'bg-slate-700/80'}`} />
+                <div key={i} className={`w-4 sm:w-6 h-1.5 rounded-full ${i < currentQIdx ? 'bg-cyan-400 shadow-[0_0_10px_#00f0ff]' : i === currentQIdx ? 'bg-cyan-400 animate-pulse ring-1 ring-cyan-400/50' : 'bg-slate-700/80'}`} />
               ))}
             </div>
           </div>
           
           <div className="flex items-center gap-3">
-            <button onClick={handleHint} className="bg-gradient-to-r from-[#171928] to-[#121424] hover:from-[#20243d] border border-amber-500/40 px-4 py-1.5 rounded-xl flex items-center gap-2 transition active:scale-95 shadow-lg group">
-              <Lightbulb className="w-4 h-4 text-amber-400 group-hover:text-amber-300" />
-              <span className="font-bold text-xs tracking-wider text-white">USE HINT</span>
+            <button onClick={handleHint} className="bg-gradient-to-r from-[#171928] to-[#121424] hover:from-[#20243d] border border-amber-500/40 px-3 py-1 rounded-lg flex items-center gap-1.5 transition active:scale-95 shadow-sm group">
+              <Lightbulb className="w-3.5 h-3.5 text-amber-400 group-hover:text-amber-300" />
+              <span className="font-bold text-[10px] tracking-wider text-white">USE HINT</span>
             </button>
           </div>
         </section>
 
         {/* Question Podium */}
-        <section className="relative bg-gradient-to-b from-[#0e172e]/90 to-[#070d1d]/95 border border-cyan-500/40 rounded-2xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl w-full">
+        <section className="relative bg-gradient-to-b from-[#0e172e]/90 to-[#070d1d]/95 border border-cyan-500/40 rounded-xl p-3 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl w-full">
           <div className="tech-bracket tech-bracket-tl"></div>
           <div className="tech-bracket tech-bracket-tr"></div>
           <div className="tech-bracket tech-bracket-bl"></div>
           <div className="tech-bracket tech-bracket-br"></div>
           
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-sm bg-cyan-400 shadow-[0_0_8px_#00f0ff]"></span>
-              <span className="text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase">QUERY</span>
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-sm bg-cyan-400 shadow-[0_0_8px_#00f0ff]"></span>
+              <span className="text-[10px] font-mono font-bold tracking-widest text-cyan-300 uppercase">QUERY</span>
             </div>
           </div>
           
-          <h2 className="text-center text-lg sm:text-2xl font-extrabold text-white tracking-wide max-w-3xl mx-auto leading-snug drop-shadow-md py-1">
+          <h2 className="text-center text-base sm:text-lg font-extrabold text-white tracking-wide max-w-3xl mx-auto leading-snug drop-shadow-md py-0.5">
             "{currentQ.question}"
           </h2>
           
-          <div className="mt-6 pt-4 border-t border-slate-800/80">
-            <div className="text-center mb-2">
-              <span className="text-[10px] font-mono tracking-widest uppercase text-cyan-400/80">SPELL ASSEMBLY MATRIX</span>
+          <div className="mt-3 pt-2 border-t border-slate-800/80">
+            <div className="text-center mb-1.5">
+              <span className="text-[9px] font-mono tracking-widest uppercase text-cyan-400/80">SPELL ASSEMBLY MATRIX</span>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
+            <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
               {targetChars.map((char, i) => {
                 if (char === ' ' || char === '-') {
-                  return <div key={i} className="w-8 h-12 flex items-center justify-center text-slate-600">-</div>;
+                  return <div key={i} className="w-6 h-8 flex items-center justify-center text-slate-600">-</div>;
                 }
                 const isRevealed = gameState === 'EXPLANATION' || feedback === 'CORRECT';
                 return (
-                  <div key={i} className={`slot-tile w-9 h-11 sm:w-12 sm:h-14 rounded-lg flex flex-col items-center justify-center ${isRevealed ? 'filled' : ''}`}>
+                  <div key={i} className={`slot-tile w-8 h-10 sm:w-10 sm:h-12 rounded-lg flex flex-col items-center justify-center ${isRevealed ? 'filled' : ''}`}>
                     {isRevealed ? (
-                      <span className="font-display font-black text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_0_8px_#00f0ff]">{char}</span>
+                      <span className="font-display font-black text-lg sm:text-xl text-cyan-300 drop-shadow-[0_0_8px_#00f0ff]">{char}</span>
                     ) : (
-                      <span className="font-display font-black text-xl sm:text-2xl text-slate-600">_</span>
+                      <span className="font-display font-black text-lg sm:text-xl text-slate-600">_</span>
                     )}
-                    <span className="text-[8px] font-mono text-cyan-400/60 leading-none">{(i + 1).toString().padStart(2, '0')}</span>
+                    <span className="text-[7px] font-mono text-cyan-400/60 leading-none">{(i + 1).toString().padStart(2, '0')}</span>
                   </div>
                 );
               })}
             </div>
             
             {/* Live Feedback Line */}
-            <div className={`mt-4 mx-auto max-w-xs h-8 flex items-center justify-center rounded-lg font-bold text-sm tracking-widest transition-all ${feedback === 'WRONG' ? 'bg-red-500/20 text-red-400 animate-[shake_0.5s_ease-in-out] border border-red-500/50' : feedback === 'CORRECT' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : selectedIds.length > 0 ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 shadow-[0_0_15px_rgba(0,240,255,0.2)]' : 'opacity-0'}`}>
+            <div className={`mt-2 mx-auto max-w-xs h-6 flex items-center justify-center rounded-md font-bold text-xs tracking-widest transition-all ${feedback === 'WRONG' ? 'bg-red-500/20 text-red-400 animate-[shake_0.5s_ease-in-out] border border-red-500/50' : feedback === 'CORRECT' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : selectedIds.length > 0 ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 shadow-[0_0_15px_rgba(0,240,255,0.2)]' : 'opacity-0'}`}>
               {currentWord || '...'}
             </div>
           </div>
@@ -347,7 +347,7 @@ export default function WordConnect() {
 
         {/* Circular Letter Tray */}
         <div 
-          className="relative mt-auto mb-12 touch-none"
+          className="relative mt-auto mb-2 touch-none"
           style={{ width: circleConfig.radius * 2 + 100, height: circleConfig.radius * 2 + 100 }}
         >
           {/* Connecting Lines SVG */}

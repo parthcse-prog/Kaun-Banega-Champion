@@ -252,36 +252,36 @@ export default function AlgoBingo({ token }) {
           <div className="w-full max-w-6xl flex flex-col items-center">
             
             {/* Chunky Arcade HUD Panel */}
-            <div className="w-full max-w-3xl bg-gradient-to-b from-[#181f42] to-[#0d122b] rounded-2xl p-3 border-2 border-indigo-600/40 shadow-[0_8px_20px_-3px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.2)] flex items-center justify-between mb-8">
-              <div className="flex items-center gap-2 pl-2">
-                <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-400 to-yellow-200 border-2 border-yellow-100 flex items-center justify-center text-slate-950 font-black shadow-[0_0_14px_rgba(251,191,36,0.6)]">
+            <div className="w-full max-w-3xl bg-gradient-to-b from-[#181f42] to-[#0d122b] rounded-2xl p-3 border-2 border-indigo-600/40 shadow-[0_8px_20px_-3px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.2)] flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3 pl-2">
+                <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-400 to-yellow-200 border-2 border-yellow-100 flex items-center justify-center text-slate-950 font-black shadow-[0_0_14px_rgba(251,191,36,0.6)] text-xl md:text-2xl">
                   ★
                   <div className="absolute inset-0 rounded-full bg-white/30 mix-blend-overlay"></div>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-amber-400/90 block -mb-1">Score</span>
-                  <span className="text-xl md:text-2xl leading-tight font-black text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">{session.score}</span>
+                  <span className="text-xs md:text-sm uppercase font-mono font-extrabold tracking-wider text-amber-400/90 block -mb-1 md:-mb-2">Score</span>
+                  <span className="text-3xl md:text-5xl leading-tight font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{session.score}</span>
                 </div>
               </div>
 
               <div className="text-center px-4">
-                <span className="text-[10px] uppercase font-mono font-extrabold text-cyan-400 block -mb-1">Daubed</span>
-                <span className="text-xl md:text-2xl font-black text-white tracking-wide">
+                <span className="text-xs md:text-sm uppercase font-mono font-extrabold text-cyan-400 block -mb-1 md:-mb-2">Daubed</span>
+                <span className="text-3xl md:text-5xl font-black text-white tracking-wide">
                   <span className="text-emerald-400">{Object.keys(session.filledBoxes).length}</span><span className="text-slate-500">/</span>9
                 </span>
               </div>
 
-              <div className="flex items-center gap-2 pr-2 bg-slate-950/70 border border-emerald-500/40 rounded-xl px-3 py-1.5 shadow-inner">
-                <div className="relative w-4 h-4 flex items-center justify-center">
-                  <div className={`w-4 h-4 rounded-full border-2 border-t-transparent animate-spin ${timeLeft <= 30 ? 'border-red-500' : 'border-emerald-500'}`}></div>
+              <div className="flex items-center gap-3 pr-2 bg-slate-950/70 border border-emerald-500/40 rounded-xl px-4 py-2 shadow-inner">
+                <div className="relative w-5 h-5 flex items-center justify-center">
+                  <div className={`w-5 h-5 rounded-full border-[3px] border-t-transparent animate-spin ${timeLeft <= 30 ? 'border-red-500' : 'border-emerald-500'}`}></div>
                 </div>
-                <div className={`font-mono text-lg font-black tracking-tight ${timeLeft <= 30 ? 'text-red-500 animate-pulse' : 'text-emerald-300'}`}>
+                <div className={`font-mono text-2xl md:text-3xl font-black tracking-tight ${timeLeft <= 30 ? 'text-red-500 animate-pulse' : 'text-emerald-300'}`}>
                   {formatTime(timeLeft)}
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row items-start justify-center gap-8 w-full">
+            <div className="flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 w-full">
               {/* Left Side: Arcade Grid */}
               <div className="relative bg-gradient-to-b from-[#1c2247] via-[#131735] to-[#0c0f24] p-3 md:p-5 rounded-3xl border-2 border-amber-400/70 shadow-[0_10px_35px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.2)] w-full flex-1 max-w-3xl">
                 {/* Golden Corner Rivets */}
@@ -290,7 +290,7 @@ export default function AlgoBingo({ token }) {
                 <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-b from-yellow-200 to-amber-600 border border-yellow-100 shadow-sm hidden md:block"></div>
                 <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-b from-yellow-200 to-amber-600 border border-yellow-100 shadow-sm hidden md:block"></div>
                 
-                <div className="grid grid-cols-[80px_1fr_1fr_1fr] md:grid-cols-[120px_1fr_1fr_1fr] gap-2 md:gap-3 w-full">
+                <div className="grid grid-cols-[80px_1fr_1fr_1fr] md:grid-cols-[110px_1fr_1fr_1fr] gap-2 w-full">
                   {/* Top-left empty */}
                   <div className="flex items-end justify-center pb-1">
                      <span className="text-[9px] md:text-xs font-mono uppercase text-indigo-300 font-black tracking-tighter bg-indigo-950/80 px-2 py-1 rounded border border-indigo-700/40">
@@ -307,7 +307,7 @@ export default function AlgoBingo({ token }) {
                     ];
                     return (
                       <div key={`col-${c.id}`} className={`bg-gradient-to-b ${colors[i % 3]} border-t border-b-4 rounded-xl py-2 px-1 flex flex-col items-center justify-center text-center`}>
-                        <span className="text-[10px] md:text-sm font-black text-white leading-tight uppercase drop-shadow">{c.label}</span>
+                        <span className="text-[9px] md:text-xs font-black text-white leading-tight uppercase drop-shadow">{c.label}</span>
                       </div>
                     );
                   })}
@@ -316,8 +316,8 @@ export default function AlgoBingo({ token }) {
                   {gridConfig.rows.map((rowCat, rIdx) => (
                     <React.Fragment key={`row-${rowCat.id}`}>
                       {/* Row Header */}
-                      <div className="bg-gradient-to-r from-indigo-950 to-slate-900 border border-indigo-400/40 rounded-xl flex flex-col justify-center items-center p-1 md:p-2 text-center shadow-inner">
-                        <span className="font-mono text-[10px] md:text-sm font-black text-amber-300 uppercase">{rowCat.label}</span>
+                      <div className="bg-gradient-to-r from-indigo-950 to-slate-900 border border-indigo-400/40 rounded-xl flex flex-col justify-center items-center p-1 md:p-2 text-center shadow-inner min-h-[4.5rem] lg:min-h-[5.5rem]">
+                        <span className="font-mono text-[9px] md:text-xs font-black text-amber-300 uppercase leading-tight">{rowCat.label}</span>
                       </div>
                       
                       {/* Cells */}
@@ -332,9 +332,9 @@ export default function AlgoBingo({ token }) {
                           const isValid = draggedItem.validCategoryIds.includes(rowCatId) && draggedItem.validCategoryIds.includes(colCatId);
                           
                           if (isValid) {
-                            dragClasses = 'bg-slate-800/80 border border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.4)] scale-105';
+                            dragClasses = 'bg-slate-800/80 border border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.4)] scale-105 z-10';
                           } else {
-                            dragClasses = 'bg-red-950/60 border-2 border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.5)] scale-105';
+                            dragClasses = 'bg-red-950/60 border-2 border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.5)] scale-105 z-10';
                           }
                         }
                         
@@ -344,7 +344,7 @@ export default function AlgoBingo({ token }) {
                             onDragOver={(e) => handleDragOver(e, rIdx, cIdx)}
                             onDragLeave={handleDragLeave}
                             onDrop={(e) => handleDrop(e, rIdx, cIdx)}
-                            className={`aspect-square rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 text-center transition-all relative overflow-hidden ${
+                            className={`min-h-[4.5rem] lg:min-h-[5.5rem] rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 text-center transition-all relative overflow-hidden ${
                               isFilled 
                                 ? 'bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-950 border-2 border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.35)]' 
                                 : dragClasses
@@ -361,8 +361,8 @@ export default function AlgoBingo({ token }) {
                                   ×
                                 </button>
                                 <div className="relative z-10 w-full flex flex-col justify-center items-center pointer-events-none">
-                                  <span className="text-[10px] md:text-sm font-black text-white tracking-tight leading-tight">{itemName}</span>
-                                  <span className="text-[7px] md:text-[9px] font-black text-emerald-300 font-mono tracking-wider uppercase bg-emerald-950/80 px-1 rounded mt-1 border border-emerald-600/40">DAUBED!</span>
+                                  <span className="text-[9px] md:text-sm font-black text-white tracking-tight leading-tight">{itemName}</span>
+                                  <span className="text-[7px] md:text-[8px] font-black text-emerald-300 font-mono tracking-wider uppercase bg-emerald-950/80 px-1 rounded mt-1 border border-emerald-600/40">DAUBED!</span>
                                 </div>
                               </>
                             ) : (
@@ -376,9 +376,9 @@ export default function AlgoBingo({ token }) {
                 </div>
               </div>
               
-              {/* Right Side: Algorithm Bank */}
-              <div className="w-full lg:w-80 shrink-0 bg-gradient-to-b from-[#141a3a] via-[#0d1228] to-[#080a18] border-t-2 border-x-2 lg:border-2 border-indigo-500/50 rounded-t-3xl lg:rounded-3xl p-4 md:p-6 shadow-[0_-12px_30px_rgba(0,0,0,0.8)] lg:shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
-                <div className="flex items-center justify-between mb-4">
+              {/* Right Side: Algo Rack */}
+              <div className="w-full lg:w-80 xl:w-96 shrink-0 bg-gradient-to-b from-[#141a3a] via-[#0d1228] to-[#080a18] border-t-2 border-x-2 lg:border-2 border-indigo-500/50 rounded-t-3xl lg:rounded-3xl p-3 md:p-5 shadow-[0_-12px_30px_rgba(0,0,0,0.8)] lg:shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">🗂️</span>
                     <h2 className="text-sm uppercase tracking-wider text-amber-300 font-black drop-shadow">
@@ -390,7 +390,7 @@ export default function AlgoBingo({ token }) {
                   </span>
                 </div>
 
-                <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 custom-scrollbar">
+                <div className="flex flex-row lg:grid lg:grid-cols-2 gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 custom-scrollbar">
                   {gridConfig.bankItems && gridConfig.bankItems.map(item => {
                     const isUsed = Object.values(session.filledBoxes).includes(item.name);
                     if (isUsed) return null; 
@@ -401,15 +401,15 @@ export default function AlgoBingo({ token }) {
                         draggable={!isUsed}
                         onDragStart={(e) => handleDragStart(e, item)}
                         onDragEnd={handleDragEnd}
-                        className="flex-shrink-0 w-40 lg:w-full rounded-2xl p-3 bg-gradient-to-b from-slate-800 to-slate-950 border border-slate-600 border-b-4 border-b-slate-950 shadow-[0_4px_8px_rgba(0,0,0,0.4)] text-left flex flex-col justify-center cursor-grab active:cursor-grabbing hover:border-indigo-400 active:translate-y-1 transition-all group"
+                        className="flex-shrink-0 w-32 lg:w-full rounded-xl p-2 bg-gradient-to-b from-slate-800 to-slate-950 border border-slate-600 border-b-4 border-b-slate-950 shadow-[0_2px_6px_rgba(0,0,0,0.4)] text-center flex flex-col justify-center cursor-grab active:cursor-grabbing hover:border-indigo-400 active:translate-y-1 transition-all group min-h-[3rem]"
                       >
-                        <div className="font-black text-sm text-slate-200 leading-tight group-hover:text-indigo-200">{item.name}</div>
+                        <div className="font-black text-xs text-slate-200 leading-tight group-hover:text-indigo-200">{item.name}</div>
                       </div>
                     );
                   })}
                 </div>
-                <div className="text-center mt-4 hidden lg:block">
-                  <span className="text-[10px] text-indigo-300/80 font-mono font-semibold">Drag cards into the grid</span>
+                <div className="text-center mt-3 hidden lg:block">
+                  <span className="text-[9px] text-indigo-300/80 font-mono font-semibold">Drag cards into the grid</span>
                 </div>
               </div>
             </div>
