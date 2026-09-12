@@ -175,7 +175,7 @@ export default function Dashboard() {
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f2fe] transition-colors">Kaun Banega Champion</h3>
                     <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Test your CS knowledge with 20 levels of pure programming trivia. Can you beat the timer and reach the expert tier?
+                      Test your knowledge with 20 questions of trivia. Can you beat the timer and reach the expert tier?
                     </p>
                   </div>
                 </div>
@@ -198,7 +198,7 @@ export default function Dashboard() {
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f59b] transition-colors">Word Connect</h3>
                     <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Solve generic educational crosswords. Discover terms across CSE, Law, Commerce, and Engineering streams.
+                     Connect the letters to form a word in intended order and apply the concepts that u have learned.
                     </p>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function Dashboard() {
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#3b82f6] transition-colors">Concept Ninja</h3>
                     <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Slice. Think. Master. Read the question and rapidly slice the correct flying concepts.
+                      Slice. Think. Master. Rapidly slice the correct flying concepts.
                     </p>
                   </div>
                 </div>
