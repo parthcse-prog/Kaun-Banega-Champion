@@ -35,6 +35,27 @@ export default function MainLayout({ token, onLogout }) {
     }
   }, [token]);
 
+  // Search Logic
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const availableGames = [
+    { name: 'Kaun Banega Champion', path: '/' },
+    { name: 'Word Connect', path: '/word-connect' },
+    { name: 'Concept Ninja', path: '/math-ninja' },
+    { name: 'Bingo Bonanza', path: '/algo-bingo' },
+    { name: "Who's That?!", path: '/whos-that' },
+    { name: 'Knife Hit', path: '/knife-hit' }
+  ];
+
+  const searchResults = availableGames.filter(game => 
+    game.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSelectGame = (path) => {
+    navigate(path);
+    setSearchQuery(''); // Close dropdown
+  };
+
   return (
     <div className="bg-brand-deep text-slate-100 font-sans min-h-screen flex flex-col relative overflow-x-hidden selection:bg-amber-500 selection:text-white w-full">
       {/* AmbientAtmosphere for whole layout */}
@@ -57,15 +78,39 @@ export default function MainLayout({ token, onLogout }) {
           </Link>
         </div>
         
-        <div className="flex-1 flex justify-center px-4 max-w-lg">
+        <div className="flex-1 flex justify-center px-4 max-w-lg relative">
           <div className="input-glass rounded-full flex items-center px-4 py-2 w-full group">
             <Search className="w-4 h-4 text-slate-400 group-focus-within:text-amber-400 transition-colors mr-2 shrink-0" />
             <input 
               type="text" 
               placeholder="Search game" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-transparent border-0 p-0 text-sm text-white placeholder:text-slate-500 focus:ring-0 focus:outline-none font-medium"
             />
           </div>
+          {/* Search Dropdown */}
+          {searchQuery && (
+            <div className="absolute top-full mt-2 w-full max-w-lg bg-slate-900/95 border border-slate-700/80 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl overflow-hidden z-[100]">
+              {searchResults.length > 0 ? (
+                <div className="flex flex-col p-2">
+                  {searchResults.map((game, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelectGame(game.path)}
+                      className="text-left px-4 py-3 hover:bg-cyan-500/10 rounded-lg text-slate-200 hover:text-cyan-400 transition-colors font-medium border border-transparent hover:border-cyan-500/20"
+                    >
+                      {game.name}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-4 text-center text-slate-500 text-sm font-medium">
+                  No games found matching "{searchQuery}"
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
