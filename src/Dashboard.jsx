@@ -255,6 +255,41 @@ export default function Dashboard() {
                 </div>
               </article>
 
+              {/* Knife Hit */}
+              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-amber-500/20 hover:border-[#F59E0B] hover:shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)]">
+                <div className="space-y-5">
+                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#2a1a00] to-[#080d1a] border border-amber-500/30 flex items-center justify-center overflow-hidden group-hover:border-amber-400 transition-colors">
+                    <div className="absolute inset-0 bg-[radial-gradient(rgba(245,158,11,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
+                      <div className="h-20 flex items-center justify-center">
+                        <svg viewBox="0 0 64 64" className="h-20 w-auto drop-shadow-[0_0_15px_rgba(245,158,11,0.8)] transform group-hover:scale-110 transition-transform">
+                          <circle cx="32" cy="32" r="14" fill="none" stroke="#F59E0B" strokeWidth="2" />
+                          <circle cx="32" cy="32" r="8" fill="none" stroke="#D97706" strokeWidth="1.5" strokeDasharray="3 3" />
+                          <circle cx="32" cy="32" r="3" fill="#FBBF24" />
+                          <line x1="32" y1="18" x2="32" y2="6" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="32" cy="5" r="4" fill="#EF4444" />
+                          <line x1="32" y1="46" x2="32" y2="58" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="32" cy="61" r="4" fill="#EF4444" />
+                          <line x1="18" y1="32" x2="6" y2="32" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="3" cy="32" r="4" fill="#EF4444" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#F59E0B] transition-colors">Knife Hit</h3>
+                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
+                      Throw knives at the rotating target without hitting another knife. How far can you get?
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-5 mt-auto">
+                  <button onClick={() => window.location.href = '/knife-hit'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Play Knife Hit
+                  </button>
+                </div>
+              </article>
+
             </div>
           </section>
         </main>

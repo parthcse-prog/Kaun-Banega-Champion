@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import WordConnect from './WordConnect/WordConnect';
 import MathNinja from './MathNinja/MathNinja';
 import AlgoBingo from './AlgoBingo/AlgoBingo';
+import KnifeHit from './KnifeHit/KnifeHit';
 import './index.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="word-connect" element={<WordConnect />} />
           <Route path="math-ninja" element={<MathNinja />} />
           <Route path="algo-bingo" element={<AlgoBingo token={token} />} />
+          <Route path="knife-hit" element={<KnifeHit />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
