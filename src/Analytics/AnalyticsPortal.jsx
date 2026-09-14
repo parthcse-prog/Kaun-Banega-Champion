@@ -27,6 +27,15 @@ export default function AnalyticsPortal() {
   const totalTimePlayed = analyticsData.reduce((acc, curr) => acc + curr.timePlayed, 0);
   const gamesWon = analyticsData.filter(d => d.isWin).length;
 
+  const gameMaxXP = {};
+  analyticsData.forEach(entry => {
+    const xp = entry.xp || 0;
+    if (!gameMaxXP[entry.gameName] || xp > gameMaxXP[entry.gameName]) {
+      gameMaxXP[entry.gameName] = xp;
+    }
+  });
+  const totalGrandmasterXP = Object.values(gameMaxXP).reduce((sum, val) => sum + val, 0);
+
   const formatTime = (seconds) => {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
@@ -34,6 +43,18 @@ export default function AnalyticsPortal() {
     if (h > 0) return `${h}h ${m}m ${s}s`;
     if (m > 0) return `${m}m ${s}s`;
     return `${s}s`;
+  };
+
+  const getXPReason = (gameName, score, isWin) => {
+    if (score === 0 && !isWin) return "Needs score/win for XP";
+    switch (gameName) {
+      case 'Kaun Banega Champion': return "Answers + Speed Bonus";
+      case 'Bingo Bonanza': return "Grid Cleared + Speed Bonus";
+      case 'Concept Ninja': return "High Score + Lives Bonus";
+      case "Who's That?!": return "Guesses + Speed Bonus";
+      case 'Word Connect': return "Words + Speed Bonus";
+      default: return "Base completion + speed bonus";
+    }
   };
 
   const toggleExpand = (gameName) => {
@@ -48,18 +69,22 @@ export default function AnalyticsPortal() {
     <div className="min-h-screen bg-slate-950 text-slate-100 p-8">
       <h1 className="text-3xl font-bold mb-8 text-amber-400">Analytics Portal</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md">
-          <h2 className="text-slate-400 font-semibold mb-2">Total Games Played</h2>
-          <p className="text-4xl font-black text-cyan-400">{totalGamesPlayed}</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <div className="bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-800 shadow-md">
+          <h2 className="text-slate-400 font-semibold mb-2 text-sm sm:text-base">Grandmaster XP</h2>
+          <p className="text-3xl sm:text-4xl font-black text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{totalGrandmasterXP}</p>
         </div>
-        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md">
-          <h2 className="text-slate-400 font-semibold mb-2">Total Time Played</h2>
-          <p className="text-4xl font-black text-emerald-400">{formatTime(totalTimePlayed)}</p>
+        <div className="bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-800 shadow-md">
+          <h2 className="text-slate-400 font-semibold mb-2 text-sm sm:text-base">Total Games</h2>
+          <p className="text-3xl sm:text-4xl font-black text-cyan-400">{totalGamesPlayed}</p>
         </div>
-        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md">
-          <h2 className="text-slate-400 font-semibold mb-2">Games Won</h2>
-          <p className="text-4xl font-black text-purple-400">{gamesWon}</p>
+        <div className="bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-800 shadow-md">
+          <h2 className="text-slate-400 font-semibold mb-2 text-sm sm:text-base">Time Played</h2>
+          <p className="text-3xl sm:text-4xl font-black text-emerald-400">{formatTime(totalTimePlayed)}</p>
+        </div>
+        <div className="bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-800 shadow-md">
+          <h2 className="text-slate-400 font-semibold mb-2 text-sm sm:text-base">Games Won</h2>
+          <p className="text-3xl sm:text-4xl font-black text-purple-400">{gamesWon}</p>
         </div>
       </div>
 
@@ -70,6 +95,7 @@ export default function AnalyticsPortal() {
           
           const gameTimePlayed = gameData.reduce((acc, curr) => acc + curr.timePlayed, 0);
           const gameWins = gameData.filter(d => d.isWin).length;
+          const gameMax = gameMaxXP[game.name] || 0;
           const isExpanded = expandedGame === game.name;
 
           return (
@@ -85,6 +111,7 @@ export default function AnalyticsPortal() {
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-1">{game.name}</h2>
                     <div className="flex flex-wrap gap-4 text-sm font-medium">
+                      <span className="text-slate-400">Best XP: <span className="text-amber-400 font-bold">{gameMax}</span></span>
                       <span className="text-slate-400">Plays: <span className="text-cyan-400">{gameData.length}</span></span>
                       <span className="text-slate-400">Time: <span className="text-emerald-400">{formatTime(gameTimePlayed)}</span></span>
                       <span className="text-slate-400">Wins: <span className="text-purple-400">{gameWins}</span></span>
@@ -104,6 +131,7 @@ export default function AnalyticsPortal() {
                         <th className="p-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Date</th>
                         <th className="p-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Score</th>
                         <th className="p-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Time Played</th>
+                        <th className="p-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">XP Earned</th>
                         <th className="p-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Result</th>
                       </tr>
                     </thead>
@@ -113,6 +141,14 @@ export default function AnalyticsPortal() {
                           <td className="p-4 text-slate-300 font-mono text-sm">{new Date(entry.date).toLocaleString()}</td>
                           <td className="p-4 text-cyan-400 font-bold">{entry.score}</td>
                           <td className="p-4 text-slate-300 font-mono text-sm">{formatTime(entry.timePlayed)}</td>
+                          <td className="p-4">
+                            <div className="flex flex-col">
+                              <span className="text-amber-400 font-bold tracking-wide">{entry.xp || 0} XP</span>
+                              <span className="text-[10px] text-slate-500 uppercase tracking-widest mt-1 font-semibold">
+                                {getXPReason(game.name, entry.score, entry.isWin)}
+                              </span>
+                            </div>
+                          </td>
                           <td className="p-4">
                             <span className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider ${entry.isWin ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
                               {entry.isWin ? 'WIN' : 'LOSS'}

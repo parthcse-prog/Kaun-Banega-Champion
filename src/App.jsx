@@ -10,6 +10,7 @@ import AlgoBingo from './AlgoBingo/AlgoBingo';
 import KnifeHit from './KnifeHit/KnifeHit';
 import WhosThat from './WhosThat/WhosThat';
 import AnalyticsPortal from './Analytics/AnalyticsPortal';
+import Leaderboard from './Leaderboard/Leaderboard';
 import './index.css';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="knife-hit" element={<KnifeHit />} />
           <Route path="whos-that" element={<WhosThat />} />
           <Route path="analytics" element={<AnalyticsPortal />} />
+          <Route path="leaderboard" element={<Leaderboard token={token} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

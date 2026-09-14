@@ -88,6 +88,53 @@ app.get('/api/whosthat/cs', async (req, res) => {
   }
 });
 
+// LEADERBOARD ENDPOINTS
+app.post('/api/leaderboard/submit', async (req, res) => {
+  try {
+    if (!db) return res.status(500).json({ error: "Database not connected yet" });
+    
+    const { pi360_id, name, avatar, gameName, xp } = req.body;
+    if (!pi360_id) return res.status(400).json({ error: "missing pi360_id" });
+
+    const collection = db.collection('leaderboard');
+    const user = await collection.findOne({ _id: pi360_id });
+    
+    let games = user?.games || {};
+    // Update only if the new XP is higher for this game
+    if (!games[gameName] || xp > games[gameName]) {
+      games[gameName] = xp;
+    }
+    
+    const totalXP = Object.values(games).reduce((a, b) => a + b, 0);
+    
+    await collection.updateOne(
+      { _id: pi360_id },
+      { $set: { name, avatar, games, totalXP, lastUpdated: new Date() } },
+      { upsert: true }
+    );
+    
+    res.json({ success: true, totalXP });
+  } catch (error) {
+    console.error("Error submitting score:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get('/api/leaderboard', async (req, res) => {
+  try {
+    if (!db) return res.status(500).json({ error: "Database not connected yet" });
+    
+    const collection = db.collection('leaderboard');
+    // Fetch top 50, sort by totalXP descending
+    const topUsers = await collection.find({}).sort({ totalXP: -1 }).limit(50).toArray();
+    
+    res.json(topUsers);
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Backend server running at http://localhost:${port}`);
 });
