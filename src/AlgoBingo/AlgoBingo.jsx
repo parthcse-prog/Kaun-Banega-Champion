@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Storage } from './Storage';
 import { FALLBACK_BINGO_QUESTIONS } from './Data';
+import { saveGameAnalytics } from '../utils/analyticsStore';
 
 export default function AlgoBingo({ token }) {
   const contentSetId = "cs-algo-bingo";
@@ -48,6 +49,13 @@ export default function AlgoBingo({ token }) {
     }
     return () => clearInterval(timer);
   }, [gameState, timeLeft]);
+
+  useEffect(() => {
+    if (gameState === 'WON' || gameState === 'LOST') {
+      const timePlayed = 180 - timeLeft;
+      saveGameAnalytics('Bingo Bonanza', session?.score || 0, timePlayed, gameState === 'WON');
+    }
+  }, [gameState]);
 
   const generateValidGrid = (categories, items) => {
     for (let attempt = 0; attempt < 50000; attempt++) {

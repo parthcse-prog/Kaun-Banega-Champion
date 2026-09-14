@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './WhosThat.css';
+import { saveGameAnalytics } from '../utils/analyticsStore';
 
 const DEFAULT_PEOPLE = [
   { name: "Mark Zuckerberg", initials: "MZ", color: "#5a7ee6", hint: "Co-founded a social network from his Harvard dorm room in 2004; the company later renamed itself Meta." },
@@ -72,6 +73,15 @@ export default function WhosThat() {
   
   const [photoData, setPhotoData] = useState({ url: null, error: null, loading: false, loaded: false });
   const [shake, setShake] = useState(false);
+  const [gameStartTime, setGameStartTime] = useState(Date.now());
+
+  useEffect(() => {
+    if (isGameFinished) {
+      const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
+      const isWin = score === (order.length || DEFAULT_PEOPLE.length);
+      saveGameAnalytics("Who's That?!", score, timePlayed, isWin);
+    }
+  }, [isGameFinished]);
 
   useEffect(() => {
     const initGame = async () => {
@@ -89,6 +99,7 @@ export default function WhosThat() {
       const shuffledIndices = fetchedPeople.map((_, i) => i).sort(() => Math.random() - 0.5);
       setPeople(fetchedPeople);
       setOrder(shuffledIndices);
+      setGameStartTime(Date.now());
     };
     initGame();
   }, []);
@@ -189,6 +200,7 @@ export default function WhosThat() {
     setGuess('');
     setFeedback({ text: '', type: 'neutral' });
     setTimeLeft(TIME_LIMIT);
+    setGameStartTime(Date.now());
   };
 
   const blurLevels = [6, 4, 2.5, 1];

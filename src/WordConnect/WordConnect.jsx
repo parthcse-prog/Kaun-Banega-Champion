@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { RotateCcw, Lightbulb, CheckCircle, ChevronRight, GraduationCap } from 'lucide-react';
 import { MOCK_PROFILES, QUESTION_BANK } from './Data';
+import { saveGameAnalytics } from '../utils/analyticsStore';
 
 export default function WordConnect() {
   const cseProfile = MOCK_PROFILES.find(p => p.stream === 'CSE') || MOCK_PROFILES[0];
@@ -20,6 +21,14 @@ export default function WordConnect() {
   const [isDragging, setIsDragging] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [feedback, setFeedback] = useState(null); // 'WRONG', 'CORRECT'
+  const [gameStartTime, setGameStartTime] = useState(Date.now());
+
+  useEffect(() => {
+    if (gameState === 'SUMMARY') {
+      const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
+      saveGameAnalytics('Word Connect', score, timePlayed, true);
+    }
+  }, [gameState]);
 
   const svgRef = useRef(null);
 
@@ -34,6 +43,7 @@ export default function WordConnect() {
     setCurrentQIdx(0);
     setScore(0);
     setGameState('PLAYING');
+    setGameStartTime(Date.now());
     initPuzzle(filtered[0].answer);
   };
 

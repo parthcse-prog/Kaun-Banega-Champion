@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, Link } from 'react-router-dom';
-import { Search, User as UserIcon, LogOut } from 'lucide-react';
+import { Search, User as UserIcon, LogOut, BarChart2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import websiteLogo from './assets/Logos/MIET Games.png';
 import collegeLogo from './assets/Logos/college_logo.png';
@@ -69,6 +69,19 @@ export default function MainLayout({ token, onLogout }) {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
+          <button 
+            onClick={() => navigate('/analytics')} 
+            className="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-slate-800/50 transition-colors group"
+            title="View Analytics"
+          >
+            <span className="hidden sm:block text-xs font-semibold text-slate-400 group-hover:text-amber-400 transition-colors">
+              Analytics
+            </span>
+            <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-800 border-2 border-transparent group-hover:border-amber-400/50 transition-colors flex items-center justify-center shrink-0">
+              <BarChart2 size={16} className="text-slate-400 group-hover:text-amber-400" />
+            </div>
+          </button>
+          
           <button 
             onClick={() => navigate('/profile')} 
             className="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-slate-800/50 transition-colors group"

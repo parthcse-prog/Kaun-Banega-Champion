@@ -9,6 +9,7 @@ import MathNinja from './MathNinja/MathNinja';
 import AlgoBingo from './AlgoBingo/AlgoBingo';
 import KnifeHit from './KnifeHit/KnifeHit';
 import WhosThat from './WhosThat/WhosThat';
+import AnalyticsPortal from './Analytics/AnalyticsPortal';
 import './index.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="algo-bingo" element={<AlgoBingo token={token} />} />
           <Route path="knife-hit" element={<KnifeHit />} />
           <Route path="whos-that" element={<WhosThat />} />
+          <Route path="analytics" element={<AnalyticsPortal />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

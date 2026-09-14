@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { QUESTIONS } from './Data';
+import { saveGameAnalytics } from '../utils/analyticsStore';
 
 export default function MathNinja() {
   const canvasRef = useRef(null);
   
   // UI State
   const [gameState, setGameState] = useState('MENU'); // MENU, PLAYING, RESULTS
+  const [gameStartTime, setGameStartTime] = useState(null);
 
   const [allQuestions, setAllQuestions] = useState(QUESTIONS);
   const [currentQIndex, setCurrentQIndex] = useState(0);
@@ -95,6 +97,7 @@ export default function MathNinja() {
     setLives(3);
     setTimeLeft(30);
     setMissedConcepts([]);
+    setGameStartTime(Date.now());
     setGameState('PLAYING');
   };
 
@@ -102,6 +105,11 @@ export default function MathNinja() {
     engine.current.gameOver = true;
     setScore(engine.current.score);
     setMissedConcepts([...engine.current.missed]);
+    if (gameStartTime) {
+      const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
+      const isWin = engine.current.lives > 0; // Win if didn't lose all lives
+      saveGameAnalytics('Concept Ninja', engine.current.score, timePlayed, isWin);
+    }
     setGameState('RESULTS');
   };
 

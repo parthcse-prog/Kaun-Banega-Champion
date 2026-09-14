@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { questions, backupQuestions } from './questions';
 import gameLogo from './assets/Logos/game_Logo.png';
+import { saveGameAnalytics } from './utils/analyticsStore';
 
 const pointsLadder = [
   "1,000", "2,000", "3,000", "5,000", "10,000",
@@ -13,6 +14,7 @@ export default function Dashboard() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [gameState, setGameState] = useState('intro'); // intro, playing, gameover, completed
   const [timeLeft, setTimeLeft] = useState(0);
+  const [gameStartTime, setGameStartTime] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [eliminatedOptions, setEliminatedOptions] = useState([]);
@@ -42,6 +44,13 @@ export default function Dashboard() {
     }
   }, [timeLeft, gameState, selectedOption]);
 
+  useEffect(() => {
+    if (gameState === 'gameover' || gameState === 'completed') {
+      const timePlayed = gameStartTime ? Math.floor((Date.now() - gameStartTime) / 1000) : 0;
+      saveGameAnalytics('Kaun Banega Champion', score, timePlayed, gameState === 'completed');
+    }
+  }, [gameState]);
+
   const startGame = () => {
     setCurrentQuestionIndex(0);
     setActiveQuestion(questions[0]);
@@ -52,6 +61,7 @@ export default function Dashboard() {
     setSelectedOption(null);
     setEliminatedOptions([]);
     setIsCorrect(null);
+    setGameStartTime(Date.now());
   };
 
   const handleOptionClick = (optionIndex) => {
