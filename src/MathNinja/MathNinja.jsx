@@ -113,7 +113,7 @@ export default function MathNinja() {
     setGameState('RESULTS');
   };
 
-  // --- PHYSICS ENGINE LOOP ---
+    // --- PHYSICS ENGINE LOOP ---
   useEffect(() => {
     if (gameState !== 'PLAYING') return;
 
@@ -123,8 +123,15 @@ export default function MathNinja() {
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
     const H = canvas.height;
-    // Lower gravity makes objects float slower in the air
     const GRAVITY = 380;
+
+    const FRUIT_COLORS = [
+      '239, 68, 68', // Red
+      '249, 115, 22', // Orange
+      '234, 179, 8', // Yellow
+      '34, 197, 94', // Green
+      '168, 85, 247' // Purple
+    ];
 
     const burst = (x, y, color) => {
       for(let i=0; i<14; i++){
@@ -148,22 +155,24 @@ export default function MathNinja() {
       const text = pool[Math.floor(Math.random() * pool.length)];
       
       const x = rand(100, W - 100);
-      // Adjusted velocity to match the new lower gravity so it still reaches the top half but moves slower overall
       const vy = -rand(580, 720) - Math.min(engine.current.combo * 10, 150);
       const vx = rand(-100, 100);
       
-      ctx.font = '800 14px "JetBrains Mono", sans-serif';
+      ctx.font = 'bold 16px "Arial", sans-serif';
       const textWidth = ctx.measureText(text).width;
       
+      const color = FRUIT_COLORS[Math.floor(Math.random() * FRUIT_COLORS.length)];
+
       engine.current.objects.push({
         id: engine.current.nextId++,
         text,
         isCorrect,
+        color, // Fruit color
         x, y: H + 30,
         vx, vy,
-        r: Math.max(textWidth / 2 + 10, 30), // Hitbox radius based on text
-        rot: rand(-0.2, 0.2), // Slight rotation
-        vrot: rand(-1, 1),
+        r: Math.max(textWidth / 2 + 15, 35), // slightly bigger hitboxes for "fruits"
+        rot: rand(-0.2, 0.2), 
+        vrot: rand(-2, 2),
         sliced: false
       });
     };
@@ -190,11 +199,11 @@ export default function MathNinja() {
           if (o.isCorrect) {
             engine.current.score += 10 + engine.current.combo * 2;
             engine.current.combo += 1;
-            burst(o.x, o.y, '94, 242, 160'); // Green
+            burst(o.x, o.y, o.color); // Splash in fruit color
           } else {
             engine.current.combo = 0;
             engine.current.lives -= 1;
-            burst(o.x, o.y, '255, 94, 108'); // Red
+            burst(o.x, o.y, o.color); // Splash in fruit color for wrong ones too
             engine.current.missed.push({ text: o.text, reason: 'Sliced a distractor' });
             if (engine.current.lives <= 0) {
               endGame();
@@ -214,7 +223,6 @@ export default function MathNinja() {
 
     const pointerPos = (e) => {
       const rect = canvas.getBoundingClientRect();
-      // Calculate scaling factors between internal canvas size and actual CSS size
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
       
@@ -300,72 +308,77 @@ export default function MathNinja() {
         engine.current.particles = engine.current.particles.filter(p => p.life > 0);
       }
 
-      // --- RENDERING ---
-      ctx.fillStyle = '#050917'; 
+      // --- RENDERING (FRUIT NINJA AESTHETIC) ---
+      // Wood background
+      ctx.fillStyle = '#3a2311'; // Darker wood brown
       ctx.fillRect(0, 0, W, H);
 
-      // Grid
-      ctx.strokeStyle = 'rgba(0, 242, 254, 0.08)';
-      ctx.lineWidth = 1;
-      for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-      for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      // Subtle wood texture stripes
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      for (let i = 0; i < W; i += 60) {
+        ctx.fillRect(i, 0, 30, H);
+      }
 
-      // Draw Objects
+      // Draw Objects (Fruits)
       for (const o of engine.current.objects) {
         ctx.save();
         ctx.translate(o.x, o.y);
         ctx.rotate(o.rot);
         
-        ctx.shadowColor = '#00f2fe';
-        ctx.shadowBlur = 15;
-        ctx.fillStyle = 'rgba(7, 44, 73, 0.9)';
-        ctx.strokeStyle = '#00f2fe';
-        ctx.lineWidth = 2;
+        ctx.shadowBlur = 0;
         
+        // Draw "Fruit" (Same for both correct and distractor so it's not obvious)
+        ctx.fillStyle = `rgb(${o.color})`;
         ctx.beginPath();
         ctx.arc(0, 0, o.r, 0, Math.PI * 2);
-        ctx.fill(); ctx.stroke();
+        ctx.fill();
         
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = '#a5f3fc';
-        ctx.font = '800 14px "JetBrains Mono", sans-serif';
+        // Inner shine/highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+        ctx.beginPath();
+        ctx.ellipse(-o.r * 0.3, -o.r * 0.3, o.r * 0.4, o.r * 0.2, -Math.PI/4, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.fillStyle = '#ffffff';
+        
+        ctx.font = 'bold 16px "Arial", sans-serif';
         ctx.textAlign = 'center'; 
         ctx.textBaseline = 'middle';
-        ctx.fillText(o.text, 0, 1);
+        
+        // Wrap text if too long (basic handling by making it slightly smaller if needed)
+        ctx.fillText(o.text, 0, 0);
         ctx.restore();
       }
 
       // Draw Particles
       for (const p of engine.current.particles) {
         ctx.fillStyle = `rgba(${p.color},${Math.max(0, p.life)})`;
-        ctx.shadowColor = `rgb(${p.color})`;
-        ctx.shadowBlur = 8;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.random() * 4 + 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
 
-      // Draw Trail
-      engine.current.trail = engine.current.trail.filter(p => now - p.t < 220);
+      // Draw Trail (Slash)
+      engine.current.trail = engine.current.trail.filter(p => now - p.t < 180); // Quicker fade
       if (engine.current.trail.length >= 2) {
         ctx.save();
         ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
         for (let i = 1; i < engine.current.trail.length; i++) {
           const a = engine.current.trail[i - 1], b = engine.current.trail[i];
-          const age = (now - b.t) / 220;
+          const age = (now - b.t) / 180;
           
-          ctx.strokeStyle = `rgba(244, 63, 94, ${1 - age})`;
-          ctx.shadowColor = '#f43f5e';
-          ctx.shadowBlur = 18;
-          ctx.lineWidth = 8 * (1 - age) + 2;
+          // Outer glow (silver/light blue)
+          ctx.strokeStyle = `rgba(186, 230, 253, ${1 - age})`;
+          ctx.lineWidth = 12 * (1 - age) + 2;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
           ctx.stroke();
 
+          // Inner sharp white core
           ctx.strokeStyle = `rgba(255, 255, 255, ${1 - age})`;
-          ctx.lineWidth = Math.max(1, (8 * (1 - age) + 2) * 0.35);
-          ctx.shadowBlur = 0;
+          ctx.lineWidth = 4 * (1 - age) + 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
           ctx.stroke();
@@ -390,7 +403,7 @@ export default function MathNinja() {
   }, [gameState]);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans selection:bg-neonPink selection:text-white relative" style={{ backgroundColor: '#050813', backgroundImage: 'radial-gradient(circle at 50% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 60%), radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 50%), linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px)', backgroundSize: '100% 100%, 100% 100%, 36px 36px, 36px 36px' }}>
+    <div className="min-h-screen flex flex-col font-sans selection:bg-neonPink selection:text-white relative" style={{ backgroundColor: '#03050c', backgroundImage: 'radial-gradient(circle at 50% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 60%), radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 50%), linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px)', backgroundSize: '100% 100%, 100% 100%, 36px 36px, 36px 36px' }}>
       
       {/* Header */}
       <header className="relative z-20 border-b border-cyan-900/40 bg-[#050813]/90 backdrop-blur-md px-4 py-2.5">
