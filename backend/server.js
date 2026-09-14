@@ -73,6 +73,21 @@ app.get('/api/algobingo/cs', async (req, res) => {
   }
 });
 
+app.get('/api/whosthat/cs', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('whos_that_cs');
+    const questions = await collection.find({}).toArray();
+    
+    res.json(questions);
+  } catch (error) {
+    console.error("Error fetching whos that questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Backend server running at http://localhost:${port}`);
 });

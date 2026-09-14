@@ -1,0 +1,41 @@
+.whos-that-bg {
+  background-color: #0b0b14;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.16) 0%, transparent 60%),
+    radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(30, 27, 75, 0.4) 0%, transparent 70%);
+  background-attachment: fixed;
+}
+
+.neon-violet-glow {
+  box-shadow: 0 0 35px -5px rgba(168, 85, 247, 0.3);
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: gentleBounce 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.whos-that-shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
