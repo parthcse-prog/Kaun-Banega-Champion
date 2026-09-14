@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './WhosThat.css';
 import { saveGameAnalytics } from '../utils/analyticsStore';
 
@@ -74,6 +74,51 @@ export default function WhosThat() {
   const [photoData, setPhotoData] = useState({ url: null, error: null, loading: false, loaded: false });
   const [shake, setShake] = useState(false);
   const [gameStartTime, setGameStartTime] = useState(Date.now());
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef(null);
+
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognitionRef.current = new SpeechRecognition();
+      recognitionRef.current.continuous = false;
+      recognitionRef.current.interimResults = true;
+
+      recognitionRef.current.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          transcript += event.results[i][0].transcript;
+        }
+        setGuess(transcript);
+      };
+
+      recognitionRef.current.onend = () => {
+        setIsListening(false);
+      };
+      
+      recognitionRef.current.onerror = (event) => {
+        console.error("Speech recognition error", event.error);
+        setIsListening(false);
+      };
+    }
+  }, []);
+
+  const toggleListening = () => {
+    if (isListening) {
+      recognitionRef.current?.stop();
+    } else {
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.start();
+          setIsListening(true);
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+        alert("Speech Recognition not supported in this browser.");
+      }
+    }
+  };
 
   useEffect(() => {
     if (isGameFinished) {
@@ -327,7 +372,7 @@ export default function WhosThat() {
                   </div>
                   <input 
                     type="text" 
-                    className="w-full pl-12 lg:pl-14 pr-5 py-3 sm:py-4 lg:py-5 bg-[#121222]/90 border border-[#2a2a46] focus:border-[#34d399] focus:ring-1 focus:ring-[#34d399] text-white text-sm sm:text-base lg:text-xl rounded-2xl placeholder-slate-500 transition shadow-inner font-sans outline-none" 
+                    className="w-full pl-12 lg:pl-14 pr-12 lg:pr-14 py-3 sm:py-4 lg:py-5 bg-[#121222]/90 border border-[#2a2a46] focus:border-[#34d399] focus:ring-1 focus:ring-[#34d399] text-white text-sm sm:text-base lg:text-xl rounded-2xl placeholder-slate-500 transition shadow-inner font-sans outline-none" 
                     placeholder="Guess person's name..." 
                     value={guess}
                     onChange={e => setGuess(e.target.value)}
@@ -335,6 +380,15 @@ export default function WhosThat() {
                     disabled={roundOver}
                     spellCheck="false"
                   />
+                  <button 
+                    type="button"
+                    onClick={toggleListening}
+                    disabled={roundOver}
+                    className={`absolute inset-y-0 right-2 lg:right-4 flex items-center justify-center p-2 text-slate-400 hover:text-white transition-colors ${isListening ? 'text-rose-500 animate-pulse' : ''}`}
+                    title={isListening ? "Stop listening" : "Start speaking"}
+                  >
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                  </button>
                 </div>
                 <button 
                   className="px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-2xl bg-purple-600/80 hover:bg-purple-600 border border-purple-400/40 text-white font-mono font-bold text-sm sm:text-base lg:text-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-purple-900/30 active:scale-95 disabled:opacity-50" 
