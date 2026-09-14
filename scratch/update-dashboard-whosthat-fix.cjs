@@ -17,7 +17,7 @@ const newGameCard = `
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#c792f2] transition-colors">Who's That?!</h3>
                       <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                        Guess the tech legend from their heavily blurred Wikipedia portrait!
+                        Guess the legend from their portrait!
                       </p>
                     </div>
                   </div>
