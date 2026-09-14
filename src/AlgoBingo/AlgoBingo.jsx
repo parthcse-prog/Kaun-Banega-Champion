@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Storage } from './Storage';
+import { FALLBACK_BINGO_QUESTIONS } from './Data';
 
 export default function AlgoBingo({ token }) {
   const contentSetId = "cs-algo-bingo";
@@ -15,6 +16,25 @@ export default function AlgoBingo({ token }) {
   useEffect(() => {
     setContentSet(Storage.getContentSet(contentSetId));
   }, []);
+
+  const [allQuestions, setAllQuestions] = useState(FALLBACK_BINGO_QUESTIONS);
+  
+  useEffect(() => {
+    const fetchQ = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/algobingo/cs');
+        if (res.ok) {
+          const data = await res.json();
+          setAllQuestions(data);
+        }
+      } catch (err) {
+        console.warn("Could not fetch from backend");
+        setAllQuestions(FALLBACK_BINGO_QUESTIONS);
+      }
+    };
+    fetchQ();
+  }, []);
+
 
   // Timer Effect
   useEffect(() => {
@@ -85,9 +105,19 @@ export default function AlgoBingo({ token }) {
     return { rows: fallbackRows, cols: fallbackCols, bankItems: fallbackBankItems };
   };
 
-  const startGame = () => {
+  const startGame = (question) => {
     const newSession = Storage.createSession(contentSetId, token || 'Anonymous');
-    const newGrid = generateValidGrid(contentSet.categories, contentSet.items);
+    // If a specific question is provided (from the new JSON structure), use its gridConfig directly.
+    // Otherwise fallback to generating one randomly using the legacy data.
+    let newGrid = question ? question.gridConfig : generateValidGrid(contentSet.categories, contentSet.items);
+    
+    // Shuffle the bank items so they aren't painfully obvious
+    if (newGrid && newGrid.bankItems) {
+      newGrid = {
+        ...newGrid,
+        bankItems: [...newGrid.bankItems].sort(() => Math.random() - 0.5)
+      };
+    }
     
     const updated = Storage.updateSession(newSession._id, { gridConfig: newGrid });
     setSession(updated);
@@ -233,18 +263,41 @@ export default function AlgoBingo({ token }) {
         )}
 
         {gameState === 'MENU' && (
-          <div className="w-full max-w-2xl bg-gradient-to-b from-[#181f42] to-[#0d122b] border-2 border-indigo-600/40 p-8 rounded-[2rem] flex flex-col items-center mt-12 animate-in zoom-in-95 shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
-             <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-32 object-contain mb-6 drop-shadow-[0_0_30px_rgba(245,158,11,0.4)]" />
-             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 text-center tracking-wider drop-shadow-md">BINGO BONANZA</h2>
-             <p className="text-indigo-200 text-center mb-8 max-w-md text-lg font-medium leading-relaxed">
-               Match drawn algorithms to their properties. Drag and drop 9 of the 11 algorithms to their perfect match in this 3x3 immaculate grid! Watch out for the 2 distractors!
+          <div className="w-full max-w-4xl bg-gradient-to-b from-[#181f42] to-[#0d122b] border-2 border-indigo-600/40 p-8 rounded-[2rem] flex flex-col items-center mt-12 animate-in zoom-in-95 shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+             <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-28 object-contain mb-4 drop-shadow-[0_0_30px_rgba(245,158,11,0.4)]" />
+             <h2 className="text-3xl md:text-4xl font-black text-white mb-2 text-center tracking-wider drop-shadow-md">SELECT BINGO CHALLENGE</h2>
+             <p className="text-indigo-200 text-center mb-6 max-w-xl text-md font-medium leading-relaxed">
+               Choose a challenge below! Drag and drop concepts to their perfect intersecting properties in the 3x3 immaculate grid! Watch out for the distractors!
              </p>
-             <button 
-               onClick={startGame}
-               className="w-full max-w-sm py-4 rounded-2xl bg-gradient-to-b from-yellow-300 via-amber-400 to-orange-600 border-t-2 border-yellow-100 border-b-4 border-amber-950 text-slate-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(251,191,36,0.5)] active:translate-y-1 active:border-b-0 transition-all"
-             >
-               START GAME
-             </button>
+             
+             {allQuestions && allQuestions.length > 0 ? (
+               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                 {allQuestions.map(q => (
+                   <button 
+                     key={q.id}
+                     onClick={() => startGame(q)}
+                     className="w-full text-left bg-slate-900/60 hover:bg-indigo-900/40 border border-indigo-900/50 hover:border-indigo-400/60 p-5 rounded-2xl transition group flex flex-col justify-between shadow-lg"
+                   >
+                     <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2 font-mono">
+                       {q.branch} • {q.id}
+                     </div>
+                     <div className="text-xl md:text-2xl font-black text-white leading-snug mb-4 flex-1 flex items-center">
+                       {q.questionText.replace(/Match the (.*?) concepts to the correct combination of.*/i, '$1')}
+                     </div>
+                     <div className="w-full py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-center text-white font-black text-sm uppercase tracking-widest shadow-md group-hover:scale-[1.02] transition-transform">
+                       PLAY
+                     </div>
+                   </button>
+                 ))}
+               </div>
+             ) : (
+               <button 
+                 onClick={() => startGame()}
+                 className="w-full max-w-sm py-4 rounded-2xl bg-gradient-to-b from-yellow-300 via-amber-400 to-orange-600 border-t-2 border-yellow-100 border-b-4 border-amber-950 text-slate-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(251,191,36,0.5)] active:translate-y-1 active:border-b-0 transition-all"
+               >
+                 START LEGACY GAME
+               </button>
+             )}
           </div>
         )}
 
@@ -376,13 +429,13 @@ export default function AlgoBingo({ token }) {
                 </div>
               </div>
               
-              {/* Right Side: Algo Rack */}
+              {/* Right Side: CONCEPT BANK */}
               <div className="w-full lg:w-80 xl:w-96 shrink-0 bg-gradient-to-b from-[#141a3a] via-[#0d1228] to-[#080a18] border-t-2 border-x-2 lg:border-2 border-indigo-500/50 rounded-t-3xl lg:rounded-3xl p-3 md:p-5 shadow-[0_-12px_30px_rgba(0,0,0,0.8)] lg:shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">🗂️</span>
                     <h2 className="text-sm uppercase tracking-wider text-amber-300 font-black drop-shadow">
-                      Algo Rack
+                      CONCEPT BANK
                     </h2>
                   </div>
                   <span className="text-[10px] bg-indigo-950 text-cyan-300 font-mono font-extrabold px-2 py-0.5 rounded-full border border-cyan-500/40">
@@ -431,10 +484,10 @@ export default function AlgoBingo({ token }) {
              </div>
              
              <button 
-               onClick={startGame}
+               onClick={() => setGameState('MENU')}
                className="w-full py-4 rounded-2xl bg-gradient-to-b from-emerald-400 to-teal-600 border-t-2 border-emerald-200 border-b-4 border-b-teal-900 text-slate-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(16,185,129,0.4)] active:translate-y-1 active:border-b-0 transition-all"
              >
-               PLAY AGAIN
+               BACK TO MENU
              </button>
           </div>
         )}
@@ -454,10 +507,10 @@ export default function AlgoBingo({ token }) {
              </div>
              
              <button 
-               onClick={startGame}
+               onClick={() => setGameState('MENU')}
                className="w-full py-4 rounded-2xl bg-gradient-to-b from-slate-600 to-slate-800 border-t-2 border-slate-400 border-b-4 border-b-slate-950 text-white font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(0,0,0,0.4)] active:translate-y-1 active:border-b-0 transition-all"
              >
-               TRY AGAIN
+               BACK TO MENU
              </button>
           </div>
         )}

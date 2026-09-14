@@ -49,12 +49,26 @@ app.get('/api/conceptninja/cs', async (req, res) => {
         return res.status(500).json({ error: "Database not connected yet" });
     }
     const collection = db.collection('concept_ninja_cs');
-    // We fetch all of them in order or randomly. User says "slice and move to next", so we can just return all 5
     const questions = await collection.find({}).toArray();
     
     res.json(questions);
   } catch (error) {
     console.error("Error fetching concept ninja questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get('/api/algobingo/cs', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('algo_bingo_cs');
+    const questions = await collection.find({}).toArray();
+    
+    res.json(questions);
+  } catch (error) {
+    console.error("Error fetching algo bingo questions:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
