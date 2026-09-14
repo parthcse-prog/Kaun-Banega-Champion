@@ -1,47 +1,127 @@
 export const QUESTIONS = [
   {
-    id: 'OOP_001',
-    branch: 'CSE',
-    subject: 'Object Oriented Programming',
-    topic: 'OOP Concepts',
-    questionText: 'Which of these are OOP concepts?',
-    correctConcepts: ['ENCAPSULATION', 'INHERITANCE', 'POLYMORPHISM', 'ABSTRACTION'],
-    distractors: ['COMPILER', 'ROUTER', 'DATABASE', 'KEYBOARD'],
-    explanations: {
-      'COMPILER': 'A compiler translates code into machine language. It is not an OOP concept.',
-      'ROUTER': 'A router is a networking device that forwards data packets.',
-      'DATABASE': 'A database stores data. It is not an OOP concept.',
-      'KEYBOARD': 'A keyboard is a hardware input device.'
+    "id": "CSE_CN_1",
+    "branch": "CSE",
+    "subject": "General Engineering",
+    "topic": "Core Concepts",
+    "questionText": "Which of these are important concepts in Engineering Mathematics-I?",
+    "correctConcepts": [
+      "TAYLOR",
+      "MACLAURIN",
+      "LAGRANGE",
+      "GRADIENT"
+    ],
+    "distractors": [
+      "RECURSION",
+      "HASHING",
+      "POLYMORPHISM",
+      "DEADLOCK"
+    ],
+    "explanations": {
+      "RECURSION": "Recursion is not the correct concept for this subject.",
+      "HASHING": "Hashing is not the correct concept for this subject.",
+      "POLYMORPHISM": "Polymorphism is not the correct concept for this subject.",
+      "DEADLOCK": "Deadlock is not the correct concept for this subject."
     }
   },
   {
-    id: 'DS_001',
-    branch: 'CSE',
-    subject: 'Data Structures',
-    topic: 'Linear Data Structures',
-    questionText: 'Which of these are Data Structures?',
-    correctConcepts: ['ARRAY', 'STACK', 'QUEUE', 'GRAPH', 'TREE', 'LINKED LIST'],
-    distractors: ['VARIABLE', 'OPERATING SYSTEM', 'MONITOR', 'CPU'],
-    explanations: {
-      'VARIABLE': 'A variable stores a single value, not a complex data structure.',
-      'OPERATING SYSTEM': 'An OS manages hardware and software resources.',
-      'MONITOR': 'A monitor is an output display device.',
-      'CPU': 'A CPU executes instructions. It is hardware.'
+    "id": "CSE_CN_2",
+    "branch": "CSE",
+    "subject": "General Engineering",
+    "topic": "Core Concepts",
+    "questionText": "Which of these are important concepts in Engineering Physics?",
+    "correctConcepts": [
+      "DOPPLER",
+      "DIFFRACTION",
+      "POLARIZATION",
+      "SCHRODINGER"
+    ],
+    "distractors": [
+      "RECURSION",
+      "INHERITANCE",
+      "HASHING",
+      "COMPILATION"
+    ],
+    "explanations": {
+      "RECURSION": "Recursion is not the correct concept for this subject.",
+      "INHERITANCE": "Inheritance is not the correct concept for this subject.",
+      "HASHING": "Hashing is not the correct concept for this subject.",
+      "COMPILATION": "Compilation is not the correct concept for this subject."
     }
   },
   {
-    id: 'ARCH_001',
-    branch: 'CSE',
-    subject: 'Computer Architecture',
-    topic: 'Memory',
-    questionText: 'Which of these are primary memory types?',
-    correctConcepts: ['RAM', 'ROM', 'CACHE MEMORY', 'REGISTERS'],
-    distractors: ['HARD DISK', 'SSD', 'USB DRIVE', 'MAGNETIC TAPE'],
-    explanations: {
-      'HARD DISK': 'Hard disk is secondary, non-volatile storage.',
-      'SSD': 'Solid State Drives are secondary storage.',
-      'USB DRIVE': 'USB drives are portable secondary storage.',
-      'MAGNETIC TAPE': 'Magnetic tape is used for secondary archival storage.'
+    "id": "CSE_CN_3",
+    "branch": "CSE",
+    "subject": "General Engineering",
+    "topic": "Core Concepts",
+    "questionText": "Which of these are fundamental Problem Solving and Python concepts?",
+    "correctConcepts": [
+      "ALGORITHM",
+      "RECURSION",
+      "ITERATION",
+      "DEBUGGING"
+    ],
+    "distractors": [
+      "REFRACTION",
+      "EIGENVALUE",
+      "POLARIZATION",
+      "EMPATHY"
+    ],
+    "explanations": {
+      "REFRACTION": "Refraction is not the correct concept for this subject.",
+      "EIGENVALUE": "Eigenvalue is not the correct concept for this subject.",
+      "POLARIZATION": "Polarization is not the correct concept for this subject.",
+      "EMPATHY": "Empathy is not the correct concept for this subject."
+    }
+  },
+  {
+    "id": "CSE_CN_4",
+    "branch": "CSE",
+    "subject": "General Engineering",
+    "topic": "Core Concepts",
+    "questionText": "Which of these are important Design Thinking concepts?",
+    "correctConcepts": [
+      "EMPATHY",
+      "IDEATION",
+      "PROTOTYPE",
+      "ITERATION"
+    ],
+    "distractors": [
+      "RECURSION",
+      "DERIVATIVE",
+      "DIFFRACTION",
+      "COMPILER"
+    ],
+    "explanations": {
+      "RECURSION": "Recursion is not the correct concept for this subject.",
+      "DERIVATIVE": "Derivative is not the correct concept for this subject.",
+      "DIFFRACTION": "Diffraction is not the correct concept for this subject.",
+      "COMPILER": "Compiler is not the correct concept for this subject."
+    }
+  },
+  {
+    "id": "CSE_CN_5",
+    "branch": "CSE",
+    "subject": "General Engineering",
+    "topic": "Core Concepts",
+    "questionText": "Which of these are essential practical programming concepts for a CSE student?",
+    "correctConcepts": [
+      "LISTS",
+      "DICTIONARIES",
+      "EXCEPTIONS",
+      "CSV"
+    ],
+    "distractors": [
+      "POLARIZATION",
+      "CURVATURE",
+      "DOPPLER",
+      "LAGRANGE"
+    ],
+    "explanations": {
+      "POLARIZATION": "Polarization is not the correct concept for this subject.",
+      "CURVATURE": "Curvature is not the correct concept for this subject.",
+      "DOPPLER": "Doppler is not the correct concept for this subject.",
+      "LAGRANGE": "Lagrange is not the correct concept for this subject."
     }
   }
 ];

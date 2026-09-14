@@ -10,28 +10,124 @@ export const MOCK_PROFILES = [
 export const QUESTION_BANK = [
   // CSE QUESTIONS
   {
-    id: 'CSE_001', stream: 'CSE', subject: 'Object Oriented Programming', topic: 'OOP Concepts', difficulty: 2,
-    question: "What OOP concept allows one interface to represent different underlying forms?",
-    answer: "POLYMORPHISM",
-    explanation: "Polymorphism allows the same interface to behave differently depending on the underlying object type."
+    id: 'CSE_001', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What is the visual representation of an algorithm using symbols and arrows called?",
+    answer: "Flowchart",
+    explanation: "You successfully identified Flowchart!"
   },
   {
-    id: 'CSE_002', stream: 'CSE', subject: 'Data Structures', topic: 'Trees', difficulty: 1,
-    question: "What is the top node of a tree data structure called?",
-    answer: "ROOT",
-    explanation: "The root is the topmost node in a tree, from which all other nodes descend."
+    id: 'CSE_002', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What computational thinking technique divides a complex problem into smaller parts?",
+    answer: "Decomposition",
+    explanation: "You successfully identified Decomposition!"
   },
   {
-    id: 'CSE_003', stream: 'CSE', subject: 'Algorithms', topic: 'Recursion', difficulty: 2,
-    question: "What programming technique involves a function calling itself?",
-    answer: "RECURSION",
-    explanation: "Recursion breaks a problem down into smaller, identical sub-problems by having a function call itself."
+    id: 'CSE_003', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What technique focuses on identifying similarities between problems or situations?",
+    answer: "Pattern",
+    explanation: "You successfully identified Pattern!"
   },
   {
-    id: 'CSE_004', stream: 'CSE', subject: 'Databases', topic: 'SQL', difficulty: 1,
-    question: "What SQL command is used to extract data from a database?",
-    answer: "SELECT",
-    explanation: "The SELECT statement is used to query and retrieve data from database tables."
+    id: 'CSE_004', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What is the process of simplifying a complex problem by focusing only on important details?",
+    answer: "Abstraction",
+    explanation: "You successfully identified Abstraction!"
+  },
+  {
+    id: 'CSE_005', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What Python feature determines the structure of code through whitespace?",
+    answer: "Indentation",
+    explanation: "You successfully identified Indentation!"
+  },
+  {
+    id: 'CSE_006', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which Python data type represents True or False values?",
+    answer: "Boolean",
+    explanation: "You successfully identified Boolean!"
+  },
+  {
+    id: 'CSE_007', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which Python statement immediately exits a loop?",
+    answer: "Break",
+    explanation: "You successfully identified Break!"
+  },
+  {
+    id: 'CSE_008', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which Python statement skips the current loop iteration?",
+    answer: "Continue",
+    explanation: "You successfully identified Continue!"
+  },
+  {
+    id: 'CSE_009', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What term describes the region of a program where a variable can be accessed?",
+    answer: "Scope",
+    explanation: "You successfully identified Scope!"
+  },
+  {
+    id: 'CSE_010', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What special string in a Python function can describe what the function does?",
+    answer: "Docstring",
+    explanation: "You successfully identified Docstring!"
+  },
+  {
+    id: 'CSE_011', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which file format is commonly used to store tabular data separated by commas?",
+    answer: "CSV",
+    explanation: "You successfully identified CSV!"
+  },
+  {
+    id: 'CSE_012', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which mathematical operator represents the rate of change of a function?",
+    answer: "Derivative",
+    explanation: "You successfully identified Derivative!"
+  },
+  {
+    id: 'CSE_013', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which vector operator measures how much a vector field spreads outward?",
+    answer: "Divergence",
+    explanation: "You successfully identified Divergence!"
+  },
+  {
+    id: 'CSE_014', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which vector operator describes the rotation of a vector field?",
+    answer: "Curl",
+    explanation: "You successfully identified Curl!"
+  },
+  {
+    id: 'CSE_015', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which phenomenon causes a change in observed frequency due to relative motion?",
+    answer: "Doppler",
+    explanation: "You successfully identified Doppler!"
+  },
+  {
+    id: 'CSE_016', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which scientist's equations describe the fundamental behavior of electromagnetic fields?",
+    answer: "Maxwell",
+    explanation: "You successfully identified Maxwell!"
+  },
+  {
+    id: 'CSE_017', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What property of light describes the orientation of its electric field oscillations?",
+    answer: "Polarization",
+    explanation: "You successfully identified Polarization!"
+  },
+  {
+    id: 'CSE_018', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "Which type of laser is specifically included in the Semester-I Engineering Physics syllabus?",
+    answer: "Ruby",
+    explanation: "You successfully identified Ruby!"
+  },
+  {
+    id: 'CSE_019', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What type of semiconductor contains no intentionally added impurities?",
+    answer: "Intrinsic",
+    explanation: "You successfully identified Intrinsic!"
+  },
+  {
+    id: 'CSE_020', stream: 'CSE', subject: 'General CS', topic: 'Mixed', difficulty: 1,
+    question: "What process involves generating many possible ideas before selecting the best one?",
+    answer: "Ideation",
+    explanation: "You successfully identified Ideation!"
   },
 
   // LAW QUESTIONS

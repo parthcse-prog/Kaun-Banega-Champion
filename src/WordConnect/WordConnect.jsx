@@ -3,11 +3,14 @@ import { RotateCcw, Lightbulb, CheckCircle, ChevronRight, GraduationCap } from '
 import { MOCK_PROFILES, QUESTION_BANK } from './Data';
 
 export default function WordConnect() {
-  const [gameState, setGameState] = useState('PROFILE_SELECT'); // PROFILE_SELECT, PLAYING, EXPLANATION, SUMMARY
-  const [profile, setProfile] = useState(null);
+  const cseProfile = MOCK_PROFILES.find(p => p.stream === 'CSE') || MOCK_PROFILES[0];
+  const cseQuestions = QUESTION_BANK.filter(q => q.stream === 'CSE');
+  
+  const [gameState, setGameState] = useState('PLAYING');
+  const [profile, setProfile] = useState(cseProfile);
   
   // Content Engine State
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState(cseQuestions);
   const [currentQIdx, setCurrentQIdx] = useState(0);
   const [score, setScore] = useState(0);
 
@@ -74,8 +77,36 @@ export default function WordConnect() {
     setSelectedIds([]);
   };
 
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/wordconnect/cs');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.length > 0) {
+            setQuestions(data);
+            initPuzzle(data[0].answer);
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn("Could not fetch from MongoDB backend, falling back to local data:", err);
+      }
+      
+      // Fallback
+      // Local shuffle to ensure different order
+      const shuffled = [...cseQuestions].sort(() => Math.random() - 0.5);
+      setQuestions(shuffled);
+      if (shuffled.length > 0) {
+        initPuzzle(shuffled[0].answer);
+      }
+    };
+    
+    fetchQuestions();
+  }, []);
+
   const currentQ = questions[currentQIdx];
-  const targetChars = currentQ ? currentQ.answer.toUpperCase().split('') : []; // Includes spaces
+  const targetChars = currentQ ? currentQ?.answer.toUpperCase().split('') : []; // Includes spaces
   const currentWord = selectedIds.map(id => circleLetters.find(l => l.id === id).char).join('');
   const targetClean = currentQ ? currentQ.answer.replace(/[^A-Z]/gi, '').toUpperCase() : '';
 
@@ -156,50 +187,17 @@ export default function WordConnect() {
 
   // --- RENDERERS ---
 
-  if (gameState === 'PROFILE_SELECT') {
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6 font-sans">
-        <button onClick={() => window.location.href = '/'} className="absolute top-6 left-6 flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shadow-lg">
-          <RotateCcw className="w-4 h-4" /> Back to Arena
-        </button>
-        
-        <div className="max-w-2xl w-full">
-          <div className="text-center mb-12 flex flex-col items-center">
-            <img src="/src/assets/Logos/concept_connect.png" alt="Concept Connect" className="h-28 object-contain mb-4 drop-shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform" />
-            <p className="text-slate-400">Select a mock student profile. The engine will dynamically load curriculum-relevant questions.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {MOCK_PROFILES.map(p => (
-              <div key={p.studentId} onClick={() => loadProfile(p)} className="bg-slate-900 border border-slate-800 p-6 rounded-2xl cursor-pointer hover:bg-slate-800 hover:border-blue-500/50 transition-all group flex items-center gap-4 shadow-xl">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg text-white">{p.name}</h3>
-                  <p className="text-sm text-slate-400">{p.stream} • {p.course} • Sem {p.semester}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (gameState === 'SUMMARY') {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6 font-sans text-center">
         <CheckCircle className="w-24 h-24 text-emerald-400 mb-6" />
         <h2 className="text-4xl font-black text-white mb-2">Topic Completed!</h2>
-        <p className="text-xl text-slate-400 mb-8">You mastered {questions.length} concepts for {profile.stream}.</p>
+        <p className="text-xl text-slate-400 mb-8">You mastered {questions.length} concepts for {profile?.stream}.</p>
         <div className="bg-slate-900 px-8 py-4 rounded-2xl mb-8 border border-slate-800">
           <span className="text-slate-500 uppercase font-bold text-sm">Final Score</span>
           <div className="text-4xl font-black text-blue-400">{score}</div>
         </div>
-        <button onClick={() => setGameState('PROFILE_SELECT')} className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors">
-          SWITCH PROFILE
-        </button>
+        <button onClick={() => () => window.location.href = '/'} className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors">BACK TO ARENA</button>
       </div>
     );
   }
@@ -233,15 +231,15 @@ export default function WordConnect() {
       <header className="w-full border-b border-blue-900/60 bg-[#070d1a]/85 backdrop-blur-md px-4 sm:px-8 py-2.5 z-40 sticky top-0 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <button onClick={() => setGameState('PROFILE_SELECT')} className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#1c2842] to-[#0e1628] border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:text-cyan-200 hover:border-cyan-400 shadow-md transition active:scale-95">
+            <button onClick={() => window.location.href = '/'} className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#1c2842] to-[#0e1628] border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:text-cyan-200 hover:border-cyan-400 shadow-md transition active:scale-95">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
             </button>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                <span className="font-display font-bold text-[11px] tracking-wider text-cyan-400 uppercase">{profile.stream} • {currentQ.subject}</span>
+                <span className="font-display font-bold text-[11px] tracking-wider text-cyan-400 uppercase">{profile.stream} • {currentQ?.subject}</span>
               </div>
-              <span className="text-xs font-mono font-semibold tracking-wider text-slate-300">{currentQ.topic}</span>
+              <span className="text-xs font-mono font-semibold tracking-wider text-slate-300">{currentQ?.topic}</span>
             </div>
           </div>
           
@@ -311,7 +309,7 @@ export default function WordConnect() {
           </div>
           
           <h2 className="text-center text-base sm:text-lg font-extrabold text-white tracking-wide max-w-3xl mx-auto leading-snug drop-shadow-md py-0.5">
-            "{currentQ.question}"
+            "{currentQ?.question}"
           </h2>
           
           <div className="mt-3 pt-2 border-t border-slate-800/80">
@@ -410,7 +408,7 @@ export default function WordConnect() {
               <h2 className="text-2xl sm:text-3xl font-display font-black text-white mb-4 tracking-wider drop-shadow-md">{currentQ.answer}</h2>
               <div className="w-12 h-1 border-b border-emerald-500/30 border-dashed mx-auto mb-6" />
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8">
-                {currentQ.explanation}
+                {currentQ?.explanation}
               </p>
               
               <button onClick={nextQuestion} className="w-full py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-tech font-bold text-lg hover:bg-emerald-400 transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 active:scale-95">

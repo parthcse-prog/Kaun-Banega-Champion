@@ -6,6 +6,40 @@ export default function MathNinja() {
   
   // UI State
   const [gameState, setGameState] = useState('MENU'); // MENU, PLAYING, RESULTS
+
+  const [allQuestions, setAllQuestions] = useState(QUESTIONS);
+  const [currentQIndex, setCurrentQIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchQ = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/conceptninja/cs');
+        if(res.ok) {
+          const data = await res.json();
+          if(data && data.length > 0) {
+            setAllQuestions(data);
+          }
+        }
+      } catch(e) {
+        console.warn("Using local questions");
+      }
+    };
+    fetchQ();
+  }, []);
+
+  // Update next round logic
+  const handleNextRound = () => {
+    if (currentQIndex + 1 < allQuestions.length) {
+      const nextIdx = currentQIndex + 1;
+      setCurrentQIndex(nextIdx);
+      startGame(allQuestions[nextIdx]);
+    } else {
+      // Done with all questions, go to menu or loop
+      setGameState('MENU');
+      setCurrentQIndex(0);
+    }
+  };
+
   const [currentQuestion, setCurrentQuestion] = useState(null);
   
   // Game State React mirror (for HUD)
@@ -383,10 +417,10 @@ export default function MathNinja() {
              <p className="text-cyan-300 font-mono text-xs text-center mb-8 max-w-md">Read the question. Slice the correct concepts. Avoid the wrong ones. Build your combo.</p>
              
              <div className="w-full space-y-4">
-               {QUESTIONS.map(q => (
+               {allQuestions.map((q, i) => (
                  <button 
                    key={q.id}
-                   onClick={() => startGame(q)}
+                   onClick={() => { setCurrentQIndex(i); startGame(q); }}
                    className="w-full text-left bg-slate-900/60 hover:bg-cyan-950/40 border border-cyan-900/50 hover:border-cyan-400/60 p-4 rounded-xl transition group flex items-center justify-between"
                  >
                    <div>

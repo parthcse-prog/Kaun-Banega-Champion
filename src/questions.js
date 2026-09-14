@@ -1,111 +1,104 @@
 export const questions = [
-  // EASY (30s) - Index 0-4
   {
-    question: "Which of the following is a fundamental data type in C?",
-    options: ["String", "Array", "Float", "Class"],
-    answer: 2
-  },
-  {
-    question: "What does CPU stand for?",
-    options: ["Central Process Unit", "Computer Personal Unit", "Central Processing Unit", "Central Processor Unit"],
-    answer: 2
-  },
-  {
-    question: "In Python, which keyword is used to define a function?",
-    options: ["func", "define", "def", "function"],
-    answer: 2
-  },
-  {
-    question: "Which symbol is used for single-line comments in C++?",
-    options: ["//", "/*", "#", "--"],
+    question: "Which of the following is an essential characteristic of an algorithm?",
+    options: ["It must have a finite sequence of well-defined steps","It must be written in Python","It must always use a flowchart","It can have unlimited steps"],
     answer: 0
   },
   {
-    question: "What is the binary representation of the decimal number 5?",
-    options: ["101", "110", "011", "100"],
-    answer: 0
-  },
-  
-  // MEDIUM (45s) - Index 5-9
-  {
-    question: "Which data structure operates on a Last In First Out (LIFO) principle?",
-    options: ["Queue", "Tree", "Stack", "Linked List"],
-    answer: 2
+    question: "Which Python data type stores data as key-value pairs?",
+    options: ["List","Set","Tuple","Dictionary"],
+    answer: 3
   },
   {
-    question: "What is the time complexity of binary search on a sorted array?",
-    options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+    question: "Which Python keyword is used to define a function?",
+    options: ["function","fun","define","def"],
+    answer: 3
+  },
+  {
+    question: "Which statement is used to handle exceptions in Python?",
+    options: ["for-while","def-return","if-else","try-except"],
+    answer: 3
+  },
+  {
+    question: "What is the purpose of a base case in recursion?",
+    options: ["To create a loop","To stop recursion from continuing indefinitely","To increase the number of recursive calls","To store variables permanently"],
     answer: 1
   },
   {
-    question: "Which of the following is not an Object-Oriented Programming concept?",
-    options: ["Inheritance", "Encapsulation", "Compilation", "Polymorphism"],
+    question: "Which data structure follows the LIFO principle?",
+    options: ["Array","Graph","Stack","Queue"],
     answer: 2
   },
   {
-    question: "What is a pointer in C/C++?",
-    options: ["A keyword", "A variable that stores a memory address", "A function", "An array"],
+    question: "Which data structure follows the FIFO principle?",
+    options: ["Set","Stack","Queue","Tree"],
+    answer: 2
+  },
+  {
+    question: "Which of the following is NOT a Python control structure mentioned in the Semester-I syllabus?",
+    options: ["if-else","switch-case","for loop","while loop"],
     answer: 1
   },
   {
-    question: "Which logic gate outputs 1 only if both inputs are 1?",
-    options: ["OR", "XOR", "AND", "NAND"],
-    answer: 2
-  },
-
-  // HARD (60s) - Index 10-14
-  {
-    question: "What is the worst-case time complexity of QuickSort?",
-    options: ["O(n log n)", "O(n)", "O(n^2)", "O(log n)"],
+    question: "Which type of error occurs when a program violates Python's syntax rules?",
+    options: ["Runtime error","Calculation error","Syntax error","Logical error"],
     answer: 2
   },
   {
-    question: "In a relational database, what is a primary key?",
-    options: ["A unique identifier for a record", "A key used to encrypt data", "A foreign key", "A keyword"],
-    answer: 0
-  },
-  {
-    question: "What is the purpose of the 'virtual' keyword in C++?",
-    options: ["To create a virtual machine", "To support dynamic polymorphism", "To hide variables", "To optimize memory"],
-    answer: 1
-  },
-  {
-    question: "Which algorithm is used to find the shortest path in a weighted graph?",
-    options: ["DFS", "BFS", "Dijkstra's Algorithm", "Kruskal's Algorithm"],
-    answer: 2
-  },
-  {
-    question: "What is a 'Segmentation fault'?",
-    options: ["A syntax error", "Accessing memory that the program doesn't own", "A logic error", "A compiler warning"],
-    answer: 1
-  },
-
-  // EXPERT (No timer) - Index 15-19
-  {
-    question: "What is the Halting Problem in computer science?",
-    options: ["A problem deciding if a program stops or runs forever", "A hardware failure", "A deadlock in OS", "A network timeout"],
+    question: "Which Python data structure is immutable?",
+    options: ["Tuple","List","Set","Dictionary"],
     answer: 0
   },
   {
-    question: "Which of these is a feature of a pure functional programming language?",
-    options: ["Mutable state", "Side effects", "No side effects", "Object inheritance"],
-    answer: 2
-  },
-  {
-    question: "What does the CAP theorem state regarding distributed systems?",
-    options: ["A system can only provide 2 of: Consistency, Availability, Partition tolerance", "Data must be encrypted", "Networks are always reliable", "Latency is zero"],
+    question: "Which law states that the algebraic sum of currents at a junction is zero?",
+    options: ["Kirchhoff's Current Law","Ohm's Law","Faraday's Law","Coulomb's Law"],
     answer: 0
   },
   {
-    question: "What is the primary difference between a Mutex and a Semaphore?",
-    options: ["Mutex is an integer, Semaphore is a float", "Mutex has ownership, Semaphore is a signaling mechanism", "There is no difference", "Semaphore is faster"],
+    question: "Which physical quantity is a vector quantity?",
+    options: ["Temperature","Mass","Velocity","Speed"],
+    answer: 2
+  },
+  {
+    question: "Which phenomenon explains the spreading of light around an obstacle or through a narrow aperture?",
+    options: ["Diffraction","Reflection","Polarization","Refraction"],
+    answer: 0
+  },
+  {
+    question: "Which principle is primarily responsible for guiding light through an optical fibre?",
+    options: ["Doppler effect","Photoelectric effect","Electromagnetic induction","Total internal reflection"],
+    answer: 3
+  },
+  {
+    question: "Which principle states that the position and momentum of a particle cannot both be known with unlimited precision simultaneously?",
+    options: ["Pascal's principle","Heisenberg's uncertainty principle","Huygens' principle","Newton's principle"],
     answer: 1
   },
   {
-    question: "In lambda calculus, what does the Y combinator enable?",
-    options: ["Variable assignment", "Recursion without names", "Object orientation", "Exception handling"],
-    answer: 1
-  }
+    question: "What is the main purpose of dimensional analysis in physics?",
+    options: ["To measure temperature","To convert every quantity into a vector","To check the consistency of physical equations","To calculate only mass"],
+    answer: 2
+  },
+  {
+    question: "Which type of semiconductor is obtained by adding controlled impurities to a pure semiconductor?",
+    options: ["Insulator","Superconductor","Extrinsic semiconductor","Intrinsic semiconductor"],
+    answer: 2
+  },
+  {
+    question: "Which device is specifically used as a voltage regulator in the Semester-I Physics syllabus?",
+    options: ["LED","Tunnel diode","Photodiode","Zener diode"],
+    answer: 3
+  },
+  {
+    question: "Which mathematical concept is primarily used to find maxima and minima of a function?",
+    options: ["Probability","Matrix addition","Vector addition","Differentiation"],
+    answer: 3
+  },
+  {
+    question: "Which mathematical operation is commonly used to calculate the area under a curve?",
+    options: ["Differentiation","Vector subtraction","Matrix multiplication","Integration"],
+    answer: 3
+  },
 ];
 
 export const backupQuestions = [
