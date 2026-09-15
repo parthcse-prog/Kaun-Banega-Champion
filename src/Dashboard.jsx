@@ -22,8 +22,28 @@ export default function Dashboard() {
     fiftyFifty: { used: false },
     swap: { used: false }
   });
+  
+  // Dynamic Questions from DB
+  const [activeQuestions, setActiveQuestions] = useState(questions);
+  const [activeBackup, setActiveBackup] = useState(backupQuestions);
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [score, setScore] = useState(0); // Track correct answers
+
+  useEffect(() => {
+    // Fetch questions from MongoDB on mount
+    fetch('http://localhost:5000/api/kbc/cs')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.questions && data.questions.length > 0) {
+          setActiveQuestions(data.questions);
+          setActiveQuestion(data.questions[0]);
+          if (data.backupQuestions) {
+            setActiveBackup(data.backupQuestions);
+          }
+        }
+      })
+      .catch(err => console.error("Failed to fetch KBC questions, using local fallback", err));
+  }, []);
 
   // Time determination based on index
   const getTimerForQuestion = (index) => {
@@ -53,7 +73,7 @@ export default function Dashboard() {
 
   const startGame = () => {
     setCurrentQuestionIndex(0);
-    setActiveQuestion(questions[0]);
+    setActiveQuestion(activeQuestions[0]);
     setGameState('playing');
     setTimeLeft(getTimerForQuestion(0));
     setLifelines({ fiftyFifty: { used: false }, swap: { used: false } });
@@ -80,7 +100,7 @@ export default function Dashboard() {
           } else {
             const nextIndex = currentQuestionIndex + 1;
             setCurrentQuestionIndex(nextIndex);
-            setActiveQuestion(questions[nextIndex]);
+            setActiveQuestion(activeQuestions[nextIndex]);
             setTimeLeft(getTimerForQuestion(nextIndex));
             setSelectedOption(null);
             setIsCorrect(null);
@@ -111,7 +131,7 @@ export default function Dashboard() {
     if (lifelines.swap.used || currentQuestionIndex < 10) return;
     
     // Use a backup question
-    const backup = backupQuestions[Math.floor(Math.random() * backupQuestions.length)];
+    const backup = activeBackup[Math.floor(Math.random() * activeBackup.length)];
     setActiveQuestion(backup);
     setLifelines(prev => ({ ...prev, swap: { used: true } }));
     setEliminatedOptions([]);

@@ -58,6 +58,21 @@ app.get('/api/conceptninja/cs', async (req, res) => {
   }
 });
 
+app.get('/api/kbc/cs', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('kbc_cs');
+    const data = await collection.findOne({});
+    
+    res.json(data || { questions: [], backupQuestions: [] });
+  } catch (error) {
+    console.error("Error fetching KBC questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get('/api/algobingo/cs', async (req, res) => {
   try {
     if (!db) {

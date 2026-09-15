@@ -36,6 +36,22 @@ export default function WordConnect() {
   const [circleConfig, setCircleConfig] = useState({ radius: 100, center: { x: 150, y: 150 } });
 
   // --- CONTENT ENGINE ---
+  useEffect(() => {
+    // Fetch CSE questions from MongoDB
+    fetch('http://localhost:5000/api/wordconnect/cs')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          // If we are currently on CSE profile, update the active questions
+          if (profile.stream === 'CSE') {
+            setQuestions(data);
+            initPuzzle(data[currentQIdx].answer);
+          }
+        }
+      })
+      .catch(err => console.error("Failed to fetch Word Connect questions, using local fallback", err));
+  }, []);
+
   const loadProfile = (selectedProfile) => {
     setProfile(selectedProfile);
     const filtered = QUESTION_BANK.filter(q => q.stream === selectedProfile.stream);

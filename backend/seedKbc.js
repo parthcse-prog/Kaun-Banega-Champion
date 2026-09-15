@@ -1,4 +1,9 @@
-export const questions = [
+import { MongoClient } from 'mongodb';
+
+const uri = "mongodb+srv://parthcse_db_user:e5T9QIbSX4JVDnpC@cluster0.jo12y4w.mongodb.net/?retryWrites=true&w=majority";
+const DB_NAME = "miet_games";
+
+const kbcQuestions = [
   {
     "id": 1,
     "question": "Which computational thinking technique breaks a complex problem into smaller, manageable parts?",
@@ -121,7 +126,7 @@ export const questions = [
   }
 ];
 
-export const backupQuestions = [
+const backupQuestions = [
   {
     "id": 21,
     "question": "Which Python operator performs floor division?",
@@ -153,3 +158,28 @@ export const backupQuestions = [
     "answer": 2
   }
 ];
+
+async function seed() {
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB.");
+    const db = client.db(DB_NAME);
+    const collection = db.collection('kbc_cs');
+    
+    await collection.deleteMany({});
+    console.log("Cleared existing kbc_cs collection.");
+    
+    await collection.insertOne({
+      questions: kbcQuestions,
+      backupQuestions: backupQuestions
+    });
+    console.log("Successfully seeded KBC questions.");
+  } catch(e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+}
+
+seed();
