@@ -1,4 +1,9 @@
-export const QUESTIONS = [
+import { MongoClient } from 'mongodb';
+
+const uri = "mongodb+srv://parthcse_db_user:e5T9QIbSX4JVDnpC@cluster0.jo12y4w.mongodb.net/?retryWrites=true&w=majority";
+const DB_NAME = "miet_games";
+
+const cnQuestions = [
   {
     "id": "CSE_CN_47",
     "branch": "CSE",
@@ -196,3 +201,27 @@ export const QUESTIONS = [
     }
   }
 ];
+
+async function seed() {
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB.");
+    const db = client.db(DB_NAME);
+    const collection = db.collection('concept_ninja_cs');
+    
+    // Clear old questions
+    await collection.deleteMany({});
+    console.log("Cleared existing concept_ninja_cs collection.");
+    
+    // Insert new questions
+    await collection.insertMany(cnQuestions);
+    console.log("Successfully seeded new Concept Ninja questions.");
+  } catch(e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+}
+
+seed();
