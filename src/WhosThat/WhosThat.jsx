@@ -181,7 +181,14 @@ export default function WhosThat() {
     return () => { isSubscribed = false; };
   }, [roundIndex, currentPerson, isGameFinished]);
 
-  if (people.length === 0) return <div className="whos-that-bg text-white min-h-screen flex items-center justify-center text-xl lg:text-3xl">Loading...</div>;
+  if (people.length === 0) {
+    return (
+      <div className="whos-that-bg text-white min-h-screen flex flex-col items-center justify-center text-xl lg:text-3xl gap-4">
+        <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        <p className="font-semibold tracking-wide text-slate-300">Loading Profiles...</p>
+      </div>
+    );
+  }
 
   const handleGuess = () => {
     if (roundOver) return;

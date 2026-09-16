@@ -451,7 +451,7 @@ export default function AlgoBingo({ token }) {
                   </span>
                 </div>
 
-                <div className="flex flex-row lg:grid lg:grid-cols-2 gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 custom-scrollbar">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 gap-2 pb-2 lg:pb-0">
                   {gridConfig.bankItems && gridConfig.bankItems.map(item => {
                     const isUsed = Object.values(session.filledBoxes).includes(item.name);
                     if (isUsed) return null; 
@@ -462,7 +462,7 @@ export default function AlgoBingo({ token }) {
                         draggable={!isUsed}
                         onDragStart={(e) => handleDragStart(e, item)}
                         onDragEnd={handleDragEnd}
-                        className="flex-shrink-0 w-32 lg:w-full rounded-xl p-2 bg-gradient-to-b from-slate-800 to-slate-950 border border-slate-600 border-b-4 border-b-slate-950 shadow-[0_2px_6px_rgba(0,0,0,0.4)] text-center flex flex-col justify-center cursor-grab active:cursor-grabbing hover:border-indigo-400 active:translate-y-1 transition-all group min-h-[3rem]"
+                        className="w-full rounded-xl p-2 bg-gradient-to-b from-slate-800 to-slate-950 border border-slate-600 border-b-4 border-b-slate-950 shadow-[0_2px_6px_rgba(0,0,0,0.4)] text-center flex flex-col justify-center cursor-grab active:cursor-grabbing hover:border-indigo-400 active:translate-y-1 transition-all group min-h-[3rem]"
                       >
                         <div className="font-black text-xs text-slate-200 leading-tight group-hover:text-indigo-200">{item.name}</div>
                       </div>

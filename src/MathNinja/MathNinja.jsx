@@ -121,8 +121,19 @@ export default function MathNinja() {
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
+    let W = canvas.clientWidth;
+    let H = canvas.clientHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    const handleResize = () => {
+      W = canvas.clientWidth;
+      H = canvas.clientHeight;
+      canvas.width = W;
+      canvas.height = H;
+    };
+    window.addEventListener('resize', handleResize);
+
     const GRAVITY = 380;
 
     const FRUIT_COLORS = [
@@ -154,8 +165,10 @@ export default function MathNinja() {
       const pool = isCorrect ? q.correctConcepts : q.distractors;
       const text = pool[Math.floor(Math.random() * pool.length)];
       
-      const x = rand(100, W - 100);
-      const vy = -rand(580, 720) - Math.min(engine.current.combo * 10, 150);
+      const margin = Math.min(100, W * 0.15);
+      const x = rand(margin, Math.max(W - margin, margin));
+      const baseVy = Math.sqrt(2 * GRAVITY * Math.max(H - 50, 200));
+      const vy = -rand(baseVy * 0.95, baseVy * 1.15) - Math.min(engine.current.combo * 10, 150);
       const vx = rand(-100, 100);
       
       ctx.font = 'bold 16px "Arial", sans-serif';
@@ -260,6 +273,14 @@ export default function MathNinja() {
 
     let animId;
     const loop = (now) => {
+      // Auto-resize logic in case of CSS changes
+      if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+        W = canvas.clientWidth;
+        H = canvas.clientHeight;
+        canvas.width = W;
+        canvas.height = H;
+      }
+
       if (engine.current.lastTime === null) engine.current.lastTime = now;
       const dt = Math.min(40, now - engine.current.lastTime) / 1000;
       engine.current.lastTime = now;
@@ -399,6 +420,7 @@ export default function MathNinja() {
       canvas.removeEventListener('touchstart', down);
       canvas.removeEventListener('touchmove', move);
       window.removeEventListener('touchend', up);
+      window.removeEventListener('resize', handleResize);
     };
   }, [gameState]);
 
@@ -508,8 +530,7 @@ export default function MathNinja() {
                 </div>
               </div>
             </section>
-            
-            <section className="w-full aspect-[21/9] max-h-[450px] mt-4 flex flex-col relative rounded-2xl border-2 border-cyan-500/40 bg-gradient-to-b from-[#070e24] via-[#050917] to-[#040711] shadow-[0_0_40px_rgba(0,242,254,0.15)] overflow-hidden cursor-crosshair">
+            <section className="w-full flex-1 min-h-[50vh] md:aspect-[21/9] md:min-h-0 md:max-h-[450px] mt-4 flex flex-col relative rounded-2xl border-2 border-cyan-500/40 bg-gradient-to-b from-[#070e24] via-[#050917] to-[#040711] shadow-[0_0_40px_rgba(0,242,254,0.15)] overflow-hidden cursor-crosshair">
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400 pointer-events-none z-10"></div>
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-400 pointer-events-none z-10"></div>
@@ -518,10 +539,8 @@ export default function MathNinja() {
               
               <canvas 
                 ref={canvasRef} 
-                width={1000} 
-                height={562} 
-                className="w-full h-full block relative z-0"
-                style={{ cursor: 'crosshair' }}
+                className="absolute inset-0 w-full h-full block z-0"
+                style={{ cursor: 'crosshair', objectFit: 'cover' }}
               />
             </section>
           </>
