@@ -66,9 +66,9 @@ export default function Leaderboard({ token }) {
           <Trophy className="w-10 h-10 text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]" />
         </div>
         <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 uppercase tracking-widest drop-shadow-md">
-          Global Leaderboard
+       Leaderboard
         </h1>
-        <p className="text-slate-400 mt-2 font-medium">PI360 Student Rankings - Grandmaster XP</p>
+        <p className="text-slate-400 mt-2 font-medium">Student Rankings </p>
       </div>
 
       <div className="w-full max-w-3xl space-y-4">

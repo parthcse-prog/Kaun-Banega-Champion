@@ -329,7 +329,7 @@ export default function Dashboard() {
               </article>
 
               {/* Knife Hit */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-amber-500/20 hover:border-[#F59E0B] hover:shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)]">
+              <article className="hidden cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-amber-500/20 hover:border-[#F59E0B] hover:shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)]">
                 <div className="space-y-5">
                   <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#2a1a00] to-[#080d1a] border border-amber-500/30 flex items-center justify-center overflow-hidden group-hover:border-amber-400 transition-colors">
                     <div className="absolute inset-0 bg-[radial-gradient(rgba(245,158,11,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
