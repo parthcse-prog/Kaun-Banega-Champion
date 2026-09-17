@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { QUESTIONS } from './Data';
 import { saveGameAnalytics } from '../utils/analyticsStore';
 import { audio } from '../utils/audioManager';
+import { shareResult } from '../utils/shareUtils';
 
 export default function MathNinja() {
   const canvasRef = useRef(null);
@@ -588,12 +589,21 @@ export default function MathNinja() {
                </div>
              )}
              
-             <button 
-               onClick={() => setGameState('MENU')}
-               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-display font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all hover:scale-[1.02]"
-             >
-               CONTINUE
-             </button>
+             <div className="flex gap-4 w-full">
+               <button 
+                 onClick={() => shareResult('Concept Ninja', score)}
+                 className="w-1/2 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-display font-black text-sm uppercase tracking-widest hover:bg-slate-700 transition-colors flex items-center justify-center gap-2"
+               >
+                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                 SHARE
+               </button>
+               <button 
+                 onClick={() => setGameState('MENU')}
+                 className="w-1/2 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-display font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all hover:scale-[1.02]"
+               >
+                 CONTINUE
+               </button>
+             </div>
           </div>
         )}
       </main>

@@ -3,6 +3,7 @@ import { questions, backupQuestions } from './questions';
 import gameLogo from './assets/Logos/game_Logo.png';
 import { saveGameAnalytics, getGameAnalytics, fetchGlobalXP } from './utils/analyticsStore';
 import { audio } from './utils/audioManager';
+import { shareResult } from './utils/shareUtils';
 
 const pointsLadder = [
   "1,000", "2,000", "3,000", "5,000", "10,000",
@@ -390,7 +391,16 @@ export default function Dashboard() {
           <p className="text-amber-400 font-bold text-xl mb-8">
             Winnings: {currentQuestionIndex > 0 ? pointsLadder[currentQuestionIndex - 1] : '0'} PTS
           </p>
-          <button onClick={startGame} className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyber-pink to-purple-500 font-bold text-white text-lg hover:scale-[1.02] transition-transform shadow-neonPink">Play Again</button>
+          <div className="flex gap-4 w-full">
+            <button onClick={() => {
+              const pts = currentQuestionIndex > 0 ? pointsLadder[currentQuestionIndex - 1] : '0';
+              shareResult('Kaun Banega Champion', pts, { level: currentQuestionIndex });
+            }} className="w-1/2 py-4 rounded-2xl bg-slate-800 border border-slate-700 font-bold text-white text-lg hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share
+            </button>
+            <button onClick={startGame} className="w-1/2 py-4 rounded-2xl bg-gradient-to-r from-cyber-pink to-purple-500 font-bold text-white text-lg hover:scale-[1.02] transition-transform shadow-neonPink">Play Again</button>
+          </div>
         </div>
       </div>
     );
