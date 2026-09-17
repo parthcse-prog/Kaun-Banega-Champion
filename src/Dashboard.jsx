@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { questions, backupQuestions } from './questions';
 import gameLogo from './assets/Logos/game_Logo.png';
-import { saveGameAnalytics } from './utils/analyticsStore';
+import { saveGameAnalytics, getGameAnalytics } from './utils/analyticsStore';
 
 const pointsLadder = [
   "1,000", "2,000", "3,000", "5,000", "10,000",
@@ -13,6 +13,50 @@ const pointsLadder = [
 export default function Dashboard() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [gameState, setGameState] = useState('intro'); // intro, playing, gameover, completed
+  const [totalXP, setTotalXP] = useState(0);
+
+  useEffect(() => {
+    const fetchXP = async () => {
+      // Default to local calculation
+      const analytics = getGameAnalytics();
+      const bestXP = {};
+      analytics.forEach(curr => {
+        if (!bestXP[curr.gameName] || curr.xp > bestXP[curr.gameName]) {
+          bestXP[curr.gameName] = curr.xp || 0;
+        }
+      });
+      let xp = Object.values(bestXP).reduce((a, b) => a + b, 0);
+      
+      try {
+        const token = localStorage.getItem('pi360_token');
+        if (token) {
+          const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          const profileData = await profileRes.json();
+          const student = profileData?.student?.[0];
+          
+          if (student) {
+            const studentId = student.RollNumber || student.EmailOfficial;
+            const lbRes = await fetch('http://localhost:5000/api/leaderboard');
+            if (lbRes.ok) {
+              const lbData = await lbRes.json();
+              const userEntry = lbData.find(u => u._id === studentId);
+              if (userEntry && userEntry.totalXP !== undefined) {
+                xp = userEntry.totalXP;
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch global XP", err);
+      }
+      
+      setTotalXP(xp);
+    };
+    fetchXP();
+  }, [gameState]);
+
   const [timeLeft, setTimeLeft] = useState(0);
   const [gameStartTime, setGameStartTime] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -188,6 +232,16 @@ export default function Dashboard() {
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mt-1">Select Game</h2>
                 <p className="text-xs sm:text-sm text-slate-400">Choose a challenge to begin</p>
+              </div>
+              
+              <div className="flex items-center gap-3 bg-[#0a1128] border border-[#00f2fe]/30 px-5 py-3 rounded-xl shadow-[0_0_15px_rgba(0,242,254,0.15)]">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-600 flex items-center justify-center text-slate-900 shadow-[0_0_10px_rgba(251,191,36,0.6)]">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.5,1L2,6V8H22V6L12.5,1M11.5,3.23L16.28,5.77L11.5,8.31L6.72,5.77L11.5,3.23M12,10.19L5,13.62V21.19L12,24.62L19,21.19V13.62L12,10.19Z" /></svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-amber-500 font-mono font-bold tracking-wider uppercase">Lifetime XP</span>
+                  <span className="text-2xl font-black text-white tracking-tight">{totalXP.toLocaleString()}</span>
+                </div>
               </div>
             </div>
 
