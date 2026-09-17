@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { getGameAnalytics } from '../utils/analyticsStore';
+import { getGameAnalytics, fetchGlobalXP } from '../utils/analyticsStore';
 import kbcLogo from '../assets/Logos/game_Logo.png';
 import wordConnectLogo from '../assets/Logos/concept_connect.png';
 import conceptNinjaLogo from '../assets/Logos/concept_ninja.png';
@@ -18,9 +18,16 @@ const GAME_INFO = [
 export default function AnalyticsPortal() {
   const [analyticsData, setAnalyticsData] = useState([]);
   const [expandedGame, setExpandedGame] = useState(null);
+  const [totalGrandmasterXP, setTotalGrandmasterXP] = useState(0);
 
   useEffect(() => {
     setAnalyticsData(getGameAnalytics());
+    
+    const loadGlobalXP = async () => {
+      const xp = await fetchGlobalXP();
+      setTotalGrandmasterXP(xp);
+    };
+    loadGlobalXP();
   }, []);
 
   const totalGamesPlayed = analyticsData.length;
@@ -34,7 +41,6 @@ export default function AnalyticsPortal() {
       gameMaxXP[entry.gameName] = xp;
     }
   });
-  const totalGrandmasterXP = Object.values(gameMaxXP).reduce((sum, val) => sum + val, 0);
 
   const formatTime = (seconds) => {
     const h = Math.floor(seconds / 3600);

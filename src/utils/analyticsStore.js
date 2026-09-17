@@ -100,6 +100,45 @@ export const getGameAnalytics = () => {
   }
 };
 
+export const fetchGlobalXP = async () => {
+  // Default to local calculation
+  const analytics = getGameAnalytics();
+  const bestXP = {};
+  analytics.forEach(curr => {
+    if (!bestXP[curr.gameName] || curr.xp > bestXP[curr.gameName]) {
+      bestXP[curr.gameName] = curr.xp || 0;
+    }
+  });
+  let xp = Object.values(bestXP).reduce((a, b) => a + b, 0);
+  
+  try {
+    const token = localStorage.getItem('pi360_token');
+    if (token) {
+      const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const profileData = await profileRes.json();
+      const student = profileData?.student?.[0];
+      
+      if (student) {
+        const studentId = student.RollNumber || student.EmailOfficial;
+        const lbRes = await fetch('http://localhost:5000/api/leaderboard');
+        if (lbRes.ok) {
+          const lbData = await lbRes.json();
+          const userEntry = lbData.find(u => u._id === studentId);
+          if (userEntry && userEntry.totalXP !== undefined) {
+            xp = userEntry.totalXP;
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Failed to fetch global XP", err);
+  }
+  
+  return xp;
+};
+
 // Mock "Other Students" with PI360 credentials
 const MOCK_PI360_STUDENTS = [
   { name: "Aarav Sharma", avatar: "https://i.pravatar.cc/150?u=aarav", xp: 4850, rank: 1, pi360_id: "PI-2023-010" },
