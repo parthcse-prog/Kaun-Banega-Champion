@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { questions, backupQuestions } from './questions';
 import gameLogo from './assets/Logos/game_Logo.png';
 import { saveGameAnalytics, getGameAnalytics, fetchGlobalXP } from './utils/analyticsStore';
+import { audio } from './utils/audioManager';
 
 const pointsLadder = [
   "1,000", "2,000", "3,000", "5,000", "10,000",
@@ -82,28 +83,31 @@ export default function Dashboard() {
   }, [gameState]);
 
   const startGame = () => {
+    audio.playSFX('click');
+    setGameState('playing');
     setCurrentQuestionIndex(0);
     setActiveQuestion(activeQuestions[0]);
-    setGameState('playing');
     setTimeLeft(getTimerForQuestion(0));
-    setLifelines({ fiftyFifty: { used: false }, swap: { used: false } });
-    setScore(0);
-    setSelectedOption(null);
-    setEliminatedOptions([]);
-    setIsCorrect(null);
     setGameStartTime(Date.now());
+    setSelectedOption(null);
+    setIsCorrect(null);
+    setEliminatedOptions([]);
+    setLifelines({
+      fiftyFifty: { used: false },
+      swap: { used: false }
+    });
+    setScore(0);
   };
 
   const handleOptionClick = (optionIndex) => {
     if (selectedOption !== null || eliminatedOptions.includes(optionIndex)) return;
-    
     setSelectedOption(optionIndex);
     
-    // Simulate checking
     setTimeout(() => {
       if (optionIndex === activeQuestion.answer) {
+        audio.playSFX('success');
         setIsCorrect(true);
-        setScore(score + 1);
+        setScore(prev => prev + 1);
         setTimeout(() => {
           if (currentQuestionIndex === 19) {
             setGameState('completed');
@@ -118,6 +122,7 @@ export default function Dashboard() {
           }
         }, 1500);
       } else {
+        audio.playSFX('wrong');
         setIsCorrect(false);
         setTimeout(() => {
           setGameState('gameover');

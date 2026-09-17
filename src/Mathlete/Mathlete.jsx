@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RotateCcw, Play, Target, Wrench, AlertTriangle, CheckCircle, TrendingDown } from 'lucide-react';
 import { CHALLENGES, MATERIALS } from './Data';
+import { audio } from '../utils/audioManager';
 
 export default function Mathlete() {
   const [challenge, setChallenge] = useState(CHALLENGES[0]);
@@ -26,11 +27,13 @@ export default function Mathlete() {
   };
 
   const handleInputChange = (id, value) => {
+    audio.playSFX('hover');
     setInputs(prev => ({ ...prev, [id]: value }));
     setResult(null); // Clear previous results when tweaking
   };
 
   const handleTest = () => {
+    audio.playSFX('click');
     setIsSimulating(true);
     // Fake a small computation delay for 'Simulation' feel
     setTimeout(() => {
@@ -39,9 +42,12 @@ export default function Mathlete() {
       setIsSimulating(false);
       
       if (simResult.isSuccess) {
+        audio.playSFX('success');
         if (bestScore === null || simResult.optimizationScore < bestScore) {
           setBestScore(simResult.optimizationScore);
         }
+      } else {
+        audio.playSFX('wrong');
       }
     }, 600);
   };

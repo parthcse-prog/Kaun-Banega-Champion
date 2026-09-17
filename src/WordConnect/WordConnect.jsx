@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { RotateCcw, Lightbulb, CheckCircle, ChevronRight, GraduationCap } from 'lucide-react';
 import { MOCK_PROFILES, QUESTION_BANK } from './Data';
 import { saveGameAnalytics } from '../utils/analyticsStore';
+import { audio } from '../utils/audioManager';
 
 export default function WordConnect() {
   const cseProfile = MOCK_PROFILES.find(p => p.stream === 'CSE') || MOCK_PROFILES[0];
@@ -147,6 +148,7 @@ export default function WordConnect() {
 
   const handlePointerEnter = (id) => {
     if (isDragging && !selectedIds.includes(id)) {
+      audio.playSFX('click');
       setSelectedIds(prev => [...prev, id]);
     } else if (isDragging && selectedIds.length > 1 && selectedIds[selectedIds.length - 2] === id) {
       // Backtrack
@@ -186,12 +188,14 @@ export default function WordConnect() {
 
   const validateWord = (word) => {
     if (word === targetClean) {
+      audio.playSFX('success');
       setFeedback('CORRECT');
       setScore(prev => prev + 100);
       setTimeout(() => {
         setGameState('EXPLANATION');
       }, 1000);
     } else {
+      audio.playSFX('wrong');
       setFeedback('WRONG');
       setTimeout(() => {
         setFeedback(null);

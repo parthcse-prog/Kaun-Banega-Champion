@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Storage } from './Storage';
 import { FALLBACK_BINGO_QUESTIONS } from './Data';
 import { saveGameAnalytics } from '../utils/analyticsStore';
+import { audio } from '../utils/audioManager';
 
 export default function AlgoBingo({ token }) {
   const contentSetId = "cs-algo-bingo";
@@ -52,6 +53,7 @@ export default function AlgoBingo({ token }) {
 
   useEffect(() => {
     if (gameState === 'WON' || gameState === 'LOST') {
+      audio.stopBGM();
       const timePlayed = 180 - timeLeft;
       saveGameAnalytics('Bingo Bonanza', session?.score || 0, timePlayed, gameState === 'WON');
     }
@@ -114,6 +116,7 @@ export default function AlgoBingo({ token }) {
   };
 
   const startGame = (question) => {
+    audio.playSFX('click');
     const newSession = Storage.createSession(contentSetId, token || 'Anonymous');
     // If a specific question is provided (from the new JSON structure), use its gridConfig directly.
     // Otherwise fallback to generating one randomly using the legacy data.
@@ -135,9 +138,11 @@ export default function AlgoBingo({ token }) {
     setHoveredCell(null);
     setFeedback(null);
     setTimeLeft(180);
+    audio.playBGM('https://cdn.pixabay.com/download/audio/2022/01/21/audio_31743c588f.mp3?filename=8-bit-arcade-138828.mp3');
   };
 
   const handleDragStart = (e, item) => {
+    audio.playSFX('click');
     setDraggedItem(item);
     e.dataTransfer.setData('text/plain', item.name);
     setTimeout(() => {
@@ -178,7 +183,7 @@ export default function AlgoBingo({ token }) {
     if (gameState !== 'PLAYING') return;
     const cellKey = `${r}-${c}`;
     if (!session.filledBoxes[cellKey]) return;
-    
+    audio.playSFX('click');
     const newFilled = { ...session.filledBoxes };
     delete newFilled[cellKey];
     
@@ -195,6 +200,7 @@ export default function AlgoBingo({ token }) {
     const isValidLocally = item.validCategoryIds.includes(rowCatId) && item.validCategoryIds.includes(colCatId);
 
     if (isValidLocally) {
+      audio.playSFX('success');
       const newFilled = { ...session.filledBoxes, [cellKey]: item.name };
       const newScore = session.score + 100;
       
@@ -216,6 +222,7 @@ export default function AlgoBingo({ token }) {
         if (newStatus === 'won') setGameState('WON');
       }, 1000);
     } else {
+      audio.playSFX('wrong');
       setFeedback({ type: 'error', message: "Incorrect combination!" });
       setTimeout(() => {
         setFeedback(null);

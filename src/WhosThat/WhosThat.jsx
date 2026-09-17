@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './WhosThat.css';
+import { CheckCircle2, ChevronRight, XCircle, Mic, ImageOff, User } from 'lucide-react';
 import { saveGameAnalytics } from '../utils/analyticsStore';
+import { audio } from '../utils/audioManager';
 
 const DEFAULT_PEOPLE = [
   { name: "Mark Zuckerberg", initials: "MZ", color: "#5a7ee6", hint: "Co-founded a social network from his Harvard dorm room in 2004; the company later renamed itself Meta." },
@@ -122,6 +124,7 @@ export default function WhosThat() {
 
   useEffect(() => {
     if (isGameFinished) {
+      audio.stopBGM();
       const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
       const isWin = score === (order.length || DEFAULT_PEOPLE.length);
       saveGameAnalytics("Who's That?!", score, timePlayed, isWin);
@@ -145,6 +148,7 @@ export default function WhosThat() {
       setPeople(fetchedPeople);
       setOrder(shuffledIndices);
       setGameStartTime(Date.now());
+      audio.playBGM('https://cdn.pixabay.com/download/audio/2022/10/16/audio_496350d302.mp3?filename=retro-game-arcade-236133.mp3');
     };
     initGame();
   }, []);
@@ -225,7 +229,10 @@ export default function WhosThat() {
   const revealAnswer = (wasCorrect) => {
     setRoundOver(true);
     if (wasCorrect) {
+      audio.playSFX('success');
       setFeedback({ text: `That's a W — it's ${currentPerson.name}! 🔥`, type: 'good' });
+    } else {
+      audio.playSFX('wrong');
     }
   };
 

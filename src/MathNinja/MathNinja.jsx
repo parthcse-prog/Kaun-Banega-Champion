@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { QUESTIONS } from './Data';
 import { saveGameAnalytics } from '../utils/analyticsStore';
+import { audio } from '../utils/audioManager';
 
 export default function MathNinja() {
   const canvasRef = useRef(null);
@@ -99,6 +100,9 @@ export default function MathNinja() {
     setMissedConcepts([]);
     setGameStartTime(Date.now());
     setGameState('PLAYING');
+    
+    // Example chiptune BGM placeholder (if desired, use real URL)
+    audio.playBGM('https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=8-bit-background-music-for-arcade-game-come-on-mario-164702.mp3');
   };
 
   const endGame = () => {
@@ -109,8 +113,10 @@ export default function MathNinja() {
       const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
       const isWin = engine.current.lives > 0; // Win if didn't lose all lives
       saveGameAnalytics('Concept Ninja', engine.current.score, timePlayed, isWin);
+      if (isWin) audio.playSFX('success');
     }
     setGameState('RESULTS');
+    audio.stopBGM();
   };
 
     // --- PHYSICS ENGINE LOOP ---
@@ -210,10 +216,12 @@ export default function MathNinja() {
         if (d <= o.r) {
           o.sliced = true;
           if (o.isCorrect) {
+            audio.playSFX('slice');
             engine.current.score += 10 + engine.current.combo * 2;
             engine.current.combo += 1;
             burst(o.x, o.y, o.color); // Splash in fruit color
           } else {
+            audio.playSFX('wrong');
             engine.current.combo = 0;
             engine.current.lives -= 1;
             burst(o.x, o.y, o.color); // Splash in fruit color for wrong ones too
