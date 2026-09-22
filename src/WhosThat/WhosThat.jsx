@@ -124,10 +124,15 @@ export default function WhosThat() {
 
   useEffect(() => {
     if (isGameFinished) {
-      audio.stopBGM();
       const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
       const isWin = score === (order.length || DEFAULT_PEOPLE.length);
       saveGameAnalytics("Who's That?!", score, timePlayed, isWin);
+      
+      if (isWin) {
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/09/audio_dc39bde9cb.mp3?filename=level-win-6416.mp3');
+      } else {
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c269165b4c.mp3?filename=game-over-arcade-6435.mp3');
+      }
     }
   }, [isGameFinished]);
 

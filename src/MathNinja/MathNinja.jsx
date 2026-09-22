@@ -114,10 +114,14 @@ export default function MathNinja() {
       const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
       const isWin = engine.current.lives > 0; // Win if didn't lose all lives
       saveGameAnalytics('Concept Ninja', engine.current.score, timePlayed, isWin);
-      if (isWin) audio.playSFX('success');
+      if (isWin) {
+        audio.playSFX('success');
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/09/audio_dc39bde9cb.mp3?filename=level-win-6416.mp3');
+      } else {
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c269165b4c.mp3?filename=game-over-arcade-6435.mp3');
+      }
     }
     setGameState('RESULTS');
-    audio.stopBGM();
   };
 
     // --- PHYSICS ENGINE LOOP ---

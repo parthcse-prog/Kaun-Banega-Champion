@@ -28,6 +28,7 @@ export default function WordConnect() {
     if (gameState === 'SUMMARY') {
       const timePlayed = Math.floor((Date.now() - gameStartTime) / 1000);
       saveGameAnalytics('Word Connect', score, timePlayed, true);
+      audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/09/audio_dc39bde9cb.mp3?filename=level-win-6416.mp3');
     }
   }, [gameState]);
 
@@ -54,6 +55,7 @@ export default function WordConnect() {
   }, []);
 
   const loadProfile = (selectedProfile) => {
+    audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c6ccf3232f.mp3?filename=epic-boss-battle-24430.mp3');
     setProfile(selectedProfile);
     const filtered = QUESTION_BANK.filter(q => q.stream === selectedProfile.stream);
     setQuestions(filtered);

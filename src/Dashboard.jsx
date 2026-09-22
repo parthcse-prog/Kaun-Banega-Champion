@@ -77,14 +77,25 @@ export default function Dashboard() {
   }, [timeLeft, gameState, selectedOption]);
 
   useEffect(() => {
-    if (gameState === 'gameover' || gameState === 'completed') {
-      const timePlayed = gameStartTime ? Math.floor((Date.now() - gameStartTime) / 1000) : 0;
-      saveGameAnalytics('Kaun Banega Champion', score, timePlayed, gameState === 'completed');
+    if (gameState === 'gameover' || gameState === 'completed' || gameState === 'intro') {
+      if (gameState !== 'intro') {
+        const timePlayed = gameStartTime ? Math.floor((Date.now() - gameStartTime) / 1000) : 0;
+        saveGameAnalytics('Kaun Banega Champion', score, timePlayed, gameState === 'completed');
+        
+        if (gameState === 'completed') {
+          audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/09/audio_dc39bde9cb.mp3?filename=level-win-6416.mp3');
+        } else {
+          audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c269165b4c.mp3?filename=game-over-arcade-6435.mp3');
+        }
+      } else {
+        audio.stopBGM();
+      }
     }
   }, [gameState]);
 
   const startGame = () => {
     audio.playSFX('click');
+    audio.playBGM('https://cdn.pixabay.com/download/audio/2022/01/21/audio_31743c588f.mp3?filename=8-bit-arcade-138828.mp3');
     setGameState('playing');
     setCurrentQuestionIndex(0);
     setActiveQuestion(activeQuestions[0]);

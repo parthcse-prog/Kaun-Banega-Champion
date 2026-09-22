@@ -53,7 +53,11 @@ export default function AlgoBingo({ token }) {
 
   useEffect(() => {
     if (gameState === 'WON' || gameState === 'LOST') {
-      audio.stopBGM();
+      if (gameState === 'WON') {
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/09/audio_dc39bde9cb.mp3?filename=level-win-6416.mp3');
+      } else {
+        audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c269165b4c.mp3?filename=game-over-arcade-6435.mp3');
+      }
       const timePlayed = 180 - timeLeft;
       saveGameAnalytics('Bingo Bonanza', session?.score || 0, timePlayed, gameState === 'WON');
     }

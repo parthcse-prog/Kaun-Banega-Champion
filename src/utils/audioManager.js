@@ -3,7 +3,7 @@ class AudioManager {
     this.audioCtx = null;
     this.bgmAudio = new Audio();
     this.bgmAudio.loop = true;
-    this.bgmAudio.volume = 0.2;
+    this.bgmAudio.volume = 0.5; // Increased from 0.2
     this.isMuted = false;
   }
 
@@ -29,6 +29,7 @@ class AudioManager {
     }
     // Only play if it has a src
     if (this.bgmAudio.src) {
+      // Force play
       this.bgmAudio.play().catch(e => console.log('BGM play prevented by browser', e));
     }
   }
@@ -53,7 +54,7 @@ class AudioManager {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(300, now);
       osc.frequency.exponentialRampToValueAtTime(500, now + 0.05);
-      gainNode.gain.setValueAtTime(0.05, now);
+      gainNode.gain.setValueAtTime(0.2, now); // Increased from 0.05
       gainNode.gain.linearRampToValueAtTime(0, now + 0.05);
       osc.start(now);
       osc.stop(now + 0.05);
@@ -61,7 +62,7 @@ class AudioManager {
     else if (type === 'click') {
       osc.type = 'square';
       osc.frequency.setValueAtTime(150, now);
-      gainNode.gain.setValueAtTime(0.05, now);
+      gainNode.gain.setValueAtTime(0.3, now); // Increased from 0.05
       gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
       osc.start(now);
       osc.stop(now + 0.1);
@@ -71,7 +72,7 @@ class AudioManager {
       osc.frequency.setValueAtTime(400, now);
       osc.frequency.setValueAtTime(600, now + 0.1);
       osc.frequency.setValueAtTime(1000, now + 0.2);
-      gainNode.gain.setValueAtTime(0.1, now);
+      gainNode.gain.setValueAtTime(0.5, now); // Increased from 0.1
       gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
       osc.start(now);
       osc.stop(now + 0.3);
@@ -80,7 +81,7 @@ class AudioManager {
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(150, now);
       osc.frequency.exponentialRampToValueAtTime(50, now + 0.3);
-      gainNode.gain.setValueAtTime(0.1, now);
+      gainNode.gain.setValueAtTime(0.5, now); // Increased from 0.1
       gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
       osc.start(now);
       osc.stop(now + 0.3);
@@ -103,7 +104,7 @@ class AudioManager {
       noise.connect(filter);
       filter.connect(gainNode);
       
-      gainNode.gain.setValueAtTime(0.15, now);
+      gainNode.gain.setValueAtTime(0.6, now); // Increased from 0.15
       gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
       
       noise.start(now);
