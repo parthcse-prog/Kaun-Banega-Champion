@@ -219,15 +219,38 @@ export default function WordConnect() {
 
   if (gameState === 'SUMMARY') {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6 font-sans text-center">
-        <CheckCircle className="w-24 h-24 text-emerald-400 mb-6" />
-        <h2 className="text-4xl font-black text-white mb-2">Topic Completed!</h2>
-        <p className="text-xl text-slate-400 mb-8">You mastered {questions.length} concepts for {profile?.stream}.</p>
-        <div className="bg-slate-900 px-8 py-4 rounded-2xl mb-8 border border-slate-800">
-          <span className="text-slate-500 uppercase font-bold text-sm">Final Score</span>
-          <div className="text-4xl font-black text-blue-400">{score}</div>
+      <div className="min-h-screen bg-[#050812] text-slate-100 flex flex-col items-center justify-center p-6 font-sans relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+        
+        <div className="relative z-10 w-full max-w-2xl bg-gradient-to-br from-[#0a1513] via-[#09221d] to-[#040a08] border border-emerald-500/20 p-10 md:p-16 rounded-[2rem] shadow-[0_0_50px_-10px_rgba(16,185,129,0.3)] flex flex-col items-center text-center">
+          <div className="absolute inset-0 bg-emerald-500/10 blur-3xl rounded-full scale-110 opacity-50 pointer-events-none"></div>
+          
+          <div className="h-24 w-24 rounded-full bg-emerald-500/20 border-4 border-emerald-400/50 flex items-center justify-center mb-8 relative z-10 shadow-[0_0_25px_rgba(16,185,129,0.5)]">
+            <svg className="w-12 h-12 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-500 mb-4 tracking-tight drop-shadow-lg">TOPIC MASTERED!</h2>
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-md leading-relaxed">You successfully conquered {questions.length} concepts for {profile?.stream}.</p>
+          
+          <div className="flex flex-col items-center bg-emerald-950/40 border border-emerald-900 px-12 py-6 rounded-3xl mb-10 shadow-inner">
+            <span className="text-emerald-500/70 uppercase font-black text-xs tracking-widest mb-2">Final Score</span>
+            <div className="text-6xl md:text-7xl font-black text-emerald-400 font-mono tracking-tighter drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">{score}</div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-4 w-full max-w-sm relative z-10">
+            <button onClick={() => {
+              import('../utils/shareUtils').then(({ shareResult }) => {
+                shareResult('Word Connect', score, { level: profile?.stream || 'Completed' });
+              });
+            }} className="w-full md:w-1/2 py-4 rounded-xl bg-[#091512] border border-emerald-500/30 text-emerald-400 font-bold font-mono text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share
+            </button>
+            <button onClick={() => window.location.href = '/'} className="w-full md:w-1/2 py-4 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-black font-mono text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] hover:-translate-y-1 transition-all">
+              ARENA
+            </button>
+          </div>
         </div>
-        <button onClick={() => () => window.location.href = '/'} className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors">BACK TO ARENA</button>
       </div>
     );
   }

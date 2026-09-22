@@ -498,12 +498,22 @@ export default function AlgoBingo({ token }) {
                <div className="text-6xl font-black text-emerald-400 font-mono">{session?.score}</div>
              </div>
              
-             <button 
-               onClick={() => setGameState('MENU')}
-               className="w-full py-4 rounded-2xl bg-gradient-to-b from-emerald-400 to-teal-600 border-t-2 border-emerald-200 border-b-4 border-b-teal-900 text-slate-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(16,185,129,0.4)] active:translate-y-1 active:border-b-0 transition-all"
-             >
-               BACK TO MENU
-             </button>
+             <div className="flex gap-4 w-full">
+               <button onClick={() => {
+                 import('../utils/shareUtils').then(({ shareResult }) => {
+                   shareResult('Bingo Bonanza', session?.score || 0, { level: 'Grid Completed' });
+                 });
+               }} className="w-1/2 py-4 rounded-2xl bg-[#0a1122] border border-emerald-500/30 text-emerald-400 hover:bg-emerald-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(0,0,0,0.4)] active:translate-y-1 transition-all flex items-center justify-center gap-2">
+                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                 Share
+               </button>
+               <button 
+                 onClick={() => setGameState('MENU')}
+                 className="w-1/2 py-4 rounded-2xl bg-gradient-to-b from-emerald-400 to-teal-600 border-t-2 border-emerald-200 border-b-4 border-b-teal-900 text-slate-950 font-black text-xl uppercase tracking-widest shadow-[0_6px_20px_rgba(16,185,129,0.4)] active:translate-y-1 active:border-b-0 transition-all"
+               >
+                 MENU
+               </button>
+             </div>
           </div>
         )}
 

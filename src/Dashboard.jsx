@@ -217,157 +217,145 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+            <div className="flex flex-col gap-10 pt-2 pb-10">
               
-              {/* KBC */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-cyan-500/20 hover:border-[#00f2fe] hover:shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#0c1836] to-[#080d1a] border border-cyan-500/30 flex items-center justify-center overflow-hidden group-hover:border-cyan-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(0,242,254,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                      <img src={gameLogo} alt="Kaun Banega Champion" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(255,183,3,0.8)] transform group-hover:scale-110 transition-transform" />
+              {/* Kaun Banega Champion */}
+              <article onClick={startGame} className="relative w-full rounded-[2rem] overflow-hidden group cursor-pointer border border-cyan-500/20 hover:border-cyan-400 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(0,242,254,0.3)] min-h-[350px] bg-gradient-to-br from-[#0a1128] via-[#081a3d] to-[#040914]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,242,254,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+                <div className="absolute -right-20 top-0 bottom-0 w-2/3 flex items-center justify-end opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-[4px] z-0 pointer-events-none">
+                  <img src={gameLogo} className="w-full max-w-[800px] object-contain transform translate-x-1/4 scale-150" />
+                </div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-12 gap-8 md:gap-12 w-full h-full">
+                  <div className="shrink-0 relative">
+                    <div className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full scale-110 group-hover:scale-150 transition-transform duration-700"></div>
+                    <img src={gameLogo} alt="KBC" className="h-40 md:h-56 object-contain drop-shadow-[0_0_25px_rgba(255,183,3,0.6)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col flex-1 text-center md:text-left h-full justify-center">
+                    <div className="flex gap-2 justify-center md:justify-start mb-4">
+                      <span className="px-3 py-1 bg-amber-500/20 text-amber-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-amber-500/30">Top Pick</span>
+                      <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-cyan-500/30">Trivia</span>
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-[#00f2fe] transition-all">Kaun Banega Champion</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Test your knowledge with 20 questions of trivia. Can you beat the timer and reach the expert tier?</p>
+                    <div>
+                      <button onClick={(e) => { e.stopPropagation(); startGame(); }} className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#00f2fe] text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(0,242,254,0.4)] hover:shadow-[0_0_40px_rgba(0,242,254,0.6)] hover:-translate-y-1 transition-all">
+                        Play Now
+                      </button>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f2fe] transition-colors">Kaun Banega Champion</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Test your knowledge with 20 questions of trivia. Can you beat the timer and reach the expert tier?
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={startGame} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(0,242,254,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play KBC
-                  </button>
                 </div>
               </article>
 
               {/* Word Connect */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-emerald-500/20 hover:border-[#00f59b] hover:shadow-[0_0_25px_-5px_rgba(0,245,155,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#09221d] to-[#080d1a] border border-emerald-500/30 flex items-center justify-center overflow-hidden group-hover:border-emerald-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(0,245,155,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                      <img src="/src/assets/Logos/concept_connect.png" alt="Concept Connect" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(0,245,155,0.8)] transform group-hover:scale-110 transition-transform" />
+              <article onClick={() => window.location.href = '/word-connect'} className="relative w-full rounded-[2rem] overflow-hidden group cursor-pointer border border-emerald-500/20 hover:border-emerald-400 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)] min-h-[350px] bg-gradient-to-br from-[#061814] via-[#09221d] to-[#040a08]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+                <div className="absolute -right-20 top-0 bottom-0 w-2/3 flex items-center justify-end opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-[4px] z-0 pointer-events-none">
+                  <img src="/src/assets/Logos/concept_connect.png" className="w-full max-w-[800px] object-contain transform translate-x-1/4 scale-150" />
+                </div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-12 gap-8 md:gap-12 w-full h-full">
+                  <div className="shrink-0 relative">
+                    <div className="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full scale-110 group-hover:scale-150 transition-transform duration-700"></div>
+                    <img src="/src/assets/Logos/concept_connect.png" alt="Word Connect" className="h-40 md:h-56 object-contain drop-shadow-[0_0_25px_rgba(16,185,129,0.6)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col flex-1 text-center md:text-left h-full justify-center">
+                    <div className="flex gap-2 justify-center md:justify-start mb-4">
+                      <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-emerald-500/30">Puzzle</span>
+                      <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-emerald-500/30">Vocabulary</span>
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-emerald-400 transition-all">Word Connect</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Connect the letters to form a word in intended order and apply the concepts that you have learned.</p>
+                    <div>
+                      <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-emerald-400 text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] hover:-translate-y-1 transition-all">
+                        Play Now
+                      </button>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#00f59b] transition-colors">Word Connect</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                     Connect the letters to form a word in intended order and apply the concepts that u have learned.
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={() => window.location.href = '/word-connect'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#00f59b] to-emerald-600 hover:from-teal-300 hover:to-emerald-500 text-slate-950 font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(0,245,155,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play Word Connect
-                  </button>
                 </div>
               </article>
 
               {/* Concept Ninja */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-blue-500/20 hover:border-[#3b82f6] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#0c183b] to-[#080d1a] border border-blue-500/30 flex items-center justify-center overflow-hidden group-hover:border-blue-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(59,130,246,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                      <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] transform group-hover:scale-110 transition-transform" />
+              <article onClick={() => window.location.href = '/math-ninja'} className="relative w-full rounded-[2rem] overflow-hidden group cursor-pointer border border-blue-500/20 hover:border-blue-400 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(59,130,246,0.3)] min-h-[350px] bg-gradient-to-br from-[#0a1228] via-[#0c183b] to-[#040614]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+                <div className="absolute -right-20 top-0 bottom-0 w-2/3 flex items-center justify-end opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-[4px] z-0 pointer-events-none">
+                  <img src="/src/assets/Logos/concept_ninja.png" className="w-full max-w-[800px] object-contain transform translate-x-1/4 scale-150" />
+                </div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-12 gap-8 md:gap-12 w-full h-full">
+                  <div className="shrink-0 relative">
+                    <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full scale-110 group-hover:scale-150 transition-transform duration-700"></div>
+                    <img src="/src/assets/Logos/concept_ninja.png" alt="Concept Ninja" className="h-40 md:h-56 object-contain drop-shadow-[0_0_25px_rgba(59,130,246,0.6)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col flex-1 text-center md:text-left h-full justify-center">
+                    <div className="flex gap-2 justify-center md:justify-start mb-4">
+                      <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-blue-500/30">Action</span>
+                      <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-blue-500/30">Reflexes</span>
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-blue-400 transition-all">Concept Ninja</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Slice. Think. Master. Rapidly slice the correct flying concepts before they drop!</p>
+                    <div>
+                      <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-blue-500 text-white font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:-translate-y-1 transition-all">
+                        Play Now
+                      </button>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#3b82f6] transition-colors">Concept Ninja</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Slice. Think. Master. Rapidly slice the correct flying concepts.
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={() => window.location.href = '/math-ninja'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(59,130,246,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play Concept Ninja
-                  </button>
                 </div>
               </article>
 
               {/* Bingo Bonanza */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-pink-500/20 hover:border-[#ff007f] hover:shadow-[0_0_25px_-5px_rgba(255,0,127,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#240e21] to-[#080d1a] border border-pink-500/30 flex items-center justify-center overflow-hidden group-hover:border-pink-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(255,0,127,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                      <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(255,0,127,0.8)] transform group-hover:scale-110 transition-transform" />
+              <article onClick={() => window.location.href = '/algo-bingo'} className="relative w-full rounded-[2rem] overflow-hidden group cursor-pointer border border-pink-500/20 hover:border-pink-400 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(255,0,127,0.3)] min-h-[350px] bg-gradient-to-br from-[#1a0816] via-[#240e21] to-[#0a0308]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,0,127,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+                <div className="absolute -right-20 top-0 bottom-0 w-2/3 flex items-center justify-end opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-[4px] z-0 pointer-events-none">
+                  <img src="/src/assets/Logos/bingo_bonanaza.png" className="w-full max-w-[800px] object-contain transform translate-x-1/4 scale-150" />
+                </div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-12 gap-8 md:gap-12 w-full h-full">
+                  <div className="shrink-0 relative">
+                    <div className="absolute inset-0 bg-pink-500/20 blur-3xl rounded-full scale-110 group-hover:scale-150 transition-transform duration-700"></div>
+                    <img src="/src/assets/Logos/bingo_bonanaza.png" alt="Bingo Bonanza" className="h-40 md:h-56 object-contain drop-shadow-[0_0_25px_rgba(255,0,127,0.6)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col flex-1 text-center md:text-left h-full justify-center">
+                    <div className="flex gap-2 justify-center md:justify-start mb-4">
+                      <span className="px-3 py-1 bg-pink-500/20 text-pink-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-pink-500/30">Logic</span>
+                      <span className="px-3 py-1 bg-pink-500/20 text-pink-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-pink-500/30">Match</span>
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-pink-400 transition-all">Bingo Bonanza</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!</p>
+                    <div>
+                      <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#ff007f] text-white font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(255,0,127,0.4)] hover:shadow-[0_0_40px_rgba(255,0,127,0.6)] hover:-translate-y-1 transition-all">
+                        Play Now
+                      </button>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#ff007f] transition-colors">Bingo Bonanza</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={() => window.location.href = '/algo-bingo'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(255,0,127,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play Bingo Bonanza
-                  </button>
                 </div>
               </article>
 
-              {/* Whos That */}
-              <article className="cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-purple-500/20 hover:border-[#c792f2] hover:shadow-[0_0_25px_-5px_rgba(199,146,242,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#1c0c2e] to-[#080d1a] border border-purple-500/30 flex items-center justify-center overflow-hidden group-hover:border-purple-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(199,146,242,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                       <img src="/src/assets/Logos/whose_that.png" alt="Who's That?!" className="h-20 object-contain drop-shadow-[0_0_15px_rgba(199,146,242,0.8)] transform group-hover:scale-110 transition-transform" />
+              {/* Who's That */}
+              <article onClick={() => window.location.href = '/whos-that'} className="relative w-full rounded-[2rem] overflow-hidden group cursor-pointer border border-purple-500/20 hover:border-[#c792f2] transition-all duration-500 shadow-[0_0_40px_-10px_rgba(199,146,242,0.3)] min-h-[350px] bg-gradient-to-br from-[#12081c] via-[#1c0c2e] to-[#07030a]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(199,146,242,0.15)_0%,transparent_60%)] z-0 pointer-events-none"></div>
+                <div className="absolute -right-20 top-0 bottom-0 w-2/3 flex items-center justify-end opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-[4px] z-0 pointer-events-none">
+                  <img src="/src/assets/Logos/whose_that.png" className="w-full max-w-[800px] object-contain transform translate-x-1/4 scale-150" />
+                </div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-12 gap-8 md:gap-12 w-full h-full">
+                  <div className="shrink-0 relative">
+                    <div className="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full scale-110 group-hover:scale-150 transition-transform duration-700"></div>
+                    <img src="/src/assets/Logos/whose_that.png" alt="Who's That" className="h-40 md:h-56 object-contain drop-shadow-[0_0_25px_rgba(199,146,242,0.6)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col flex-1 text-center md:text-left h-full justify-center">
+                    <div className="flex gap-2 justify-center md:justify-start mb-4">
+                      <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-purple-500/30">Guessing</span>
+                      <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-purple-500/30">Trivia</span>
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-[#c792f2] transition-all">Who's That?!</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Guess the legend from their portrait! Can you recognize these famous personalities?</p>
+                    <div>
+                      <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#c792f2] text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(199,146,242,0.4)] hover:shadow-[0_0_40px_rgba(199,146,242,0.6)] hover:-translate-y-1 transition-all">
+                        Play Now
+                      </button>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#c792f2] transition-colors">Who's That?!</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                     Guess the legend from their portrait!
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={() => window.location.href = '/whos-that'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#c792f2] to-purple-600 hover:from-purple-400 hover:to-purple-500 text-slate-950 font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(199,146,242,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play Who's That?!
-                  </button>
                 </div>
               </article>
 
-              {/* Knife Hit */}
-              <article className="hidden cyber-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group border-amber-500/20 hover:border-[#F59E0B] hover:shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)]">
-                <div className="space-y-5">
-                  <div className="relative w-full h-40 rounded-xl bg-gradient-to-b from-[#2a1a00] to-[#080d1a] border border-amber-500/30 flex items-center justify-center overflow-hidden group-hover:border-amber-400 transition-colors">
-                    <div className="absolute inset-0 bg-[radial-gradient(rgba(245,158,11,0.15)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center p-3">
-                      <div className="h-20 flex items-center justify-center">
-                        <svg viewBox="0 0 64 64" className="h-20 w-auto drop-shadow-[0_0_15px_rgba(245,158,11,0.8)] transform group-hover:scale-110 transition-transform">
-                          <circle cx="32" cy="32" r="14" fill="none" stroke="#F59E0B" strokeWidth="2" />
-                          <circle cx="32" cy="32" r="8" fill="none" stroke="#D97706" strokeWidth="1.5" strokeDasharray="3 3" />
-                          <circle cx="32" cy="32" r="3" fill="#FBBF24" />
-                          <line x1="32" y1="18" x2="32" y2="6" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
-                          <circle cx="32" cy="5" r="4" fill="#EF4444" />
-                          <line x1="32" y1="46" x2="32" y2="58" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
-                          <circle cx="32" cy="61" r="4" fill="#EF4444" />
-                          <line x1="18" y1="32" x2="6" y2="32" stroke="#E2E8F0" strokeWidth="3" strokeLinecap="round" />
-                          <circle cx="3" cy="32" r="4" fill="#EF4444" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-[#F59E0B] transition-colors">Knife Hit(BETA Version)</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed min-h-[48px]">
-                      Throw knives at the rotating target without hitting another knife. How far can you get?
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-5 mt-auto">
-                  <button onClick={() => window.location.href = '/knife-hit'} className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-black font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_-5px_rgba(245,158,11,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Play Knife Hit
-                  </button>
-                </div>
-              </article>
+
+              
             </div>
           </section>
         </main>

@@ -317,12 +317,22 @@ export default function WhosThat() {
           <section className="bg-[#18182b]/95 rounded-3xl p-10 lg:p-14 border border-[#2a2a46]/80 neon-violet-glow relative overflow-hidden backdrop-blur-xl transition-all duration-300 shadow-2xl text-center">
             <h2 className="font-mono text-5xl lg:text-7xl mb-6 text-[#34d399]">{score} / {order.length}</h2>
             <p className="text-lg lg:text-2xl text-slate-400 mb-10">{score === order.length ? "Perfect score — absolute legend, no cap." : score === 0 ? "Rough round, it happens — run it back." : "Solid — not bad, not bad."}</p>
-            <button 
-              className="px-8 py-5 lg:py-6 rounded-2xl bg-purple-600/80 hover:bg-purple-600 border border-purple-400/40 text-white font-mono font-bold text-lg lg:text-2xl transition flex items-center justify-center space-x-3 shadow-lg shadow-purple-900/30 active:scale-95 w-full" 
-              onClick={replay}
-            >
-              Run it back
-            </button>
+            <div className="flex gap-4 w-full">
+              <button onClick={() => {
+                import('../utils/shareUtils').then(({ shareResult }) => {
+                  shareResult("Who's That?!", `${score}/${order.length}`, { level: 'Quiz Completed' });
+                });
+              }} className="px-8 py-5 lg:py-6 rounded-2xl bg-[#121222]/90 border border-purple-500/40 text-purple-400 font-mono font-bold text-lg lg:text-2xl transition flex items-center justify-center space-x-3 shadow-lg hover:bg-purple-900/30 active:scale-95 w-1/2">
+                <svg className="w-5 h-5 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                <span>Share</span>
+              </button>
+              <button 
+                className="px-8 py-5 lg:py-6 rounded-2xl bg-gradient-to-b from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border border-purple-400/40 text-white font-mono font-bold text-lg lg:text-2xl transition flex items-center justify-center space-x-3 shadow-lg shadow-purple-900/30 active:scale-95 w-1/2" 
+                onClick={() => window.location.href = '/'}
+              >
+                <span>Home</span>
+              </button>
+            </div>
           </section>
         ) : (
           <section className="bg-[#18182b]/95 rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#2a2a46]/80 neon-violet-glow relative overflow-hidden backdrop-blur-xl transition-all duration-300 shadow-2xl">
