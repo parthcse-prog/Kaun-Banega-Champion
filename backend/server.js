@@ -76,6 +76,24 @@ app.get('/api/conceptninja/cs', async (req, res) => {
   }
 });
 
+// Helper for semester conceptninja
+const getConceptNinjaSem = async (sem, req, res) => {
+  try {
+    if (!db) return res.status(500).json({ error: "Database not connected yet" });
+    const collection = db.collection(`concept_ninja_cs_sem${sem}`);
+    const questions = await collection.aggregate([{ $sample: { size: 20 } }]).toArray();
+    res.json(questions);
+  } catch (error) {
+    console.error(`Error fetching concept ninja sem${sem} questions:`, error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+app.get('/api/conceptninja/cs/sem1', (req, res) => getConceptNinjaSem(1, req, res));
+app.get('/api/conceptninja/cs/sem3', (req, res) => getConceptNinjaSem(3, req, res));
+app.get('/api/conceptninja/cs/sem5', (req, res) => getConceptNinjaSem(5, req, res));
+app.get('/api/conceptninja/cs/sem7', (req, res) => getConceptNinjaSem(7, req, res));
+
 app.get('/api/kbc/cs', async (req, res) => {
   try {
     if (!db) {
@@ -165,6 +183,24 @@ app.get('/api/algobingo/cs', async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// Helper for semester algobingo
+const getAlgoBingoSem = async (sem, req, res) => {
+  try {
+    if (!db) return res.status(500).json({ error: "Database not connected yet" });
+    const collection = db.collection(`algo_bingo_cs_sem${sem}`);
+    const questions = await collection.find({}).toArray();
+    res.json(questions);
+  } catch (error) {
+    console.error(`Error fetching algo bingo sem${sem} questions:`, error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+app.get('/api/algobingo/cs/sem1', (req, res) => getAlgoBingoSem(1, req, res));
+app.get('/api/algobingo/cs/sem3', (req, res) => getAlgoBingoSem(3, req, res));
+app.get('/api/algobingo/cs/sem5', (req, res) => getAlgoBingoSem(5, req, res));
+app.get('/api/algobingo/cs/sem7', (req, res) => getAlgoBingoSem(7, req, res));
 
 app.get('/api/whosthat/cs', async (req, res) => {
   try {

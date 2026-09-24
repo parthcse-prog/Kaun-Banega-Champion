@@ -16,8 +16,32 @@ export default function MathNinja() {
 
   useEffect(() => {
     const fetchQ = async () => {
+      let currentSemester = null;
       try {
-        const res = await fetch('http://localhost:5000/api/conceptninja/cs');
+        const token = localStorage.getItem('pi360_token');
+        if (token) {
+          const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          const data = await profileRes.json();
+          const studentData = data?.student?.[0];
+          if (studentData && studentData.DetailedAcademics) {
+            const ongoingSem = studentData.DetailedAcademics.find(sem => !sem.Percentage || sem.Percentage === 0);
+            currentSemester = ongoingSem ? String(ongoingSem.Semester) : String(studentData.TotalSemesters);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch PI360 profile", err);
+      }
+
+      let endpoint = 'http://localhost:5000/api/conceptninja/cs';
+      if (['1', '3', '5', '7'].includes(currentSemester)) {
+        endpoint = `http://localhost:5000/api/conceptninja/cs/sem${currentSemester}`;
+      }
+
+      try {
+        const res = await fetch(endpoint);
         if(res.ok) {
           const data = await res.json();
           if(data && data.length > 0) {
