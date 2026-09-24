@@ -1,0 +1,152 @@
+[
+  {
+    "question_id": 1,
+    "question": "Which of the following is a characteristic of Python's type system?",
+    "options": ["Static typing only", "Dynamic typing", "No data types", "Compile-time-only typing"],
+    "correct_answer": "Dynamic typing"
+  },
+  {
+    "question_id": 2,
+    "question": "Which built-in function returns the type of an object in Python?",
+    "options": ["typeof()", "type()", "datatype()", "checktype()"],
+    "correct_answer": "type()"
+  },
+  {
+    "question_id": 3,
+    "question": "Which operator is used for string concatenation in Python?",
+    "options": ["+", "&", "*", "."],
+    "correct_answer": "+"
+  },
+  {
+    "question_id": 4,
+    "question": "What does the expression 'Python'[1:4] return?",
+    "options": ["Pyt", "yth", "tho", "Python"],
+    "correct_answer": "yth"
+  },
+  {
+    "question_id": 5,
+    "question": "Which of the following is a valid Python naming convention for a variable?",
+    "options": ["student_name", "student-name", "2student", "class"],
+    "correct_answer": "student_name"
+  },
+  {
+    "question_id": 6,
+    "question": "Which numeric data type represents whole numbers in Python?",
+    "options": ["float", "int", "complex", "decimal"],
+    "correct_answer": "int"
+  },
+  {
+    "question_id": 7,
+    "question": "Which statement correctly describes Python strings?",
+    "options": ["They are mutable", "They are immutable", "They can contain only letters", "They cannot be sliced"],
+    "correct_answer": "They are immutable"
+  },
+  {
+    "question_id": 8,
+    "question": "Which operator performs floor division in Python?",
+    "options": ["/", "//", "%", "**"],
+    "correct_answer": "//"
+  },
+  {
+    "question_id": 9,
+    "question": "Which keyword is used to make a decision based on a condition?",
+    "options": ["if", "when", "case", "check"],
+    "correct_answer": "if"
+  },
+  {
+    "question_id": 10,
+    "question": "Which operator performs a logical AND operation in Python?",
+    "options": ["&&", "and", "&and", "AND"],
+    "correct_answer": "and"
+  },
+  {
+    "question_id": 11,
+    "question": "Which operator performs bitwise AND?",
+    "options": ["and", "&&", "&", "|"],
+    "correct_answer": "&"
+  },
+  {
+    "question_id": 12,
+    "question": "What does the break statement do inside a loop?",
+    "options": ["Skips one iteration", "Terminates the loop", "Restarts the loop", "Defines a function"],
+    "correct_answer": "Terminates the loop"
+  },
+  {
+    "question_id": 13,
+    "question": "What does continue do inside a loop?",
+    "options": ["Terminates the loop", "Skips to the next iteration", "Exits the program", "Repeats the entire program"],
+    "correct_answer": "Skips to the next iteration"
+  },
+  {
+    "question_id": 14,
+    "question": "Which collection is ordered and mutable?",
+    "options": ["Tuple", "List", "Set", "Dictionary key view"],
+    "correct_answer": "List"
+  },
+  {
+    "question_id": 15,
+    "question": "Which Python collection stores unique unordered elements?",
+    "options": ["List", "Tuple", "Set", "String"],
+    "correct_answer": "Set"
+  },
+  {
+    "question_id": 16,
+    "question": "Which collection stores data as key-value pairs?",
+    "options": ["List", "Tuple", "Dictionary", "Set"],
+    "correct_answer": "Dictionary"
+  },
+  {
+    "question_id": 17,
+    "question": "What is a major property of tuples?",
+    "options": ["They are mutable", "They are immutable", "They only contain numbers", "They cannot be indexed"],
+    "correct_answer": "They are immutable"
+  },
+  {
+    "question_id": 18,
+    "question": "Which concept allows a class to acquire properties and methods from another class?",
+    "options": ["Encapsulation", "Inheritance", "Iteration", "Compilation"],
+    "correct_answer": "Inheritance"
+  },
+  {
+    "question_id": 19,
+    "question": "Which OOP concept allows the same interface to have different implementations?",
+    "options": ["Polymorphism", "Indentation", "Iteration", "Slicing"],
+    "correct_answer": "Polymorphism"
+  },
+  {
+    "question_id": 20,
+    "question": "Which method is automatically called when an object is initialized in a typical Python class?",
+    "options": ["__init__()", "__start__()", "__create__()", "__newclass__()"],
+    "correct_answer": "__init__()"
+  },
+  {
+    "question_id": 21,
+    "question": "What is a class variable?",
+    "options": ["A variable shared by instances of a class", "A variable that exists only inside a loop", "A variable that cannot change", "A global module name"],
+    "correct_answer": "A variable shared by instances of a class"
+  },
+  {
+    "question_id": 22,
+    "question": "Which special method is commonly used to provide a string representation of an object?",
+    "options": ["__str__()", "__text__()", "__print__()", "__show__()"],
+    "correct_answer": "__str__()"
+  },
+  {
+    "question_id": 23,
+    "question": "What is the purpose of a function in Python?",
+    "options": ["To group reusable code", "To disable modules", "To prevent variables", "To replace all classes"],
+    "correct_answer": "To group reusable code"
+  },
+  {
+    "question_id": 24,
+    "question": "Which parameter type allows arguments to be passed by keyword name?",
+    "options": ["Keyword parameter", "Loop parameter", "Class parameter", "Stream parameter"],
+    "correct_answer": "Keyword parameter"
+  },
+  {
+    "question_id": 25,
+    "question": "What is a lambda in Python?",
+    "options": ["An anonymous function", "A class variable", "A file object", "A loop statement"],
+    "correct_answer": "An anonymous function"
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "question_id": 1,
+    "question": "Which step of computational thinking focuses on breaking a complex problem into smaller manageable parts?",
+    "options": ["Abstraction", "Decomposition", "Pattern recognition", "Compilation"],
+    "correct_answer": "Decomposition"
+  },
+  {
+    "question_id": 2,
+    "question": "Which of the following is a characteristic of a good algorithm?",
+    "options": ["It must be ambiguous", "It must have clearly defined steps", "It must use Python only", "It must always use recursion"],
+    "correct_answer": "It must have clearly defined steps"
+  },
+  {
+    "question_id": 3,
+    "question": "What is the primary purpose of a flowchart?",
+    "options": ["To store data permanently", "To represent an algorithm graphically", "To compile a program", "To measure execution time"],
+    "correct_answer": "To represent an algorithm graphically"
+  },
+  {
+    "question_id": 4,
+    "question": "An error caused by violating Python grammar rules is called a:",
+    "options": ["Logical error", "Runtime error", "Syntax error", "Design error"],
+    "correct_answer": "Syntax error"
+  },
+  {
+    "question_id": 5,
+    "question": "Which Python feature is used to define blocks of code?",
+    "options": ["Braces {}", "Indentation", "Semicolons only", "Parentheses"],
+    "correct_answer": "Indentation"
+  },
+  {
+    "question_id": 6,
+    "question": "Which of the following is a valid Python identifier?",
+    "options": ["2marks", "student-name", "student_name", "class"],
+    "correct_answer": "student_name"
+  },
+  {
+    "question_id": 7,
+    "question": "Which Python type represents a Boolean value?",
+    "options": ["bool", "boolean", "logic", "bit"],
+    "correct_answer": "bool"
+  },
+  {
+    "question_id": 8,
+    "question": "What is the result of type conversion using int('25')?",
+    "options": ["The string '25'", "The integer 25", "The float 25.0", "An error because strings cannot be converted"],
+    "correct_answer": "The integer 25"
+  },
+  {
+    "question_id": 9,
+    "question": "Which operator is used for exponentiation in Python?",
+    "options": ["^", "**", "//", "%%"],
+    "correct_answer": "**"
+  },
+  {
+    "question_id": 10,
+    "question": "Which function is commonly used to read input from the user in Python?",
+    "options": ["read()", "scan()", "input()", "get()"],
+    "correct_answer": "input()"
+  },
+  {
+    "question_id": 11,
+    "question": "Which statement is used for decision-making when multiple conditions are checked sequentially?",
+    "options": ["elif", "repeat", "switch", "iterate"],
+    "correct_answer": "elif"
+  },
+  {
+    "question_id": 12,
+    "question": "What does the break statement do inside a loop?",
+    "options": ["Skips the current iteration", "Terminates the loop", "Restarts the loop", "Pauses the program permanently"],
+    "correct_answer": "Terminates the loop"
+  },
+  {
+    "question_id": 13,
+    "question": "What does the continue statement do inside a loop?",
+    "options": ["Terminates the program", "Terminates the loop", "Skips to the next iteration", "Repeats the previous iteration"],
+    "correct_answer": "Skips to the next iteration"
+  },
+  {
+    "question_id": 14,
+    "question": "Which function generates a sequence commonly used for range-based iteration?",
+    "options": ["sequence()", "range()", "series()", "iterate()"],
+    "correct_answer": "range()"
+  },
+  {
+    "question_id": 15,
+    "question": "What is the purpose of a function in modular programming?",
+    "options": ["To make every program longer", "To group reusable logic", "To eliminate variables", "To avoid all errors"],
+    "correct_answer": "To group reusable logic"
+  },
+  {
+    "question_id": 16,
+    "question": "What is the base case in a recursive function?",
+    "options": ["The condition that stops further recursive calls", "The first variable declaration", "The loop condition", "The imported library"],
+    "correct_answer": "The condition that stops further recursive calls"
+  },
+  {
+    "question_id": 17,
+    "question": "Which Python data structure is mutable and ordered?",
+    "options": ["Tuple", "List", "Set", "String"],
+    "correct_answer": "List"
+  },
+  {
+    "question_id": 18,
+    "question": "Which Python data structure stores key-value pairs?",
+    "options": ["List", "Tuple", "Dictionary", "Set"],
+    "correct_answer": "Dictionary"
+  },
+  {
+    "question_id": 19,
+    "question": "Which statement is used to handle exceptions in Python?",
+    "options": ["try-except", "if-error", "catch-only", "error-handle"],
+    "correct_answer": "try-except"
+  },
+  {
+    "question_id": 20,
+    "question": "Which Python module is specifically suited to working with dates and times?",
+    "options": ["random", "math", "datetime", "string"],
+    "correct_answer": "datetime"
+  },
+  {
+    "question_id": 21,
+    "question": "Which environment is specifically mentioned for interactive Python programming in the lab syllabus?",
+    "options": ["Jupyter", "Photoshop", "AutoCAD", "MATLAB only"],
+    "correct_answer": "Jupyter"
+  },
+  {
+    "question_id": 22,
+    "question": "Which operation is commonly used to calculate the remainder of a division in Python?",
+    "options": ["//", "%", "**", "/"],
+    "correct_answer": "%"
+  },
+  {
+    "question_id": 23,
+    "question": "A program that determines whether a student is eligible based on a condition primarily uses which programming concept?",
+    "options": ["Decision making", "File compression", "Recursion only", "Sorting only"],
+    "correct_answer": "Decision making"
+  },
+  {
+    "question_id": 24,
+    "question": "Which problem is specifically listed as a loop-based programming exercise?",
+    "options": ["Factorial", "Database normalization", "Image segmentation", "Socket programming"],
+    "correct_answer": "Factorial"
+  },
+  {
+    "question_id": 25,
+    "question": "Which of the following is listed as a number-classification or loop exercise in the programming lab?",
+    "options": ["Armstrong number", "Fourier transform", "Kirchhoff law", "Newton's rings"],
+    "correct_answer": "Armstrong number"
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "question_id": 1,
+    "question": "What is the probability of a certain event?",
+    "options": ["0", "0.5", "1", "-1"],
+    "correct_answer": "1"
+  },
+  {
+    "question_id": 2,
+    "question": "What is the probability of an impossible event?",
+    "options": ["0", "1", "-1", "0.5"],
+    "correct_answer": "0"
+  },
+  {
+    "question_id": 3,
+    "question": "If A and B are mutually exclusive, what is P(A ∩ B)?",
+    "options": ["0", "1", "P(A)P(B)", "P(A)+P(B)"],
+    "correct_answer": "0"
+  },
+  {
+    "question_id": 4,
+    "question": "For independent events A and B, which is correct?",
+    "options": ["P(A∩B)=P(A)+P(B)", "P(A∩B)=P(A)P(B)", "P(A∩B)=P(A)-P(B)", "P(A∩B)=1"],
+    "correct_answer": "P(A∩B)=P(A)P(B)"
+  },
+  {
+    "question_id": 5,
+    "question": "Which theorem updates a probability after new evidence is observed?",
+    "options": ["Bayes' theorem", "Taylor theorem", "Pythagorean theorem", "Green's theorem"],
+    "correct_answer": "Bayes' theorem"
+  },
+  {
+    "question_id": 6,
+    "question": "Which measure is the arithmetic average?",
+    "options": ["Median", "Mode", "Mean", "Range"],
+    "correct_answer": "Mean"
+  },
+  {
+    "question_id": 7,
+    "question": "Which measure is the middle value of ordered observations?",
+    "options": ["Mean", "Median", "Mode", "Variance"],
+    "correct_answer": "Median"
+  },
+  {
+    "question_id": 8,
+    "question": "Which measure is the most frequently occurring value?",
+    "options": ["Mean", "Median", "Mode", "Standard deviation"],
+    "correct_answer": "Mode"
+  },
+  {
+    "question_id": 9,
+    "question": "What does variance measure?",
+    "options": ["Central location", "Dispersion around the mean", "Number of observations", "Most frequent value"],
+    "correct_answer": "Dispersion around the mean"
+  },
+  {
+    "question_id": 10,
+    "question": "What is the positive square root of variance?",
+    "options": ["Mean", "Median", "Standard deviation", "Range"],
+    "correct_answer": "Standard deviation"
+  },
+  {
+    "question_id": 11,
+    "question": "What does correlation measure?",
+    "options": ["Association between variables", "Number of samples", "Only variance", "Only mean"],
+    "correct_answer": "Association between variables"
+  },
+  {
+    "question_id": 12,
+    "question": "Which correlation coefficient represents no linear correlation?",
+    "options": ["-1", "0", "0.5", "1"],
+    "correct_answer": "0"
+  },
+  {
+    "question_id": 13,
+    "question": "What is a random variable?",
+    "options": ["A variable determined by outcomes of a random experiment", "A fixed constant", "A hardware variable", "A programming keyword"],
+    "correct_answer": "A variable determined by outcomes of a random experiment"
+  },
+  {
+    "question_id": 14,
+    "question": "Which distribution models successes in a fixed number of independent trials?",
+    "options": ["Binomial", "Normal", "Uniform", "Exponential"],
+    "correct_answer": "Binomial"
+  },
+  {
+    "question_id": 15,
+    "question": "Which distribution is bell-shaped and symmetric?",
+    "options": ["Poisson", "Normal", "Geometric", "Bernoulli"],
+    "correct_answer": "Normal"
+  },
+  {
+    "question_id": 16,
+    "question": "What is an algorithm?",
+    "options": ["A finite sequence of well-defined steps", "A programming language", "A database", "A hardware device"],
+    "correct_answer": "A finite sequence of well-defined steps"
+  },
+  {
+    "question_id": 17,
+    "question": "Which notation gives an asymptotic upper bound?",
+    "options": ["Big-O", "Big-Theta", "Big-Omega", "Delta"],
+    "correct_answer": "Big-O"
+  },
+  {
+    "question_id": 18,
+    "question": "Which notation describes a tight asymptotic bound?",
+    "options": ["Big-O", "Big-Theta", "Big-Omega", "Sigma"],
+    "correct_answer": "Big-Theta"
+  },
+  {
+    "question_id": 19,
+    "question": "What is the time complexity of binary search on a sorted array?",
+    "options": ["O(n)", "O(log n)", "O(n²)", "O(2^n)"],
+    "correct_answer": "O(log n)"
+  },
+  {
+    "question_id": 20,
+    "question": "Which sorting algorithm repeatedly selects the minimum remaining element?",
+    "options": ["Selection sort", "Merge sort", "Quick sort", "Heap sort"],
+    "correct_answer": "Selection sort"
+  },
+  {
+    "question_id": 21,
+    "question": "Which sorting algorithm divides data and then merges sorted subarrays?",
+    "options": ["Bubble sort", "Merge sort", "Selection sort", "Insertion sort"],
+    "correct_answer": "Merge sort"
+  },
+  {
+    "question_id": 22,
+    "question": "Which sorting algorithm uses a pivot and partitioning?",
+    "options": ["Quick sort", "Merge sort", "Bubble sort", "Counting sort"],
+    "correct_answer": "Quick sort"
+  },
+  {
+    "question_id": 23,
+    "question": "Which algorithm repeatedly compares adjacent elements?",
+    "options": ["Bubble sort", "Heap sort", "Merge sort", "Radix sort"],
+    "correct_answer": "Bubble sort"
+  },
+  {
+    "question_id": 24,
+    "question": "Which technique divides a problem into smaller subproblems and combines their results?",
+    "options": ["Divide and conquer", "Brute force", "Random search", "Hashing"],
+    "correct_answer": "Divide and conquer"
+  },
+  {
+    "question_id": 25,
+    "question": "Which technique stores results of overlapping subproblems?",
+    "options": ["Dynamic programming", "Greedy method", "Brute force", "Binary search"],
+    "correct_answer": "Dynamic programming"
+  }
+]

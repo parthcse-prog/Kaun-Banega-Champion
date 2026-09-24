@@ -1,0 +1,152 @@
+[
+  {
+    "question_id": 1,
+    "question": "Which activity is a fundamental part of software testing?",
+    "options": ["Identifying defects", "Increasing screen brightness", "Designing network cables", "Formatting hard disks"],
+    "correct_answer": "Identifying defects"
+  },
+  {
+    "question_id": 2,
+    "question": "At which stage of the software development process is testing integrated to verify software quality?",
+    "options": ["Software development life cycle", "Only after deployment", "Only during requirement gathering", "Only during database backup"],
+    "correct_answer": "Software development life cycle"
+  },
+  {
+    "question_id": 3,
+    "question": "Which of the following is a category of software defect?",
+    "options": ["Functional defect", "Network topology", "CPU register", "File extension"],
+    "correct_answer": "Functional defect"
+  },
+  {
+    "question_id": 4,
+    "question": "What is the purpose of a test case?",
+    "options": ["To define conditions and steps for verifying software behavior", "To compile source code", "To configure a router", "To increase processor speed"],
+    "correct_answer": "To define conditions and steps for verifying software behavior"
+  },
+  {
+    "question_id": 5,
+    "question": "What does test coverage indicate?",
+    "options": ["The extent to which software or its requirements are exercised by tests", "The size of the source code file", "The number of developers", "The amount of disk space"],
+    "correct_answer": "The extent to which software or its requirements are exercised by tests"
+  },
+  {
+    "question_id": 6,
+    "question": "Which black-box testing technique divides input data into groups expected to behave similarly?",
+    "options": ["Equivalence partitioning", "Branch coverage", "Statement coverage", "Code inspection"],
+    "correct_answer": "Equivalence partitioning"
+  },
+  {
+    "question_id": 7,
+    "question": "Which black-box testing technique focuses on values at the edges of input ranges?",
+    "options": ["Boundary value analysis", "Statement coverage", "Branch coverage", "Code profiling"],
+    "correct_answer": "Boundary value analysis"
+  },
+  {
+    "question_id": 8,
+    "question": "Which technique measures whether individual program statements have been executed by tests?",
+    "options": ["Statement coverage", "Equivalence partitioning", "Boundary value analysis", "Usability testing"],
+    "correct_answer": "Statement coverage"
+  },
+  {
+    "question_id": 9,
+    "question": "Which technique checks whether different decision branches have been exercised?",
+    "options": ["Branch coverage", "Statement coverage", "Data partitioning", "User acceptance testing"],
+    "correct_answer": "Branch coverage"
+  },
+  {
+    "question_id": 10,
+    "question": "What is user acceptance testing primarily concerned with?",
+    "options": ["Whether the system meets user or business acceptance needs", "Whether every CPU instruction executes", "Whether a network cable works", "Whether source code has comments"],
+    "correct_answer": "Whether the system meets user or business acceptance needs"
+  },
+  {
+    "question_id": 11,
+    "question": "What does usability testing primarily evaluate?",
+    "options": ["Ease and effectiveness of user interaction", "Network packet routing", "Database indexing only", "CPU cache size"],
+    "correct_answer": "Ease and effectiveness of user interaction"
+  },
+  {
+    "question_id": 12,
+    "question": "What is a major benefit of test automation?",
+    "options": ["Repeatable execution of tests", "Eliminating all software defects", "Removing the need for requirements", "Guaranteeing zero failures"],
+    "correct_answer": "Repeatable execution of tests"
+  },
+  {
+    "question_id": 13,
+    "question": "Which automation framework organizes tests into reusable modules?",
+    "options": ["Modular framework", "Linear framework", "Manual-only framework", "Hardware framework"],
+    "correct_answer": "Modular framework"
+  },
+  {
+    "question_id": 14,
+    "question": "Which framework uses test data separately from test scripts?",
+    "options": ["Data-driven framework", "Linear framework", "Manual framework", "Static framework"],
+    "correct_answer": "Data-driven framework"
+  },
+  {
+    "question_id": 15,
+    "question": "Which automation framework uses keywords to represent test actions?",
+    "options": ["Keyword-driven framework", "Linear framework", "Branch framework", "Statement framework"],
+    "correct_answer": "Keyword-driven framework"
+  },
+  {
+    "question_id": 16,
+    "question": "Which tool is explicitly mentioned for web test automation?",
+    "options": ["Selenium", "Photoshop", "Wireshark", "MATLAB"],
+    "correct_answer": "Selenium"
+  },
+  {
+    "question_id": 17,
+    "question": "Which tool is explicitly mentioned for mobile application test automation?",
+    "options": ["Appium", "Selenium IDE only", "Jupyter", "GeoGebra"],
+    "correct_answer": "Appium"
+  },
+  {
+    "question_id": 18,
+    "question": "What does continuous integration mean in the context of test automation?",
+    "options": ["Frequently integrating code changes with automated build and test activities", "Testing only once before release", "Manually copying files to every machine", "Disabling automated tests"],
+    "correct_answer": "Frequently integrating code changes with automated build and test activities"
+  },
+  {
+    "question_id": 19,
+    "question": "Which type of testing examines system behavior under workload?",
+    "options": ["Performance testing", "Usability testing only", "Unit naming", "Code formatting"],
+    "correct_answer": "Performance testing"
+  },
+  {
+    "question_id": 20,
+    "question": "Which testing area focuses on identifying security weaknesses and vulnerabilities?",
+    "options": ["Security testing", "Usability testing", "Visual testing", "Regression naming"],
+    "correct_answer": "Security testing"
+  },
+  {
+    "question_id": 21,
+    "question": "What is a primary focus of data science?",
+    "options": ["Extracting useful insights from data", "Designing computer hardware only", "Replacing all databases", "Writing operating systems only"],
+    "correct_answer": "Extracting useful insights from data"
+  },
+  {
+    "question_id": 22,
+    "question": "Which environment is explicitly mentioned for data analysis using Python?",
+    "options": ["Jupyter notebooks", "BIOS", "Command prompt only", "Unity Editor"],
+    "correct_answer": "Jupyter notebooks"
+  },
+  {
+    "question_id": 23,
+    "question": "What is data preprocessing?",
+    "options": ["Preparing raw data for analysis or modeling", "Deploying a network router", "Compiling an operating system", "Creating a CPU"],
+    "correct_answer": "Preparing raw data for analysis or modeling"
+  },
+  {
+    "question_id": 24,
+    "question": "Which activity is part of exploratory data analysis?",
+    "options": ["Examining patterns and visualizing data", "Writing assembly code", "Configuring DNS", "Designing processor pipelines"],
+    "correct_answer": "Examining patterns and visualizing data"
+  },
+  {
+    "question_id": 25,
+    "question": "What is data cleaning intended to address?",
+    "options": ["Problems such as missing, inconsistent, or incorrect data", "Only network congestion", "Only processor errors", "Only UI design"],
+    "correct_answer": "Problems such as missing, inconsistent, or incorrect data"
+  }
+]

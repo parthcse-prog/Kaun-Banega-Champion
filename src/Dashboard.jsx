@@ -42,19 +42,108 @@ export default function Dashboard() {
   const [score, setScore] = useState(0); // Track correct answers
 
   useEffect(() => {
-    // Fetch questions from MongoDB on mount
-    fetch('http://localhost:5000/api/kbc/cs')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.questions && data.questions.length > 0) {
-          setActiveQuestions(data.questions);
-          setActiveQuestion(data.questions[0]);
-          if (data.backupQuestions) {
-            setActiveBackup(data.backupQuestions);
+    const loadQuestions = async () => {
+      let isSem1 = false;
+      let isSem3 = false;
+      let isSem5 = false;
+      let isSem7 = false;
+      try {
+        const token = localStorage.getItem('pi360_token');
+        if (token) {
+          const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          const data = await profileRes.json();
+          const studentData = data?.student?.[0];
+          if (studentData && studentData.DetailedAcademics) {
+            const ongoingSem = studentData.DetailedAcademics.find(sem => !sem.Percentage || sem.Percentage === 0);
+            const currentSemester = ongoingSem ? ongoingSem.Semester : studentData.TotalSemesters;
+            if (String(currentSemester) === "1") {
+              isSem1 = true;
+            } else if (String(currentSemester) === "3") {
+              isSem3 = true;
+            } else if (String(currentSemester) === "5") {
+              isSem5 = true;
+            } else if (String(currentSemester) === "7") {
+              isSem7 = true;
+            }
           }
         }
-      })
-      .catch(err => console.error("Failed to fetch KBC questions, using local fallback", err));
+      } catch (err) {
+        console.error("Failed to fetch PI360 profile for semester check", err);
+      }
+
+      if (isSem1) {
+        fetch('http://localhost:5000/api/kbc/cs/sem1')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.questions && data.questions.length > 0) {
+              setActiveQuestions(data.questions);
+              setActiveQuestion(data.questions[0]);
+              if (data.backupQuestions) {
+                setActiveBackup(data.backupQuestions);
+              }
+            }
+          })
+          .catch(err => console.error("Failed to fetch KBC Sem1 questions", err));
+      } else if (isSem3) {
+        fetch('http://localhost:5000/api/kbc/cs/sem3')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.questions && data.questions.length > 0) {
+              setActiveQuestions(data.questions);
+              setActiveQuestion(data.questions[0]);
+              if (data.backupQuestions) {
+                setActiveBackup(data.backupQuestions);
+              }
+            }
+          })
+          .catch(err => console.error("Failed to fetch KBC Sem3 questions", err));
+      } else if (isSem5) {
+        fetch('http://localhost:5000/api/kbc/cs/sem5')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.questions && data.questions.length > 0) {
+              setActiveQuestions(data.questions);
+              setActiveQuestion(data.questions[0]);
+              if (data.backupQuestions) {
+                setActiveBackup(data.backupQuestions);
+              }
+            }
+          })
+          .catch(err => console.error("Failed to fetch KBC Sem5 questions", err));
+      } else if (isSem7) {
+        fetch('http://localhost:5000/api/kbc/cs/sem7')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.questions && data.questions.length > 0) {
+              setActiveQuestions(data.questions);
+              setActiveQuestion(data.questions[0]);
+              if (data.backupQuestions) {
+                setActiveBackup(data.backupQuestions);
+              }
+            }
+          })
+          .catch(err => console.error("Failed to fetch KBC Sem7 questions", err));
+      } else {
+        // Fetch questions from MongoDB on mount as fallback
+        fetch('http://localhost:5000/api/kbc/cs')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.questions && data.questions.length > 0) {
+              setActiveQuestions(data.questions);
+              setActiveQuestion(data.questions[0]);
+              if (data.backupQuestions) {
+                setActiveBackup(data.backupQuestions);
+              }
+            }
+          })
+          .catch(err => console.error("Failed to fetch KBC questions, using local fallback", err));
+      }
+    };
+    
+    loadQuestions();
   }, []);
 
   // Time determination based on index

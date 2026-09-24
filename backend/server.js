@@ -73,6 +73,66 @@ app.get('/api/kbc/cs', async (req, res) => {
   }
 });
 
+app.get('/api/kbc/cs/sem1', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('kbc_cs_sem1');
+    const data = await collection.findOne({});
+    
+    res.json(data || { questions: [], backupQuestions: [] });
+  } catch (error) {
+    console.error("Error fetching KBC Sem1 questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get('/api/kbc/cs/sem3', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('kbc_cs_sem3');
+    const data = await collection.findOne({});
+    
+    res.json(data || { questions: [], backupQuestions: [] });
+  } catch (error) {
+    console.error("Error fetching KBC Sem3 questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get('/api/kbc/cs/sem5', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('kbc_cs_sem5');
+    const data = await collection.findOne({});
+    
+    res.json(data || { questions: [], backupQuestions: [] });
+  } catch (error) {
+    console.error("Error fetching KBC Sem5 questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get('/api/kbc/cs/sem7', async (req, res) => {
+  try {
+    if (!db) {
+        return res.status(500).json({ error: "Database not connected yet" });
+    }
+    const collection = db.collection('kbc_cs_sem7');
+    const data = await collection.findOne({});
+    
+    res.json(data || { questions: [], backupQuestions: [] });
+  } catch (error) {
+    console.error("Error fetching KBC Sem7 questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get('/api/algobingo/cs', async (req, res) => {
   try {
     if (!db) {
