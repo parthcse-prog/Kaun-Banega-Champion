@@ -1,0 +1,2856 @@
+<USER_REQUEST>
+make me a small anayltics portal  where we anaylze the 5 games excluding knife hit , the metrics that our user has say how much time he played and whatevers improtant, make sure wherever theres paly again or those type of screens for the games u ftech the data , say i play one kbc question i loose , get that data , and do it for all . Also make sure all my games should work as intended. This analytics section will be beside the profile on header
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T13:56:14+05:30.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (Low). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+
+---
+
+<USER_REQUEST>
+its good but make the partition game wise so that i know which game i played preciesly rather than loggin in one table u can use the respected names and the logo which we have used in the main page'
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:11:14+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789375232588.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Again u Did goo but make it clickable like i click one game card that analyitcs come since once i start playing too much it will load lots of data 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:12:56+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+make sure in the dashboard the Who's That?! card is before knife hit
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:14:58+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+in whose that game add a voice section where the user can speak using thier microphone and u see it inside the text box as well
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:22:48+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+for leaderboard suggest scoring engine for all 5 games for students 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:32:52+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+for leaderboard suggest scoring engine for all 5 games for students  dont do changes in the code just give me idea abiut this 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:33:35+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Ok implement it 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:47:23+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Ok implement it  make sure it should show other students who have played with pi360 credentials
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:47:53+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+why did u add fake data 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:50:35+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+its ok dude do one thing u have mongo db right u have the universal points put in the mongo db we have and keep fetching from there
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:51:19+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+I have just played a game the leaderboard shows nothing why
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T14:57:12+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+show the xp in the analyitcs portal as well and how did the person get it a small indication
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:00:43+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+gOOD NOW WE HAVE THIS BUT THE ANALYTICS BOARD IS SHOWING NOTGHING
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:03:00+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+gOOD NOW WE HAVE THIS BUT THE leaderBOARD IS SHOWING NOTGHING
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:03:14+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+tell me do these games be played by genz students 
+
+no edits in code
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:33:48+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+can u make concept ninja visually like fruit ninja i mean the colours the asthetic ?
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:35:02+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+one small thing dont use bomb it makes the game obvious let the correct and wrong be fruits
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:38:17+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+remove the brown bg here since its not matching rest keep the same make this darker
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:40:26+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789380606426.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+on the header navbar there is a search bar now make it active it should be able to search the game
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-14T15:43:09+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which computational thinking technique breaks a complex problem into smaller, manageable parts?",
+      "options": [
+        "Abstraction",
+        "Decomposition",
+        "Compilation",
+        "Iteration"
+      ],
+      "answer": "Decomposition"
+    },
+    {
+      "id": 2,
+      "question": "Which computational thinking technique focuses only on the important details of a problem?",
+      "options": [
+        "Abstraction",
+        "Debugging",
+        "Iteration",
+        "Traversal"
+      ],
+      "answer": "Abstraction"
+    },
+    {
+      "id": 3,
+      "question": "Recognizing similarities between different problems is known as what?",
+      "options": [
+        "Pattern recognition",
+        "Recursion",
+        "Compilation",
+        "Validation"
+      ],
+      "answer": "Pattern recognition"
+    },
+    {
+      "id": 4,
+      "question": "Which representation uses symbols and arrows to describe the steps of an algorithm?",
+      "options": [
+        "Flowchart",
+        "Dictionary",
+        "Traceback",
+        "Docstring"
+      ],
+      "answer": "Flowchart"
+    },
+    {
+      "id": 5,
+      "question": "What is pseudocode primarily used for?",
+      "options": [
+        "Designing program logic before implementation",
+        "Executing Python programs",
+        "Managing computer memory",
+        "Installing libraries"
+      ],
+      "answer": "Designing program logic before implementation"
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of a dry run of an algorithm?",
+      "options": [
+        "To execute it faster",
+        "To manually trace its behavior",
+        "To compile it",
+        "To remove all loops"
+      ],
+      "answer": "To manually trace its behavior"
+    },
+    {
+      "id": 7,
+      "question": "Which tool records the changing values of variables while manually tracing a program?",
+      "options": [
+        "Trace table",
+        "Flowchart",
+        "Compiler",
+        "Debugger"
+      ],
+      "answer": "Trace table"
+    },
+    {
+      "id": 8,
+      "question": "A program runs successfully but produces the wrong output. What type of error is this?",
+      "options": [
+        "Syntax error",
+        "Runtime error",
+        "Logical error",
+        "Indentation error"
+      ],
+      "answer": "Logical error"
+    },
+    {
+      "id": 9,
+      "question": "Which type of error occurs when Python cannot understand the structure of the code?",
+      "options": [
+        "Logical error",
+        "Syntax error",
+        "Runtime error",
+        "Input error"
+      ],
+      "answer": "Syntax error"
+    },
+    {
+      "id": 10,
+      "question": "Which type of error occurs while a syntactically valid program is executing?",
+      "options": [
+        "Runtime error",
+        "Syntax error",
+        "Design error",
+        "Formatting error"
+      ],
+      "answer": "Runtime error"
+    },
+    {
+      "id": 11,
+      "question": "Which stage of the program development process involves finding and correcting errors?",
+      "options": [
+        "Debugging",
+        "Abstraction",
+        "Compilation",
+        "Decomposition"
+      ],
+      "answer": "Debugging"
+    },
+    {
+      "id": 12,
+      "question": "Which practice improves the readability of a Python program?",
+      "options": [
+        "Meaningful variable names",
+        "Using single-letter names everywhere",
+        "Removing comments",
+        "Writing everything on one line"
+      ],
+      "answer": "Meaningful variable names"
+    },
+    {
+      "id": 13,
+      "question": "Which component of Python executes code interactively rather than requiring a complete program first?",
+      "options": [
+        "Interpreter",
+        "Compiler",
+        "Linker",
+        "Loader"
+      ],
+      "answer": "Interpreter"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is a valid Python identifier?",
+      "options": [
+        "2value",
+        "student_name",
+        "class",
+        "student-name"
+      ],
+      "answer": "student_name"
+    },
+    {
+      "id": 15,
+      "question": "Which Python keyword cannot normally be used as a variable name?",
+      "options": [
+        "value",
+        "number",
+        "class",
+        "score"
+      ],
+      "answer": "class"
+    },
+    {
+      "id": 16,
+      "question": "What does indentation primarily determine in Python?",
+      "options": [
+        "The code block structure",
+        "The variable type",
+        "The memory address",
+        "The file format"
+      ],
+      "answer": "The code block structure"
+    },
+    {
+      "id": 17,
+      "question": "Which Python type represents True or False?",
+      "options": [
+        "String",
+        "Boolean",
+        "Integer",
+        "Float"
+      ],
+      "answer": "Boolean"
+    },
+    {
+      "id": 18,
+      "question": "What is the result of converting the string \"25\" using int(\"25\")?",
+      "options": [
+        "25 as an integer",
+        "\"25\" as a string",
+        "25.0 as a float",
+        "True"
+      ],
+      "answer": "25 as an integer"
+    },
+    {
+      "id": 19,
+      "question": "Which Python function can be used to determine the type of a value?",
+      "options": [
+        "type()",
+        "typeof()",
+        "datatype()",
+        "checktype()"
+      ],
+      "answer": "type()"
+    },
+    {
+      "id": 20,
+      "question": "Which operator calculates the remainder after division in Python?",
+      "options": [
+        "/",
+        "//",
+        "%",
+        "**"
+      ],
+      "answer": "%"
+    },
+    {
+      "id": 21,
+      "question": "Which Python operator performs floor division?",
+      "options": [
+        "/",
+        "//",
+        "%",
+        "**"
+      ],
+      "answer": "//"
+    },
+    {
+      "id": 22,
+      "question": "Which operator is used for exponentiation in Python?",
+      "options": [
+        "^",
+        "**",
+        "^^",
+        "//"
+      ],
+      "answer": "**"
+    },
+    {
+      "id": 23,
+      "question": "What is the main purpose of operator precedence?",
+      "options": [
+        "To determine the order in which expressions are evaluated",
+        "To determine variable names",
+        "To define functions",
+        "To control file access"
+      ],
+      "answer": "To determine the order in which expressions are evaluated"
+    },
+    {
+      "id": 24,
+      "question": "Which statement is best suited for choosing between multiple conditions?",
+      "options": [
+        "elif",
+        "import",
+        "return",
+        "with"
+      ],
+      "answer": "elif"
+    },
+    {
+      "id": 25,
+      "question": "Which logical operator returns True only when both conditions are True?",
+      "options": [
+        "or",
+        "not",
+        "and",
+        "xor"
+      ],
+      "answer": "and"
+    }, use these questions including the flip the question , into the first quiz game kaun banega champion and put them inside of mongo db as well 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:26:35+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+{
+      "id": 26,
+      "question": "Which logical operator returns True when at least one condition is True?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "nor"
+      ],
+      "answer": "or"
+    },
+    {
+      "id": 27,
+      "question": "Which logical operator reverses a Boolean value?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "reverse"
+      ],
+      "answer": "not"
+    },
+    {
+      "id": 28,
+      "question": "Which loop is generally convenient when the number of iterations is based on a sequence or range?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "try"
+      ],
+      "answer": "for"
+    },
+    {
+      "id": 29,
+      "question": "Which loop continues as long as its condition remains True?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "def"
+      ],
+      "answer": "while"
+    },
+    {
+      "id": 30,
+      "question": "What does range(5) produce for a for loop?",
+      "options": [
+        "1 through 5",
+        "0 through 5",
+        "0 through 4",
+        "1 through 4"
+      ],
+      "answer": "0 through 4"
+    },
+    {
+      "id": 31,
+      "question": "Which statement immediately terminates the nearest loop?",
+      "options": [
+        "continue",
+        "break",
+        "pass",
+        "return"
+      ],
+      "answer": "break"
+    },
+    {
+      "id": 32,
+      "question": "Which statement skips the remaining statements in the current loop iteration?",
+      "options": [
+        "break",
+        "continue",
+        "pass",
+        "skip"
+      ],
+      "answer": "continue"
+    },
+    {
+      "id": 33,
+      "question": "Which Python statement does nothing and is often used as a placeholder?",
+      "options": [
+        "skip",
+        "continue",
+        "pass",
+        "empty"
+      ],
+      "answer": "pass"
+    },
+    {
+      "id": 34,
+      "question": "What is a loop inside another loop called?",
+      "options": [
+        "Nested loop",
+        "Recursive loop",
+        "Parallel loop",
+        "Conditional loop"
+      ],
+      "answer": "Nested loop"
+    },
+    {
+      "id": 35,
+      "question": "Which programming technique is useful for repeatedly adding values to calculate a total?",
+      "options": [
+        "Accumulation",
+        "Abstraction",
+        "Compilation",
+        "Casting"
+      ],
+      "answer": "Accumulation"
+    },
+    {
+      "id": 36,
+      "question": "Which programming technique counts how many times a condition or event occurs?",
+      "options": [
+        "Counting",
+        "Parsing",
+        "Hashing",
+        "Casting"
+      ],
+      "answer": "Counting"
+    },
+    {
+      "id": 37,
+      "question": "Which keyword is used to define a function in Python?",
+      "options": [
+        "function",
+        "define",
+        "def",
+        "func"
+      ],
+      "answer": "def"
+    },
+    {
+      "id": 38,
+      "question": "What is the main advantage of dividing a program into functions?",
+      "options": [
+        "Modularity and reuse",
+        "Higher memory usage",
+        "Elimination of all errors",
+        "Automatic compilation"
+      ],
+      "answer": "Modularity and reuse"
+    },
+    {
+      "id": 39,
+      "question": "What does a return statement do inside a Python function?",
+      "options": [
+        "Returns a value to the caller",
+        "Repeats the function",
+        "Creates a variable",
+        "Imports a library"
+      ],
+      "answer": "Returns a value to the caller"
+    },
+    {
+      "id": 40,
+      "question": "What is a parameter in a function?",
+      "options": [
+        "A value received by the function",
+        "A Python keyword",
+        "A loop condition",
+        "A file extension"
+      ],
+      "answer": "A value received by the function"
+    },
+    {
+      "id": 41,
+      "question": "Which arguments are supplied using the parameter name when calling a Python function?",
+      "options": [
+        "Keyword arguments",
+        "Loop arguments",
+        "Recursive arguments",
+        "Boolean arguments"
+      ],
+      "answer": "Keyword arguments"
+    },
+    {
+      "id": 42,
+      "question": "What is the purpose of a default argument in a Python function?",
+      "options": [
+        "To provide a value when an argument is omitted",
+        "To prevent function calls",
+        "To create a loop",
+        "To convert strings"
+      ],
+      "answer": "To provide a value when an argument is omitted"
+    },
+    {
+      "id": 43,
+      "question": "What is recursion?",
+      "options": [
+        "A function calling itself",
+        "A loop without a condition",
+        "A function importing itself",
+        "A variable changing type"
+      ],
+      "answer": "A function calling itself"
+    },
+    {
+      "id": 44,
+      "question": "What is essential to prevent a recursive function from calling itself forever?",
+      "options": [
+        "Base case",
+        "Loop variable",
+        "Import statement",
+        "Dictionary"
+      ],
+      "answer": "Base case"
+    },
+    {
+      "id": 45,
+      "question": "Which approach is often simpler when a problem can naturally be solved through repeated iteration?",
+      "options": [
+        "Iteration",
+        "Recursion",
+        "Inheritance",
+        "Compilation"
+      ],
+      "answer": "Iteration"
+    },
+    {
+      "id": 46,
+      "question": "Which Python collection preserves elements in an ordered, mutable sequence?",
+      "options": [
+        "List",
+        "Set",
+        "Dictionary",
+        "Boolean"
+      ],
+      "answer": "List"
+    }, 
+
+use these in their desired format for the word connect game and put in mongo db as well local backup for fall back
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:34:48+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+in word connect i still the physics etc question not the updated ones why
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:39:31+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+ {
+      "id": 47,
+      "question": "What is the index of the first element in a Python list?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "None"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 48,
+      "question": "Which operation extracts a portion of a Python list?",
+      "options": [
+        "Slicing",
+        "Casting",
+        "Hashing",
+        "Compiling"
+      ],
+      "answer": "Slicing"
+    },
+    {
+      "id": 49,
+      "question": "Which list operation adds an element to the end of a list?",
+      "options": [
+        "append()",
+        "insertEnd()",
+        "pushEnd()",
+        "addLast()"
+      ],
+      "answer": "append()"
+    },
+    {
+      "id": 50,
+      "question": "Which list operation removes and returns an element from a list?",
+      "options": [
+        "pop()",
+        "delete()",
+        "removeLast()",
+        "extract()"
+      ],
+      "answer": "pop()"
+    },
+    {
+      "id": 51,
+      "question": "Which Python collection is immutable?",
+      "options": [
+        "List",
+        "Tuple",
+        "Dictionary",
+        "Set"
+      ],
+      "answer": "Tuple"
+    },
+    {
+      "id": 52,
+      "question": "Which Python collection automatically keeps only unique elements?",
+      "options": [
+        "List",
+        "Tuple",
+        "Set",
+        "String"
+      ],
+      "answer": "Set"
+    },
+    {
+      "id": 53,
+      "question": "Which Python structure is most appropriate for fast key-based lookup?",
+      "options": [
+        "Dictionary",
+        "Tuple",
+        "String",
+        "Float"
+      ],
+      "answer": "Dictionary"
+    },
+    {
+      "id": 54,
+      "question": "In a Python dictionary, what uniquely identifies a stored value?",
+      "options": [
+        "Key",
+        "Index",
+        "Loop",
+        "Slice"
+      ],
+      "answer": "Key"
+    },
+    {
+      "id": 55,
+      "question": "Which problem is naturally suited to a dictionary?",
+      "options": [
+        "Frequency counting",
+        "Drawing a flowchart",
+        "Calculating indentation",
+        "Creating a loop"
+      ],
+      "answer": "Frequency counting"
+    },
+    {
+      "id": 56,
+      "question": "Which technique is useful for counting the occurrences of each character in a string?",
+      "options": [
+        "Frequency counting",
+        "Binary conversion",
+        "Compilation",
+        "Recursion only"
+      ],
+      "answer": "Frequency counting"
+    },
+    {
+      "id": 57,
+      "question": "Which string operation can be used to convert text to lowercase?",
+      "options": [
+        "lower()",
+        "small()",
+        "tolowercase()",
+        "case()"
+      ],
+      "answer": "lower()"
+    },
+    {
+      "id": 58,
+      "question": "Which concept is commonly used to determine whether a string reads the same forward and backward?",
+      "options": [
+        "Palindrome",
+        "Iteration",
+        "Casting",
+        "Aggregation"
+      ],
+      "answer": "Palindrome"
+    },
+    {
+      "id": 59,
+      "question": "Which file mode is used to read an existing text file?",
+      "options": [
+        "r",
+        "w",
+        "a",
+        "x"
+      ],
+      "answer": "r"
+    },
+    {
+      "id": 60,
+      "question": "Which file mode is used to write data to a file, potentially replacing existing content?",
+      "options": [
+        "r",
+        "w",
+        "a",
+        "read"
+      ],
+      "answer": "w"
+    }, 
+
+use this in the respecitve format for concept ninja also remove the previous questions from mongo and local storage and update these ones , if u need the false generation of the error elements generate it based on the theme it has 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:44:48+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+ {
+      "id": 61,
+      "question": "Which file mode is used to append data to an existing file?",
+      "options": [
+        "r",
+        "w",
+        "a",
+        "p"
+      ],
+      "answer": "a"
+    },
+    {
+      "id": 62,
+      "question": "Which Python construct is used to handle exceptions safely?",
+      "options": [
+        "try-except",
+        "if-elif",
+        "for-else",
+        "def-return"
+      ],
+      "answer": "try-except"
+    },
+    {
+      "id": 63,
+      "question": "Which block is executed whether or not an exception occurs?",
+      "options": [
+        "except",
+        "finally",
+        "else",
+        "retry"
+      ],
+      "answer": "finally"
+    },
+    {
+      "id": 64,
+      "question": "Which library is specifically useful for generating random values in Python?",
+      "options": [
+        "random",
+        "datetime",
+        "csv",
+        "maths"
+      ],
+      "answer": "random"
+    },
+    {
+      "id": 65,
+      "question": "Which Python library is used for working with dates and times?",
+      "options": [
+        "datetime",
+        "calendarize",
+        "timecalc",
+        "dateutilonly"
+      ],
+      "answer": "datetime"
+    },
+    {
+      "id": 66,
+      "question": "Which standard Python library is specifically intended for working with CSV files?",
+      "options": [
+        "csv",
+        "table",
+        "spreadsheet",
+        "dataframe"
+      ],
+      "answer": "csv"
+    },
+    {
+      "id": 67,
+      "question": "Which experiment from the Programming Lab specifically practices finding the GCD and LCM?",
+      "options": [
+        "Mathematical utility functions",
+        "String processing",
+        "File handling",
+        "Pattern generation"
+      ],
+      "answer": "Mathematical utility functions"
+    },
+    {
+      "id": 68,
+      "question": "Which problem is specifically listed as a recursive programming exercise in the lab?",
+      "options": [
+        "Sum of digits",
+        "Electricity billing",
+        "CSV writing",
+        "Password formatting"
+      ],
+      "answer": "Sum of digits"
+    },
+    {
+      "id": 69,
+      "question": "Which searching technique is specifically implemented recursively in the Programming Lab?",
+      "options": [
+        "Binary search",
+        "Linear search",
+        "Random search",
+        "Sequential hashing"
+      ],
+      "answer": "Binary search"
+    },
+    {
+      "id": 70,
+      "question": "Which of the following is a mini-project example explicitly suggested in the Programming Lab?",
+      "options": [
+        "Student gradebook",
+        "Operating system kernel",
+        "Compiler",
+        "Web browser engine"
+      ],
+      "answer": "Student gradebook"
+    }, 
+
+use these for thngo bonanaza update the mongo db , the local backup and generate relevant column common terms , the cards we are going to place logically based on the question themes
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:47:45+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+can u add two more of such here aere some quesrtions 
+
+{
+      "id": 75,
+      "question": "What is a persona in Design Thinking?",
+      "options": [
+        "A representation of a target user",
+        "A prototype of the final product",
+        "A project budget",
+        "A testing algorithm"
+      ],
+      "answer": "A representation of a target user"
+    },
+    {
+      "id": 76,
+      "question": "Which tool helps organize what a user says, does, thinks and feels?",
+      "options": [
+        "Empathy map",
+        "Flowchart",
+        "Trace table",
+        "Priority queue"
+      ],
+      "answer": "Empathy map"
+    },
+    {
+      "id": 77,
+      "question": "What does a customer journey map primarily describe?",
+      "options": [
+        "The user's experience across different stages",
+        "The source code structure",
+        "The company's database schema",
+        "The program's execution time"
+      ],
+      "answer": "The user's experience across different stages"
+    },
+    {
+      "id": 78,
+      "question": "What is a pain point?",
+      "options": [
+        "A problem or frustration experienced by a user",
+        "A programming syntax error",
+        "A project deadline",
+        "A product feature list"
+      ],
+      "answer": "A problem or frustration experienced by a user"
+    },
+    {
+      "id": 79,
+      "question": "Which technique repeatedly asks why to uncover an underlying cause?",
+      "options": [
+        "5 Whys",
+        "SCAMPER",
+        "Crazy-8s",
+        "Six Thinking Hats"
+      ],
+      "answer": "5 Whys"
+    },
+    {
+      "id": 80,
+      "question": "What is the purpose of a How-Might-We question?",
+      "options": [
+        "Frame a problem as an opportunity for solutions",
+        "Write program syntax",
+        "Calculate project cost",
+        "Measure processor speed"
+      ],
+      "answer": "Frame a problem as an opportunity for solutions"
+    },
+    {
+      "id": 81,
+      "question": "Which type of thinking generates many possible ideas before selecting one?",
+      "options": [
+        "Divergent thinking",
+        "Convergent thinking",
+        "Sequential thinking",
+        "Binary thinking"
+      ],
+      "answer": "Divergent thinking"
+    },
+    {
+      "id": 82,
+      "question": "Which type of thinking focuses on narrowing ideas and selecting promising solutions?",
+      "options": [
+        "Convergent thinking",
+        "Divergent thinking",
+        "Recursive thinking",
+        "Linear programming"
+      ],
+      "answer": "Convergent thinking"
+    },
+    {
+      "id": 83,
+      "question": "Which ideation technique uses structured prompts such as Substitute, Combine and Adapt?",
+      "options": [
+        "SCAMPER",
+        "5 Whys",
+        "HMW",
+        "DFV"
+      ],
+      "answer": "SCAMPER"
+    },
+    {
+      "id": 84,
+      "question": "Which ideation method asks participants to quickly sketch multiple ideas in a limited time?",
+      "options": [
+        "Crazy-8s",
+        "5 Whys",
+        "Persona",
+        "Journey Map"
+      ],
+      "answer": "Crazy-8s"
+    },
+    {
+      "id": 85,
+      "question": "Which method uses multiple participants to generate ideas through repeated rounds of contribution?",
+      "options": [
+        "6-3-5",
+        "DFV",
+        "5 Whys",
+        "HMW"
+      ],
+      "answer": "6-3-5"
+    },
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T11:50:38+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789453213908.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+how to start the backend mongo whats the code
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T14:43:27+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+when whose that game is opening the loading text seems very boring make it like the rest of the games maybe use a loader circle or something which other games are using
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T14:48:14+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+concept ninja on mobile version doesnt look that fun the brown env circle is very small , so can u for instance make it better responsive and visible for mobile or tablet screens , the pc one seems fine
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T14:55:01+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789550664706.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+see the spawner and there is empty space 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T14:57:57+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789550866491.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+in bingo bonanza for the concept bank is the same issue , it has a problem in mobile mode i can only see 3 of them 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T15:00:49+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789551012397.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Ok overall i need a verdict no edits in code how is the website will genz play it or i need something or any other games for people to ciome here
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T15:06:12+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+on the select game secion ARCADE CABINET DIRECTORY
+Select Game
+Choose a challenge to begin 
+
+show the total xp gained until now so that i have the motivation to come back daily and play
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T10:19:27+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789620528554.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+the lfietime and total xp is different make them same 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T10:22:18+05:30.
+
+The user has uploaded 2 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789620722116.png
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789620729240.png
+You can embed these images in an artifact if you need the USER to review them.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+why in the analytics portal the xp is different from the one in the main dashboard in the entire game make the xp same for everyone and render that only
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T10:33:06+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789621356060.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+how do we host this project for absolutely free , no edits to code just tell me
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:25:25+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+render is free or paid
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:26:26+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+can aws do it to host
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:27:09+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+for now just hide the knife hit beta version dont delet the code just hide it also tell me where to unhgide it
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:27:57+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1789628257750.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+formula to calculate xp for each game explain
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:33:30+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+ok tell me in code is thre anything which is wrong , does this pattern make sense to u or anything like this  u feel can be added 
+
+(no code edits )
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:40:51+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+add sound effects for the games whenerver necessary and background music as well
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:41:40+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+what about the other games check and add whats suitable
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:46:23+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+is there anything missing in the project that we should have or add ? no edits to code
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:50:30+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+ya that would be good can u make a system where the person can share his /her achievemenets to social media platforms 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-17T12:51:24+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+can u unhide the knife hit game i wanna play it
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-18T11:08:38+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+http://localhost:5173/profile in the profile section also show the Semester that student is in
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T14:53:37+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+i dont see the semester why
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T14:56:52+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1790069204012.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+{
+    "student": [
+        {
+            "ProfilePictureURL": "https:\/\/pi360.net\/mietjammu\/institute_data\/records\/student_photos\/2023A1R002_20251025_161811.jpg",
+            "ProfilePicture": "2023A1R002_20251025_161811.jpg",
+            "Name": "RAGHAV  SARDHOTRA",
+            "FirstName": "RAGHAV",
+            "MiddleName": "",
+            "Surname": "SARDHOTRA",
+            "RollNumber": "2023A1R002",
+            "DateofAdmission": "14-9-2023",
+            "PassoutYear": 2027,
+            "DOB": "2005-11-15",
+            "Batch": "2023",
+            "DeptCode": "102",
+            "Branch": "Engineering",
+            "Program": "BTECH-CSE",
+            "OverallAcademicPercentage": "70.95",
+            "TotalSemesters": 8,
+            "Course": "CSE",
+            "Gender": "MALE",
+            "State": "Jammu and Kashmir",
+            "StateCode": "10",
+            "City": "Jammu",
+            "CityCode": "175",
+            "ProfileCompletion": [
+                {
+                    "profilePictureCompletion": 10,
+                    "secondaryEmailCompletion": 10,
+                    "addressCompletion": 5,
+                    "mobileCompletion": 5,
+                    "linkedIDCompletion": 5,
+                    "aadhaarPanCompletion": 20,
+                    "educationCompletion": 20,
+                    "KYCCompletion": 20,
+                    "resMobileCompletion": 5,
+                    "profileprogress": 100
+                }
+            ],
+            "EmailOfficial": "2023a1r002@mietjammu.in",
+            "AlternateEmail": "''rsardhotra@gmail.com\"",
+            "CorrespondenceContact": "9906046930",
+            "MobileNumber": "9906046930",
+            "ResidentialAddress": "HOUSE NO. 29\/3-B, POST OFFICE ROOP NAGAR BASANT NAGAR, JAMMU",
+            "LinkedInProfile": "https:\/\/www.linkedin.com\/in\/raghav-sardhotra-40ab5b349",
+            "AadhaarNumber": "528702998944",
+            "PANNumber": "RYNPS1299P",
+            "FatherName": "RAJESH SHARMA",
+            "FatherOccupation": "RETIRED",
+            "MotherName": "SATYA KUMARI",
+            "MotherOccupation": "HOUSEWIFE",
+            "Religion": "HINDU",
+            "Caste": "OPEN",
+            "ReservedCategory": "NO",
+            "PhysicallyHandicapped": "NO",
+            "EconomicallyBackward": "NO",
+            "ResumeUpload": "placement_drive_1790063569.pdf",
+            "ResumeUploadFileName": "placement_drive_1790063569.pdf",
+            "ResumeUploadPath": "https:\/\/pi360.net\/mietjammu\/institute_data\/records\/resume\/placement_drive_1790063569.pdf",
+            "KYCStatus": "Completed",
+            "OptOutOfPlacements": "NO",
+            "SSCMarksCard": "NOT AVAILABLE",
+            "HSSCMarksCard": "NOT AVAILABLE",
+            "AadhaarCard": "YES",
+            "PANCard": "NOT AVAILABLE",
+            "Resume": "YES",
+            "Education": [
+                {
+                    "Degree_ID": 38976,
+                    "Degree_Type": "10th",
+                    "Degree_Mode": "Full-Time",
+                    "Board": "",
+                    "Board_Code": null,
+                    "School": "NA",
+                    "University": "NA",
+                    "Institute": "NA",
+                    "Country": null,
+                    "State": null,
+                    "City": null,
+                    "Country_Code": "",
+                    "State_Code": "",
+                    "City_Code": "",
+                    "Start_Month": "",
+                    "Start_Year": 0,
+                    "End_Month": "",
+                    "End_Year": 0,
+                    "Course": "",
+                    "Specialization": "NA",
+                    "Stream": "NA",
+                    "Status": "Completed",
+                    "Grading_System": "NA",
+                    "Marks": "93",
+                    "Document_Proof": "NA"
+                },
+                {
+                    "Degree_ID": 41008,
+                    "Degree_Type": "12th",
+                    "Degree_Mode": "Full-Time",
+                    "Board": "",
+                    "Board_Code": null,
+                    "School": "NA",
+                    "University": "NA",
+                    "Institute": "NA",
+                    "Country": null,
+                    "State": null,
+                    "City": null,
+                    "Country_Code": "",
+                    "State_Code": "",
+                    "City_Code": "",
+                    "Start_Month": "",
+                    "Start_Year": 0,
+                    "End_Month": "",
+                    "End_Year": 0,
+                    "Course": "",
+                    "Specialization": "NA",
+                    "Stream": "NA",
+                    "Status": "Completed",
+                    "Grading_System": "NA",
+                    "Marks": "86",
+                    "Document_Proof": "NA"
+                }
+            ],
+            "Performance": {
+                "Performance": {
+                    "PerformanceIndices": {
+                        "CoCurricular": {
+                            "2023": 0,
+                            "2024": 0,
+                            "2025": 0,
+                            "2026": 0
+                        },
+                        "ExtraCurricular": {
+                            "2023": 0,
+                            "2024": 0,
+                            "2025": 0,
+                            "2026": 0
+                        },
+                        "Academics": {
+                            "2023": "0.00",
+                            "2024": "0.72",
+                            "2025": "1.37",
+                            "2026": "1.43"
+                        },
+                        "Total": {
+                            "2023": 0,
+                            "2024": 0.7199999999999999733546474089962430298328399658203125,
+                            "2025": 1.37000000000000010658141036401502788066864013671875,
+                            "2026": 1.4299999999999999378275106209912337362766265869140625
+                        }
+                    },
+                    "PerformancePercentiles": {
+                        "CoCurricular": {
+                            "2023": 0,
+                            "2024": 0,
+                            "2025": 0,
+                            "2026": 0
+                        },
+                        "ExtraCurricular": {
+                            "2023": 0,
+                            "2024": 0,
+                            "2025": 0,
+                            "2026": 0
+                        },
+                        "Academics": {
+                            "2023": 0,
+                            "2024": 72.0799999999999982946974341757595539093017578125,
+                            "2025": 86.2900000000000062527760746888816356658935546875,
+                            "2026": 84.7699999999999960209606797434389591217041015625
+                        },
+                        "Total": {
+                            "2023": 0,
+                            "2024": 72.0799999999999982946974341757595539093017578125,
+                            "2025": 86.2900000000000062527760746888816356658935546875,
+                            "2026": 84.7699999999999960209606797434389591217041015625
+                        }
+                    }
+                }
+            },
+            "DetailedAcademics": [
+                {
+                    "Semester": 1,
+                    "Percentage": 73.8700000000000045474735088646411895751953125
+                },
+                {
+                    "Semester": 2,
+                    "Percentage": 71.599999999999994315658113919198513031005859375
+                },
+                {
+                    "Semester": 3,
+                    "Percentage": 78.349999999999994315658113919198513031005859375
+                },
+                {
+                    "Semester": 4,
+                    "Percentage": 58.780000000000001136868377216160297393798828125
+                },
+                {
+                    "Semester": 5,
+                    "Percentage": 63.52000000000000312638803734444081783294677734375
+                },
+                {
+                    "Semester": 6,
+                    "Percentage": 79.3299999999999982946974341757595539093017578125
+                },
+                {
+                    "Semester": 7,
+                    "Percentage": 0
+                },
+                {
+                    "Semester": 8,
+                    "Percentage": 0
+                }
+            ],
+            "OverallAcademics": "70.95",
+            "AcademicIndex": "0.00",
+            "CocubesScore": [],
+            "DetailedCoCurricular": [
+                {
+                    "Semester": 1,
+                    "Points": 0
+                },
+                {
+                    "Semester": 2,
+                    "Points": 0
+                },
+                {
+                    "Semester": 3,
+                    "Points": 0
+                },
+                {
+                    "Semester": 4,
+                    "Points": 0
+                },
+                {
+                    "Semester": 5,
+                    "Points": 0
+                },
+                {
+                    "Semester": 6,
+                    "Points": 0
+                },
+                {
+                    "Semester": 7,
+                    "Points": 0
+                },
+                {
+                    "Semester": 8,
+                    "Points": 0
+                }
+            ],
+            "DetailedExtraCurricular": [
+                {
+                    "Semester": 1,
+                    "Points": 0
+                },
+                {
+                    "Semester": 2,
+                    "Points": 0
+                },
+                {
+                    "Semester": 3,
+                    "Points": 0
+                },
+                {
+                    "Semester": 4,
+                    "Points": 0
+                },
+                {
+                    "Semester": 5,
+                    "Points": 0
+                },
+                {
+                    "Semester": 6,
+                    "Points": 0
+                },
+                {
+                    "Semester": 7,
+                    "Points": 0
+                },
+                {
+                    "Semester": 8,
+                    "Points": 0
+                }
+            ],
+            "OverallIndex": "0.00",
+            "EntranceScore": null,
+            "PlacementPotential": 66.599999999999994315658113919198513031005859375,
+            "PlacementPotentialLastUpdated": "2026-09-21 03:15:02",
+            "CompetencyBuilding": [
+                {
+                    "sessionId": 1997,
+                    "sessionDate": "19 Aug 2026 01:30 PM",
+                    "faculty": "External Faculty",
+                    "partOfCourse": null,
+                    "overallRating": 4,
+                    "overallRemarks": "a very good candidate, knows what he has written in his resume and can explain them clearly, just needs to work a little on his techincal aspect.Also need to work on his resume, just a little modification is required like adding live links of the projects,adding links of the certificates. also the skills section mention the skills in the order from most confident skill to least confident skill",
+                    "competencyRatings": [
+                        {
+                            "competency": "Communication Skills",
+                            "rating": 5,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Personality Grooming and Confidence",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Technical\/Domain Knowledge",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Clarity of Career Goals",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Resume",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        }
+                    ],
+                    "aiInsights": {
+                        "strengths": "[\"Excellent communication skills\",\"Clear resume explanation\",\"Strong personality grooming\",\"Defined career goals\"]",
+                        "improvementAreas": "[\"Needs improvement in technical\\\/domain knowledge\",\"Resume lacks live project links\",\"Skills section requires confidence-based ordering\"]",
+                        "suggestedActions": "[\"Enhance technical expertise through focused study\",\"Update resume with live project links and certificates\",\"Reorganize skills section by confidence level\"]",
+                        "keyFeedback": "[\"Mr. Raghav demonstrates strong communication and resume clarity but requires targeted improvement in technical depth and resume polish.\",\"His overall performance is commendable, with minor adjustments needed to fully leverage his potential.\"]",
+                        "actionPlan": "[\"Prioritize technical skill development through practice and certifications\",\"Revise resume to include live project links and certificate documentation\",\"Systematically reorder skills section to reflect confidence levels\"]"
+                    }
+                },
+                {
+                    "sessionId": 980,
+                    "sessionDate": "17 Mar 2026 01:38 PM",
+                    "faculty": "Ms. Lavanya Anand*",
+                    "partOfCourse": "NCC-601 (Placement Preparation-II)",
+                    "overallRating": 4,
+                    "overallRemarks": "Areas of Improvement:\n\nCould focus on maintaining concise responses without over-explaining.\n\nContinue refining articulation to ensure answers remain sharp under pressure.",
+                    "competencyRatings": [
+                        {
+                            "competency": "Communication Skills",
+                            "rating": 3,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Personality Grooming and Confidence",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Technical\/Domain Knowledge",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Clarity of Career Goals",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Resume",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        }
+                    ],
+                    "aiInsights": {
+                        "strengths": "[\"Good Personality Grooming\",\"Strong Technical\\\/Domain Knowledge\",\"Clear Career Goals\"]",
+                        "improvementAreas": "[\"Tendency to Over-Explain\",\"Room for Improvement in Articulation Under Pressure\"]",
+                        "suggestedActions": "[\"Practice Concise Responses\",\"Refine Articulation Skills\",\"Focus on Effective Communication\"]",
+                        "keyFeedback": "[\"Mr. Raghav Sardhotra has shown strengths in personality grooming, technical knowledge, and clarity of career goals. However, there is room for improvement in maintaining concise responses and refining articulation under pressure. Overall, he has demonstrated potential with areas for growth.\"]",
+                        "actionPlan": "[\"Work on delivering sharp and concise responses during interactions. Practice articulation skills to ensure clarity under pressure. Focus on enhancing communication skills to leverage technical strengths effectively.\"]"
+                    }
+                },
+                {
+                    "sessionId": 800,
+                    "sessionDate": "11 Mar 2026 10:42 AM",
+                    "faculty": "External Faculty",
+                    "partOfCourse": "NCC-601 (Placement Preparation-II)",
+                    "overallRating": 4,
+                    "overallRemarks": "Raghav Nargotra actively participated in the discussion and maintained a constructive presence. Could take more initiative, strengthen leadership, and improve clarity while presenting ideas. Listening,engagement with peers,& topic awareness need attention.Notably, used good starters but needs to manage distractions like hand gestures and sound of bangles. With effort, he shows promising potential",
+                    "competencyRatings": [
+                        {
+                            "competency": "Leadership Skills \/ Team Collaboration",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Communication Skills",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Interpersonal Skills",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Listening & Conceptualization",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "Attitude & Body Language",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        },
+                        {
+                            "competency": "General Awareness \/ Subject Knowledge",
+                            "rating": 4,
+                            "facultyFeedback": ""
+                        }
+                    ],
+                    "aiInsights": {
+                        "strengths": "[\"Active participation in discussions\",\"Constructive presence\",\"Good starters in conversations\"]",
+                        "improvementAreas": "[\"Needs to take more initiative\",\"Requires improvement in leadership skills\",\"Distractions during presentation (hand gestures, sound of bangles)\"]",
+                        "suggestedActions": "[\"Work on strengthening leadership skills\",\"Improve clarity while presenting ideas\",\"Manage distractions during presentations\"]",
+                        "keyFeedback": "[\"Raghav shows promising potential with effort. He actively participated in the discussion and maintained a constructive presence. However, he could take more initiative, strengthen leadership, and improve clarity while presenting ideas.\"]",
+                        "actionPlan": "[\"Focus on developing leadership skills through active participation and taking initiative. Practice presenting ideas clearly and concisely, and work on minimizing distractions during presentations. With consistent effort, Raghav can reach his full potential.\"]"
+                    }
+                },
+                {
+                    "sessionId": 726,
+                    "sessionDate": "09 Mar 2026 10:21 AM",
+                    "faculty": "External Faculty",
+                    "partOfCourse": "NCC-601 (Placement Preparation-II)",
+                    "overallRating": 0,
+                    "overallRemarks": null,
+                    "competencyRatings": [],
+                    "aiInsights": null
+                }
+            ],
+            "AMCATProfile": [
+                {
+                    "test_id": "450015430727072",
+                    "test_date": "2025-11-21",
+                    "report_url": "https:\/\/pi360.net\/mietjammu\/institute_data\/records\/AMCAT\/amcat_1772010836.pdf",
+                    "created_on": "2026-02-25 09:13:58",
+                    "sections": [
+                        {
+                            "section_id": 6,
+                            "section_name": "Automata Fix",
+                            "marks_obtained": 29,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 7,
+                            "section_name": "Automata Pro",
+                            "marks_obtained": 0,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 11,
+                            "section_name": "Computer Programming",
+                            "marks_obtained": 35,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 10,
+                            "section_name": "Computer Science",
+                            "marks_obtained": 72,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 4,
+                            "section_name": "English Comprehension",
+                            "marks_obtained": 77,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 1,
+                            "section_name": "Logical Ability",
+                            "marks_obtained": 58,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 8,
+                            "section_name": "Personality",
+                            "marks_obtained": null,
+                            "total_marks": null,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 2,
+                            "section_name": "Quantitative Ability (Advanced)",
+                            "marks_obtained": 38,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        },
+                        {
+                            "section_id": 5,
+                            "section_name": "WriteX - Essay Writing",
+                            "marks_obtained": 35,
+                            "total_marks": 100,
+                            "status": "Completed"
+                        }
+                    ],
+                    "subsections": [
+                        {
+                            "section_id": 6,
+                            "section_name": "Automata Fix",
+                            "subsection_name": "Code Reuse",
+                            "marks_obtained": 0,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 6,
+                            "section_name": "Automata Fix",
+                            "subsection_name": "Logical Error",
+                            "marks_obtained": 25,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 6,
+                            "section_name": "Automata Fix",
+                            "subsection_name": "Syntactical Error",
+                            "marks_obtained": 100,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 7,
+                            "section_name": "Automata Pro",
+                            "subsection_name": "Functional Correctness",
+                            "marks_obtained": 0,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 7,
+                            "section_name": "Automata Pro",
+                            "subsection_name": "Programming Ability",
+                            "marks_obtained": 0,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 7,
+                            "section_name": "Automata Pro",
+                            "subsection_name": "Programming Practices",
+                            "marks_obtained": 0,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 11,
+                            "section_name": "Computer Programming",
+                            "subsection_name": "Basic Programming",
+                            "marks_obtained": 32,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 11,
+                            "section_name": "Computer Programming",
+                            "subsection_name": "Data Structures",
+                            "marks_obtained": 37,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 11,
+                            "section_name": "Computer Programming",
+                            "subsection_name": "OOP and Complexity Theory",
+                            "marks_obtained": 37,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 10,
+                            "section_name": "Computer Science",
+                            "subsection_name": "Computer Networks",
+                            "marks_obtained": 83,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 10,
+                            "section_name": "Computer Science",
+                            "subsection_name": "DBMS",
+                            "marks_obtained": 44,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 10,
+                            "section_name": "Computer Science",
+                            "subsection_name": "OS and Computer Architecture",
+                            "marks_obtained": 81,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 4,
+                            "section_name": "English Comprehension",
+                            "subsection_name": "Comprehension",
+                            "marks_obtained": 67,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 4,
+                            "section_name": "English Comprehension",
+                            "subsection_name": "Grammar",
+                            "marks_obtained": 82,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 4,
+                            "section_name": "English Comprehension",
+                            "subsection_name": "Vocabulary",
+                            "marks_obtained": 82,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 1,
+                            "section_name": "Logical Ability",
+                            "subsection_name": "Abductive Reasoning",
+                            "marks_obtained": 52,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 1,
+                            "section_name": "Logical Ability",
+                            "subsection_name": "Deductive Reasoning",
+                            "marks_obtained": 66,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 1,
+                            "section_name": "Logical Ability",
+                            "subsection_name": "Inductive Reasoning",
+                            "marks_obtained": 56,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 2,
+                            "section_name": "Quantitative Ability (Advanced)",
+                            "subsection_name": "Advanced Mathematics",
+                            "marks_obtained": 38,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 2,
+                            "section_name": "Quantitative Ability (Advanced)",
+                            "subsection_name": "Applied Mathematics",
+                            "marks_obtained": 46,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 2,
+                            "section_name": "Quantitative Ability (Advanced)",
+                            "subsection_name": "Basic Mathematics",
+                            "marks_obtained": 31,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 5,
+                            "section_name": "WriteX - Essay Writing",
+                            "subsection_name": "Content Score",
+                            "marks_obtained": 14,
+                            "total_marks": 100
+                        },
+                        {
+                            "section_id": 5,
+                            "section_name": "WriteX - Essay Writing",
+                            "subsection_name": "Grammar Score",
+                            "marks_obtained": 84,
+                            "total_marks": 100
+                        }
+                    ]
+                }
+            ],
+            "Research": [],
+            "getResearchAndDevelopmentData": [
+                {
+                    "Research": {
+                        "2026": 0,
+                        "2025": 0,
+                        "2024": 0,
+                        "2023": 0,
+                        "2022": 0
+                    },
+                    "Patents": {
+                        "2026": 0,
+                        "2025": 0,
+                        "2024": 0,
+                        "2023": 0,
+                        "2022": 0
+                    },
+                    "Projects": {
+                        "2026": 0,
+                        "2025": 0,
+                        "2024": 0,
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T14:59:02+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+ why i see this text ProfilePictureURL, ProfilePicture, Name, FirstName, MiddleName, Surname, RollNumber, DateofAdmission, PassoutYear, DOB, Batch, DeptCode, Branch, Program, OverallAcademicPercentage, TotalSemesters, Course, Gender, State, StateCode, City, CityCode, ProfileCompletion, EmailOfficial, AlternateEmail, CorrespondenceContact, MobileNumber, ResidentialAddress, LinkedInProfile, AadhaarNumber, PANNumber, FatherName, FatherOccupation, MotherName, MotherOccupation, Religion, Caste, ReservedCategory, PhysicallyHandicapped, EconomicallyBackward, ResumeUpload, ResumeUploadFileName, ResumeUploadPath, KYCStatus, OptOutOfPlacements, SSCMarksCard, HSSCMarksCard, AadhaarCard, PANCard, Resume, Education, Performance, DetailedAcademics, OverallAcademics, AcademicIndex, CocubesScore, DetailedCoCurricular, DetailedExtraCurricular, OverallIndex, EntranceScore, PlacementPotential, PlacementPotentialLastUpdated, CompetencyBuilding, AMCATProfile, Research, getResearchAndDevelopmentData, StudentDevelopment, Certifications, MOOCS, Projects, Internships, VAC, Training, Seminar, Membership, Volunteer, Experience, Achievements, ResumeDrafts
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:00:08+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1790069396222.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Hide the knife hit game dont delete the code etc just hide it for now
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:03:33+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+design wise can u make this webiste like a gaming catalogue website which makes the genz people come to this
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:07:53+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1790069845228.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Ya can u do it for all the games
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:12:38+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+design wise can u make this webiste like a gaming catalogue website which makes the genz people come to this for all the game cards 
+
+Hero Spotlight Layout: Instead of a generic 3-column grid, Kaun Banega Champion is now featured as a massive, edge-to-edge "Top Pick" game card spanning the entire width at the top, complete with glowing gradients and abstract backdrop imagery.
+Dynamic Glassmorphism: I removed the boring inner boxes. The games are now full bleed cards with deep, saturated edge lighting and radial gradients that glow behind the logos.
+Genre Tags: I added pill-shaped category badges to each game (e.g., [Action], [Puzzle], [Guessing]) to make it feel like a real catalogue.
+Interactive Hover States: When you hover over the games, the logos now scale up and tilt dynamically, the typography lights up, and the background gradients intensify.
+Cleaner Typography: Increased font sizes and contrast to make it punchier and easier to read.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:16:57+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+remove this card
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:22:18+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1790070734772.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+do each game have sound effects and bg music
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:33:43+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Add music in word connect and Kaun Banega champion game as well
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:35:20+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+i cant hear any bg music or sound 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:38:02+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+There should be a victory music and a sad music in case someone wins the game or loose it
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-22T15:41:22+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Ok carefully look at the json 
+
+for anoyone who logs in from pi360 should see the first 25 questions(including flip the questioon options_ for the KBC game  sem 1 only . If someone from other sem logs in fallback to the current set of questions which we are showing righht now 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:33:11+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Hope they are being fetched into from mongo db 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:35:47+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+if someone from sem 3 logs in use the first 25 questions from this bank , make sure its stored in mongo db 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:41:22+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+i logged in with sem 3 login 
+Which computational thinking technique breaks a complex problem into smaller, manageable parts? i see this question which is in sem 1
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:46:20+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Now same way without making mistakes if someone logs in from sem 5 they should see these questioons just like we did previously first 25)
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:51:12+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+Now repeat the same u did before for sem 7 , no mistakes 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T10:57:49+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+in the same way what i want u to do is take the previous sem 1 , 3 , 5 , 7 questions json that i give from the question id 26 to 50 take those questions for respective semesters and put it for the Word Connect game (the format to store is there already convert those qiestions in that format) , also make sure they are being fetched from the mongo db onluy 
+
+sem 1 should see from sem 1 , sem 3 from 3 , sem 5 from 5 sem 7 from 7 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:07:41+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+{
+    "question_id": 26,
+    "question": "Which activity helps identify and correct syntax, runtime, and logical errors?",
+    "options": [
+      "Trace-table and debugging exercise",
+      "Data compression",
+      "Image rendering",
+      "Network routing"
+    ],
+    "correct_answer": "Trace-table and debugging exercise"
+  },
+  {
+    "question_id": 27,
+    "question": "Which mathematical utility is explicitly included in the programming lab?",
+    "options": [
+      "GCD",
+      "Fourier series",
+      "Gradient theorem",
+      "Gauss law"
+    ],
+    "correct_answer": "GCD"
+  },
+  {
+    "question_id": 28,
+    "question": "Which recursive problem is explicitly included in the programming lab?",
+    "options": [
+      "Binary search on a sorted list",
+      "Bubble sort on an image",
+      "Matrix inversion only",
+      "Circuit analysis"
+    ],
+    "correct_answer": "Binary search on a sorted list"
+  },
+  {
+    "question_id": 29,
+    "question": "Which string-processing task is explicitly listed in the programming lab?",
+    "options": [
+      "Character frequency",
+      "Image filtering",
+      "Signal modulation",
+      "Vector rotation"
+    ],
+    "correct_answer": "Character frequency"
+  },
+  {
+    "question_id": 30,
+    "question": "Which task is an example of string processing from the lab syllabus?",
+    "options": [
+      "Palindrome checking",
+      "Calculating curl",
+      "Finding numerical aperture",
+      "Measuring resistance"
+    ],
+    "correct_answer": "Palindrome checking"
+  },
+  {
+    "question_id": 31,
+    "question": "Which list operation is explicitly included in the programming lab?",
+    "options": [
+      "Removing duplicates",
+      "Solving Maxwell equations",
+      "Calculating optical rotation",
+      "Measuring wavelength"
+    ],
+    "correct_answer": "Removing duplicates"
+  },
+  {
+    "question_id": 32,
+    "question": "Which data structure is suggested for a contact book in the programming lab?",
+    "options": [
+      "Dictionary",
+      "Only a scalar variable",
+      "Complex number",
+      "Boolean"
+    ],
+    "correct_answer": "Dictionary"
+  },
+  {
+    "question_id": 33,
+    "question": "Which operation is useful for extracting unique words from a collection?",
+    "options": [
+      "Set operation",
+      "Exponentiation",
+      "Differentiation",
+      "Integration"
+    ],
+    "correct_answer": "Set operation"
+  },
+  {
+    "question_id": 34,
+    "question": "Which file format is explicitly mentioned for processing marks in the programming lab?",
+    "options": [
+      "CSV",
+      "PNG",
+      "MP3",
+      "EXE"
+    ],
+    "correct_answer": "CSV"
+  },
+  {
+    "question_id": 35,
+    "question": "Which file operation adds new content to the end of an existing text file?",
+    "options": [
+      "Append",
+      "Compile",
+      "Trace",
+      "Indent"
+    ],
+    "correct_answer": "Append"
+  },
+  {
+    "question_id": 36,
+    "question": "Which mechanism is used for robust input validation and file-related errors?",
+    "options": [
+      "Exception handling",
+      "Pattern matching only",
+      "Recursion only",
+      "Sorting"
+    ],
+    "correct_answer": "Exception handling"
+  },
+  {
+    "question_id": 37,
+    "question": "Which standard library is suitable for generating random quiz questions?",
+    "options": [
+      "random",
+      "datetime",
+      "math",
+      "csv"
+    ],
+    "correct_answer": "random"
+  },
+  {
+    "question_id": 38,
+    "question": "Which standard library is specifically useful for mathematical utilities?",
+    "options": [
+      "math",
+      "random",
+      "datetime",
+      "csv"
+    ],
+    "correct_answer": "math"
+  },
+  {
+    "question_id": 39,
+    "question": "Which of the following is listed as a possible programming lab mini-project?",
+    "options": [
+      "Expense tracker",
+      "Operating system kernel",
+      "Compiler design",
+      "3D graphics engine"
+    ],
+    "correct_answer": "Expense tracker"
+  },
+  {
+    "question_id": 40,
+    "question": "Which activity is part of the programming lab mini-project options?",
+    "options": [
+      "Quiz application",
+      "Quantum teleportation",
+      "Optical fibre fabrication",
+      "LCR circuit construction"
+    ],
+    "correct_answer": "Quiz application"
+  },
+  {
+    "question_id": 41,
+    "question": "Which topic is included in Unit I of Engineering Mathematics-I?",
+    "options": [
+      "Limits and continuity",
+      "Quantum mechanics",
+      "Optical fibres",
+      "File handling"
+    ],
+    "correct_answer": "Limits and continuity"
+  },
+  {
+    "question_id": 42,
+    "question": "Which theorem concerning higher-order derivatives is included without proof in the syllabus?",
+    "options": [
+      "Leibnitz theorem",
+      "Green's theorem",
+      "Stokes' theorem",
+      "Bayes theorem"
+    ],
+    "correct_answer": "Leibnitz theorem"
+  },
+  {
+    "question_id": 43,
+    "question": "Which topic is specifically associated with curve tracing in Engineering Mathematics-I?",
+    "options": [
+      "Cartesian, polar and parametric forms",
+      "Only rectangular coordinates",
+      "Only complex coordinates",
+      "Only matrix coordinates"
+    ],
+    "correct_answer": "Cartesian, polar and parametric forms"
+  },
+  {
+    "question_id": 44,
+    "question": "Which topic belongs to Applications of Differential Calculus?",
+    "options": [
+      "Taylor and Maclaurin series",
+      "PN junction diode",
+      "Newton's rings",
+      "CSV processing"
+    ],
+    "correct_answer": "Taylor and Maclaurin series"
+  },
+  {
+    "question_id": 45,
+    "question": "Which concept is used to determine where a power series converges?",
+    "options": [
+      "Radius and interval of convergence",
+      "Numerical aperture",
+      "Acceptance angle",
+      "Least count"
+    ],
+    "correct_answer": "Radius and interval of convergence"
+  },
+  {
+    "question_id": 46,
+    "question": "Which application area is explicitly mentioned for series expansions?",
+    "options": [
+      "Cryptography",
+      "Laboratory safety",
+      "File appending",
+      "Transistor biasing"
+    ],
+    "correct_answer": "Cryptography"
+  },
+  {
+    "question_id": 47,
+    "question": "Which topic is part of multivariable calculus?",
+    "options": [
+      "Partial derivatives",
+      "CSV parsing",
+      "Doppler effect",
+      "PN junction"
+    ],
+    "correct_answer": "Partial derivatives"
+  },
+  {
+    "question_id": 48,
+    "question": "Which method is included for finding constrained extrema of functions of several variables?",
+    "options": [
+      "Lagrange multipliers",
+      "Newton's rings",
+      "Runge-Kutta only",
+      "Ohm's law"
+    ],
+    "correct_answer": "Lagrange multipliers"
+  },
+  {
+    "question_id": 49,
+    "question": "Which operation is explicitly included in multivariable calculus over rectangular and simple regions?",
+    "options": [
+      "Double integrals",
+      "Triple recursion",
+      "String slicing",
+      "Matrix sorting"
+    ],
+    "correct_answer": "Double integrals"
+  },
+  {
+    "question_id": 50,
+    "question": "Which vector operation produces a scalar?",
+    "options": [
+      "Dot product",
+      "Cross product",
+      "Curl",
+      "Gradient"
+    ],
+    "correct_answer": "Dot product"
+  }, 
+
+any sem 1 student whenever he plays word connect game should see these questions in the desired format thats currently there which will also come from the mongo db 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:23:29+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+{
+    "question_id": 26,
+    "question": "Which activity helps identify and correct syntax, runtime, and logical errors?",
+    "options": [
+      "Trace-table and debugging exercise",
+      "Data compression",
+      "Image rendering",
+      "Network routing"
+    ],
+    "correct_answer": "Trace-table and debugging exercise"
+  },
+  {
+    "question_id": 27,
+    "question": "Which mathematical utility is explicitly included in the programming lab?",
+    "options": [
+      "GCD",
+      "Fourier series",
+      "Gradient theorem",
+      "Gauss law"
+    ],
+    "correct_answer": "GCD"
+  },
+  {
+    "question_id": 28,
+    "question": "Which recursive problem is explicitly included in the programming lab?",
+    "options": [
+      "Binary search on a sorted list",
+      "Bubble sort on an image",
+      "Matrix inversion only",
+      "Circuit analysis"
+    ],
+    "correct_answer": "Binary search on a sorted list"
+  },
+  {
+    "question_id": 29,
+    "question": "Which string-processing task is explicitly listed in the programming lab?",
+    "options": [
+      "Character frequency",
+      "Image filtering",
+      "Signal modulation",
+      "Vector rotation"
+    ],
+    "correct_answer": "Character frequency"
+  },
+  {
+    "question_id": 30,
+    "question": "Which task is an example of string processing from the lab syllabus?",
+    "options": [
+      "Palindrome checking",
+      "Calculating curl",
+      "Finding numerical aperture",
+      "Measuring resistance"
+    ],
+    "correct_answer": "Palindrome checking"
+  },
+  {
+    "question_id": 31,
+    "question": "Which list operation is explicitly included in the programming lab?",
+    "options": [
+      "Removing duplicates",
+      "Solving Maxwell equations",
+      "Calculating optical rotation",
+      "Measuring wavelength"
+    ],
+    "correct_answer": "Removing duplicates"
+  },
+  {
+    "question_id": 32,
+    "question": "Which data structure is suggested for a contact book in the programming lab?",
+    "options": [
+      "Dictionary",
+      "Only a scalar variable",
+      "Complex number",
+      "Boolean"
+    ],
+    "correct_answer": "Dictionary"
+  },
+  {
+    "question_id": 33,
+    "question": "Which operation is useful for extracting unique words from a collection?",
+    "options": [
+      "Set operation",
+      "Exponentiation",
+      "Differentiation",
+      "Integration"
+    ],
+    "correct_answer": "Set operation"
+  },
+  {
+    "question_id": 34,
+    "question": "Which file format is explicitly mentioned for processing marks in the programming lab?",
+    "options": [
+      "CSV",
+      "PNG",
+      "MP3",
+      "EXE"
+    ],
+    "correct_answer": "CSV"
+  },
+  {
+    "question_id": 35,
+    "question": "Which file operation adds new content to the end of an existing text file?",
+    "options": [
+      "Append",
+      "Compile",
+      "Trace",
+      "Indent"
+    ],
+    "correct_answer": "Append"
+  },
+  {
+    "question_id": 36,
+    "question": "Which mechanism is used for robust input validation and file-related errors?",
+    "options": [
+      "Exception handling",
+      "Pattern matching only",
+      "Recursion only",
+      "Sorting"
+    ],
+    "correct_answer": "Exception handling"
+  },
+  {
+    "question_id": 37,
+    "question": "Which standard library is suitable for generating random quiz questions?",
+    "options": [
+      "random",
+      "datetime",
+      "math",
+      "csv"
+    ],
+    "correct_answer": "random"
+  },
+  {
+    "question_id": 38,
+    "question": "Which standard library is specifically useful for mathematical utilities?",
+    "options": [
+      "math",
+      "random",
+      "datetime",
+      "csv"
+    ],
+    "correct_answer": "math"
+  },
+  {
+    "question_id": 39,
+    "question": "Which of the following is listed as a possible programming lab mini-project?",
+    "options": [
+      "Expense tracker",
+      "Operating system kernel",
+      "Compiler design",
+      "3D graphics engine"
+    ],
+    "correct_answer": "Expense tracker"
+  },
+  {
+    "question_id": 40,
+    "question": "Which activity is part of the programming lab mini-project options?",
+    "options": [
+      "Quiz application",
+      "Quantum teleportation",
+      "Optical fibre fabrication",
+      "LCR circuit construction"
+    ],
+    "correct_answer": "Quiz application"
+  },
+  {
+    "question_id": 41,
+    "question": "Which topic is included in Unit I of Engineering Mathematics-I?",
+    "options": [
+      "Limits and continuity",
+      "Quantum mechanics",
+      "Optical fibres",
+      "File handling"
+    ],
+    "correct_answer": "Limits and continuity"
+  },
+  {
+    "question_id": 42,
+    "question": "Which theorem concerning higher-order derivatives is included without proof in the syllabus?",
+    "options": [
+      "Leibnitz theorem",
+      "Green's theorem",
+      "Stokes' theorem",
+      "Bayes theorem"
+    ],
+    "correct_answer": "Leibnitz theorem"
+  },
+  {
+    "question_id": 43,
+    "question": "Which topic is specifically associated with curve tracing in Engineering Mathematics-I?",
+    "options": [
+      "Cartesian, polar and parametric forms",
+      "Only rectangular coordinates",
+      "Only complex coordinates",
+      "Only matrix coordinates"
+    ],
+    "correct_answer": "Cartesian, polar and parametric forms"
+  },
+  {
+    "question_id": 44,
+    "question": "Which topic belongs to Applications of Differential Calculus?",
+    "options": [
+      "Taylor and Maclaurin series",
+      "PN junction diode",
+      "Newton's rings",
+      "CSV processing"
+    ],
+    "correct_answer": "Taylor and Maclaurin series"
+  },
+  {
+    "question_id": 45,
+    "question": "Which concept is used to determine where a power series converges?",
+    "options": [
+      "Radius and interval of convergence",
+      "Numerical aperture",
+      "Acceptance angle",
+      "Least count"
+    ],
+    "correct_answer": "Radius and interval of convergence"
+  },
+  {
+    "question_id": 46,
+    "question": "Which application area is explicitly mentioned for series expansions?",
+    "options": [
+      "Cryptography",
+      "Laboratory safety",
+      "File appending",
+      "Transistor biasing"
+    ],
+    "correct_answer": "Cryptography"
+  },
+  {
+    "question_id": 47,
+    "question": "Which topic is part of multivariable calculus?",
+    "options": [
+      "Partial derivatives",
+      "CSV parsing",
+      "Doppler effect",
+      "PN junction"
+    ],
+    "correct_answer": "Partial derivatives"
+  },
+  {
+    "question_id": 48,
+    "question": "Which method is included for finding constrained extrema of functions of several variables?",
+    "options": [
+      "Lagrange multipliers",
+      "Newton's rings",
+      "Runge-Kutta only",
+      "Ohm's law"
+    ],
+    "correct_answer": "Lagrange multipliers"
+  },
+  {
+    "question_id": 49,
+    "question": "Which operation is explicitly included in multivariable calculus over rectangular and simple regions?",
+    "options": [
+      "Double integrals",
+      "Triple recursion",
+      "String slicing",
+      "Matrix sorting"
+    ],
+    "correct_answer": "Double integrals"
+  },
+  {
+    "question_id": 50,
+    "question": "Which vector operation produces a scalar?",
+    "options": [
+      "Dot product",
+      "Cross product",
+      "Curl",
+      "Gradient"
+    ],
+    "correct_answer": "Dot product"
+  }, 
+
+any sem 1 student whenever he plays word connect game should see these questions in the desired format thats currently there which will also come from the mongo db  , make sure only for sem 1 exclusively
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:24:40+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+did u use the json i gave u previously
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:31:19+05:30.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+One thing u need to do for all semsters make sure in word connect u use one word instead of this big no student can connect these many word just use one word to connect simple in the word connect game for all semseter questions go through and change the answer for one word only to connect
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:36:26+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/Govind/.gemini/antigravity/brain/43ee79a6-e2bd-48ce-99d2-9bec0d204625/.user_uploaded/media_1790229887250.png
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>
+
+---
+
+<USER_REQUEST>
+in the same way sem wise use the questions from id 52 to 65 for concept ninja game in the respertcive format and respcective semester 1, 3 ,5 7 and from mongo db
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T11:46:33+05:30.
+</ADDITIONAL_METADATA>
