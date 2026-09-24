@@ -43,6 +43,24 @@ app.get('/api/wordconnect/cs', async (req, res) => {
   }
 });
 
+// Helper for semester wordconnect
+const getWordConnectSem = async (sem, req, res) => {
+  try {
+    if (!db) return res.status(500).json({ error: "Database not connected yet" });
+    const collection = db.collection(`word_connect_cs_sem${sem}`);
+    const questions = await collection.aggregate([{ $sample: { size: 20 } }]).toArray();
+    res.json(questions);
+  } catch (error) {
+    console.error(`Error fetching word connect sem${sem} questions:`, error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+app.get('/api/wordconnect/cs/sem1', (req, res) => getWordConnectSem(1, req, res));
+app.get('/api/wordconnect/cs/sem3', (req, res) => getWordConnectSem(3, req, res));
+app.get('/api/wordconnect/cs/sem5', (req, res) => getWordConnectSem(5, req, res));
+app.get('/api/wordconnect/cs/sem7', (req, res) => getWordConnectSem(7, req, res));
+
 app.get('/api/conceptninja/cs', async (req, res) => {
   try {
     if (!db) {

@@ -39,31 +39,55 @@ export default function WordConnect() {
 
   // --- CONTENT ENGINE ---
   useEffect(() => {
-    // Fetch CSE questions from MongoDB
-    fetch('http://localhost:5000/api/wordconnect/cs')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          // If we are currently on CSE profile, update the active questions
-          if (profile.stream === 'CSE') {
-            setQuestions(data);
-            initPuzzle(data[currentQIdx].answer);
+    const loadQuestions = async () => {
+      let currentSemester = null;
+      try {
+        const token = localStorage.getItem('pi360_token');
+        if (token) {
+          const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          const data = await profileRes.json();
+          const studentData = data?.student?.[0];
+          if (studentData && studentData.DetailedAcademics) {
+            const ongoingSem = studentData.DetailedAcademics.find(sem => !sem.Percentage || sem.Percentage === 0);
+            currentSemester = ongoingSem ? String(ongoingSem.Semester) : String(studentData.TotalSemesters);
           }
         }
-      })
-      .catch(err => console.error("Failed to fetch Word Connect questions, using local fallback", err));
+      } catch (err) {
+        console.error("Failed to fetch PI360 profile for semester check", err);
+      }
+
+      let endpoint = 'http://localhost:5000/api/wordconnect/cs';
+      if (['1', '3', '5', '7'].includes(currentSemester)) {
+        endpoint = `http://localhost:5000/api/wordconnect/cs/sem${currentSemester}`;
+      }
+
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.length > 0) {
+            setQuestions(data);
+            initPuzzle(data[0].answer);
+          }
+        })
+        .catch(err => console.error("Failed to fetch Word Connect questions", err));
+    };
+
+    loadQuestions();
   }, []);
 
   const loadProfile = (selectedProfile) => {
     audio.playBGM('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c6ccf3232f.mp3?filename=epic-boss-battle-24430.mp3');
     setProfile(selectedProfile);
-    const filtered = QUESTION_BANK.filter(q => q.stream === selectedProfile.stream);
-    setQuestions(filtered);
     setCurrentQIdx(0);
     setScore(0);
     setGameState('PLAYING');
     setGameStartTime(Date.now());
-    initPuzzle(filtered[0].answer);
+    if (questions.length > 0) {
+      initPuzzle(questions[0].answer);
+    }
   };
 
   const nextQuestion = () => {
