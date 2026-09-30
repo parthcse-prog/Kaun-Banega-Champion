@@ -470,7 +470,7 @@ export default function Dashboard() {
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-[#c792f2] transition-all">Who's That?!</h3>
                     <div className="w-full bg-[#c792f2]/10 border border-[#c792f2]/20 rounded-2xl p-4 mb-6 text-purple-200/90 text-left max-w-xl">
                       <ul className="space-y-2 text-xs md:text-sm">
-                        <li className="flex items-start gap-2"><span className="text-lg">🕵️</span> <span>Guess the Tech/AI legend from their blurred photo.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">🕵️</span> <span>Guess the legend from their blurred photo.</span></li>
                         <li className="flex items-start gap-2"><span className="text-lg">📸</span> <span>The image gets clearer, but you only have 4 attempts!</span></li>
                         <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-purple-400">up to 1,000 XP</strong> based on accurate guesses!</span></li>
                       </ul>
