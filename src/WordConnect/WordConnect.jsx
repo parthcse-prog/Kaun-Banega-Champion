@@ -44,10 +44,16 @@ export default function WordConnect() {
       try {
         const token = localStorage.getItem('pi360_token');
         if (token) {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
+          
           const profileRes = await fetch('https://pi360.net/site/api/endpoints/api_student_profile.php?institute_id=mietjammu', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: { 'Authorization': `Bearer ${token}` },
+            signal: controller.signal
           });
+          clearTimeout(timeoutId);
+          
           const data = await profileRes.json();
           const studentData = data?.student?.[0];
           if (studentData && studentData.DetailedAcademics) {

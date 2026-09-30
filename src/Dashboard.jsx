@@ -336,7 +336,13 @@ export default function Dashboard() {
                       <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-cyan-500/30">Trivia</span>
                     </div>
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-[#00f2fe] transition-all">Kaun Banega Champion</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Test your knowledge with 20 questions of trivia. Can you beat the timer and reach the expert tier?</p>
+                    <div className="w-full bg-[#121633]/80 border border-cyan-500/20 rounded-2xl p-4 mb-6 text-cyan-200/90 text-left">
+                      <ul className="space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><span className="text-lg">⏱️</span> <span>Answer 20 multiple choice questions. You have limited time!</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💡</span> <span>Use the 50:50 and Swap lifelines if you get stuck.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-amber-400">up to 1,000 XP</strong> based on accuracy and speed!</span></li>
+                      </ul>
+                    </div>
                     <div>
                       <button onClick={(e) => { e.stopPropagation(); startGame(); }} className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#00f2fe] text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(0,242,254,0.4)] hover:shadow-[0_0_40px_rgba(0,242,254,0.6)] hover:-translate-y-1 transition-all">
                         Play Now
@@ -363,7 +369,13 @@ export default function Dashboard() {
                       <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-emerald-500/30">Vocabulary</span>
                     </div>
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-emerald-400 transition-all">Word Connect</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Connect the letters to form a word in intended order and apply the concepts that you have learned.</p>
+                    <div className="w-full bg-emerald-900/40 border border-emerald-500/20 rounded-2xl p-4 mb-6 text-emerald-200/90 text-left max-w-xl">
+                      <ul className="space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><span className="text-lg">🔗</span> <span>Drag across letters to spell the exact answer.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💡</span> <span>Use hints if stuck, but they cost points!</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-emerald-400">up to 1,000 XP</strong> for correct answers and time!</span></li>
+                      </ul>
+                    </div>
                     <div>
                       <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-emerald-400 text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] hover:-translate-y-1 transition-all">
                         Play Now
@@ -390,7 +402,13 @@ export default function Dashboard() {
                       <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-blue-500/30">Reflexes</span>
                     </div>
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-blue-400 transition-all">Concept Ninja</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Slice. Think. Master. Rapidly slice the correct flying concepts before they drop!</p>
+                    <div className="w-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 rounded-2xl p-4 mb-6 text-blue-200/90 text-left max-w-xl">
+                      <ul className="space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><span className="text-lg">⚔️</span> <span>Slice the flying concepts that match the question.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💣</span> <span>Avoid slicing the distractors/bombs!</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-blue-400">up to 1,000 XP</strong> for speed and accuracy!</span></li>
+                      </ul>
+                    </div>
                     <div>
                       <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-blue-500 text-white font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:-translate-y-1 transition-all">
                         Play Now
@@ -417,7 +435,13 @@ export default function Dashboard() {
                       <span className="px-3 py-1 bg-pink-500/20 text-pink-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-pink-500/30">Match</span>
                     </div>
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-pink-400 transition-all">Bingo Bonanza</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Drag and drop cards to their perfect match in this 3x3 immaculate grid challenge!</p>
+                    <div className="w-full bg-[#ff007f]/10 border border-[#ff007f]/20 rounded-2xl p-4 mb-6 text-pink-200/90 text-left max-w-xl">
+                      <ul className="space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><span className="text-lg">🎯</span> <span>Drag concepts into the correct intersecting row & column.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">⚠️</span> <span>Watch out for distractors that don't belong!</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-pink-400">up to 1,000 XP</strong> for a perfect grid!</span></li>
+                      </ul>
+                    </div>
                     <div>
                       <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#ff007f] text-white font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(255,0,127,0.4)] hover:shadow-[0_0_40px_rgba(255,0,127,0.6)] hover:-translate-y-1 transition-all">
                         Play Now
@@ -444,7 +468,13 @@ export default function Dashboard() {
                       <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-[10px] font-bold tracking-widest uppercase rounded-full border border-purple-500/30">Trivia</span>
                     </div>
                     <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-[#c792f2] transition-all">Who's That?!</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-8">Guess the legend from their portrait! Can you recognize these famous personalities?</p>
+                    <div className="w-full bg-[#c792f2]/10 border border-[#c792f2]/20 rounded-2xl p-4 mb-6 text-purple-200/90 text-left max-w-xl">
+                      <ul className="space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><span className="text-lg">🕵️</span> <span>Guess the Tech/AI legend from their blurred photo.</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">📸</span> <span>The image gets clearer, but you only have 4 attempts!</span></li>
+                        <li className="flex items-start gap-2"><span className="text-lg">💎</span> <span>Win <strong className="text-purple-400">up to 1,000 XP</strong> based on accurate guesses!</span></li>
+                      </ul>
+                    </div>
                     <div>
                       <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#c792f2] text-slate-950 font-black font-mono text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(199,146,242,0.4)] hover:shadow-[0_0_40px_rgba(199,146,242,0.6)] hover:-translate-y-1 transition-all">
                         Play Now
